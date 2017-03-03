@@ -1,74 +1,67 @@
 <html>
 <head>
-  	{{ content_for_header }}
-  	<title>{{ shop.name }} - {{ page_title }}</title>
-  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+    {{ content_for_header }}
+    <title>{{ shop.name }} - {{ page_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     {% if shop.description != blank and template == "index" %}
     <meta name="description" content="{{ shop.description }}">
     {% endif %}
-  {{ 'normalise.css' | asset_url | stylesheet_tag }}
-   <!--[if lte IE 8]>
-	{{ 'GGS-ie.css' | asset_url | stylesheet_tag }}
-   <![endif]-->
-   <!--[if gt IE 8]><!-->
-	{{ 'GGS.css' | asset_url | stylesheet_tag }}
-   <!--<![endif]-->
-	{{ 'design.css' | asset_url | stylesheet_tag }}
-	{% if template == 'product' %}
-	{{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
+    {{ 'style.min.css' | asset_url | stylesheet_tag }}
+    {% if template == 'product' %}
+    {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
     {% endif %}
-	{{ 'modernizr.min.js' | asset_url | script_tag }}
-	<script type="text/javascript" src="//use.typekit.com/tds2rqc.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="jquery-1.7.1.min.js"><\/script>')</script>
-	{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+    {{ 'modernizr.min.js' | asset_url | script_tag }}
+    <script type="text/javascript" src="//use.typekit.com/tds2rqc.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <link rel="stylesheet" href="//unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
+    <script src="//unpkg.com/jquery@3.1.1"></script>
+    {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 </head>
 
 <body class="cf {{ template | replace: '.', ' ' | truncatewords: 1, '' }}" id="{{ page_title | handle }}">
-  <div id="wrap" class="cf">
-	<header role="banner" class="header container cf">
-		<hgroup class="wrapper">
-			<h1>
-				<a id="logo" href="{{ shop.url }}">{{ shop.name }}</a>
-			</h1>
-		</hgroup>
-		<nav role="navigation" class="cf">
-          <ul>
-            {% for link in linklists.main-menu.links %}
-            <li>
-              <a href="{{ link.url }}" {% if link.active %}class="active"{% endif %}>{{ link.title }}</a>
-            </li>
-            {% endfor %}
-          </ul>	
-		</nav>
-		<div id="minicartwrap">
-		{% include 'minicart' %}
-		</div>
-	</header>
+  <div class="ml7 ph3">
+    <header role="banner" class="fixed vh-100 bg-dbc-grey top-0 left-0 w5 flex content-center justify-center flex-column border-box pa4">
+        <div class="items-start flex-auto">
+            <h1>
+                <a href="{{ shop.url }}">
+                    <img src="{{ 'dobookco.svg' | asset_url }}" alt="{{ shop.name }}" class="w4" />
+                </a>
+            </h1>
+            <nav role="navigation" class="lh-copy mt5">
+              <ul class="list pa0">
+                {% for link in linklists.main-menu.links %}
+                <li>
+                  <a href="{{ link.url }}" class="dbc-orange link dim{% if link.active %}near-black{% endif %}">{{ link.title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </nav>
+        </div>
+        <div id="minicartwrap">
+        {% include 'minicart' %}
+        </div>
+    </header>
   <section class="container cf" role="main" id="content">
       {{ content_for_layout }}
   </section><!-- role="main" -->
   <footer role="content-info" class="container cf">
     <ul class="wrapper social">
-	  <li class="twitter"><a href="http://twitter.com/dobookco">Twitter</a></li>
+      <li class="twitter"><a href="http://twitter.com/dobookco">Twitter</a></li>
       <li class="facebook"><a href="https://www.facebook.com/DoBookCo">Facebook</a></li>
       <li class="instagram"><a href="http://instagram.com/dobookco/">Instagram</a></li>
       <li class="pinterest"><a href="http://www.pinterest.com/dobookco/">Pinterest</a></li>
     </ul>
     <p class="legal wrapper">
-		{% for link in linklists.footer.links %}
-	      <span class="footer-menu-link"><a href="{{ link.url }}">{{ link.title }}</a></span>
-	    {% endfor %}
-    	Site&nbsp;by&nbsp;<a href="http://jonheslop.com">Jon&nbsp;Heslop</a>&nbsp;/ Powered&nbsp;by&nbsp;<a href="http://shopify.com">Shopify</a></p>
-  </footer>	
-	{{ 'jquery.fancybox.js' | asset_url | script_tag }}
-	{{ 'api.jquery.js' | asset_url | script_tag }}
-	{{ 'ajaxify-shop.js' | asset_url | script_tag }}
-	<script type="text/javascript">
-  	jQuery(document).ready(function($) {
-  		$(".fancybox").fancybox({
+        {% for link in linklists.footer.links %}
+          <span class="footer-menu-link"><a href="{{ link.url }}">{{ link.title }}</a></span>
+        {% endfor %}
+        Site&nbsp;by&nbsp;<a href="http://jonheslop.com">Jon&nbsp;Heslop</a>&nbsp;/ Powered&nbsp;by&nbsp;<a href="http://shopify.com">Shopify</a></p>
+  </footer>
+    {{ 'jquery.fancybox.js' | asset_url | script_tag }}
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+          $(".fancybox").fancybox({
           helpers : {
               overlay : {
                   css : {
@@ -77,43 +70,36 @@
               }
           }
       });
-  	});
-	</script>
-	{{ 'jquery.fitvids.js' | asset_url | script_tag }}
-	{{ 'retina.js' | asset_url | script_tag }}
-	{{ 'tdbc.js' | asset_url | script_tag }}
+      });
+    </script>
 
-	<script>
-	// <![CDATA[  
-	var selectCallback = function(variant, selector) {
-	  if (variant) {
-	    if (variant.available) {
-	      // Selected a valid variant that is available.
-	      $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Cart').fadeTo(200,1);
-	    } else {
-	      // Variant is sold out.
-	      $('#add').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);        
-	    }
-	    // Whether the variant is in stock or not, we can update the price and compare at price.
-	    if ( variant.compare_at_price > variant.price ) {
-	      $('#price-field').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
-	    } else {
-	      $('#price-field').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
-	    }        
-	  } else {
-	    // variant doesn't exist.
-	    $('#add').val('Unavailable').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
-	  }
-	}
-	// initialize multi selector for product
-	jQuery(function($) {
-	  new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
-	});
-	// ]]>
-	</script>
-	<!--[if lt IE 7 ]>
-	  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-	  <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-	<![endif]-->
+    <script>
+    // <![CDATA[
+    var selectCallback = function(variant, selector) {
+      if (variant) {
+        if (variant.available) {
+          // Selected a valid variant that is available.
+          $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Cart').fadeTo(200,1);
+        } else {
+          // Variant is sold out.
+          $('#add').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+        }
+        // Whether the variant is in stock or not, we can update the price and compare at price.
+        if ( variant.compare_at_price > variant.price ) {
+          $('#price-field').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
+        } else {
+          $('#price-field').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
+        }
+      } else {
+        // variant doesn't exist.
+        $('#add').val('Unavailable').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+      }
+    }
+    // initialize multi selector for product
+    jQuery(function($) {
+      new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+    });
+    // ]]>
+    </script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "name": "dbc-shopify",
+  "description": "The Do Book Company’s Shopify theme",
+  "main": "n/a",
+  "scripts": {
+    "watch": "postcss assets/style.css -o assets/style.min.css -w"
+  },
+  "repository": "http://www.github.com/jonheslop/dbc-shopify",
+  "keywords": [
+    "Shopify",
+    "Tachyons"
+  ],
+  "author": "Jon Heslop <jon@jonheslop.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^6.7.6",
+    "cssnano": "^3.10.0",
+    "postcss-cli": "^3.0.0-beta"
+  }
+}

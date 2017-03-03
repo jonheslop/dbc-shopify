@@ -1,4 +1,6 @@
 development:
   password: e47cb01797aef9227ba49b640cad6316
-  theme_id: "3320254"
+  theme_id: "161576713"
   store: do-book-co.myshopify.com
+ignore_files:
+  node_modules
