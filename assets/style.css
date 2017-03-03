@@ -1,33 +1,43 @@
+:root {
+    --dbc-orange: #d93c12;
+    --dbc-grey: #f4efef;
+}
+
 /* Colours */
 .dbc-orange {
-    color: #d93c12;
+    color: var(--dbc-orange);
 }
 .b--dbc-orange {
-    border-color: #d93c12;
+    border-color: var(--dbc-orange);
 }
 .bg-dbc-orange {
-    background-color: #d93c12;
+    background-color: var(--dbc-orange);
 }
 .dbc-grey {
-    color: #f4efef;
+    color: var(--dbc-grey);
 }
 .b--dbc-grey {
-    border-color: #f4efef;
+    border-color: var(--dbc-grey);
 }
 .bg-dbc-grey {
-    background-color: #f4efef;
+    background-color: var(--dbc-grey);
 }
 
 /* Fonts */
-body,input {
+body,
+input {
   font-family: "adobe-caslon-pro", Georgia, serif;
-  color: #2e3133;
-  text-rendering: optimizeLegibility; }
+  text-rendering: optimizeLegibility;
+}
 
-h1, h2 {
+h1,
+h2 {
   font-family: "adobe-caslon-pro", Georgia, serif;
   -webkit-font-smoothing: antialiased;
-  font-weight: 600; }
+  font-weight: 600;
+}
+
 h3 {
   font-family: "adobe-caslon-pro", Georgia, serif;
-  font-weight: 600; }
+  font-weight: 600;
+}
