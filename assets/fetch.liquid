@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+    <title>{{ company.name }} &mdash; Downloads for Order {{ order.number }}</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <!--[if lte IE 8]>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/><![endif]-->
+    <link href="http://cdn.shopify.com/s/files/1/0176/9202/t/2/assets/design.css?1174" media="screen" rel="stylesheet" type="text/css"/>
+	<style type="text/css">
+		#miniwrap { width: 100%; margin: 2em auto; max-width: 480px; }
+		#order { list-style-type: none; padding: 0; }
+		#order ul { list-style-type: circle; padding:.75em 0 0 1.5em; }
+		#order ul li { padding: .75em 0; }
+		#order ul li+li { border-top: 1px solid #D9D9D9; }
+		#order ul li span { font-variant: small-caps; }
+	</style>
+    <script type="text/javascript" src="http://use.typekit.com/tds2rqc.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    </head>
+<body>
+  <section id="miniwrap" class="cf" role="main">
+	<header class="wrapper">
+	<h2 class="section_title">{{ company.name }}</h2>
+	<p><strong>Your eBook download (Order {{ order.number }}){% if company.uses_readmill %}</strong></p>
+	<p>You can optionally use the &ldquo;Send&rdquo; buttons below to <a href="http://readmill.com">send your eBook to Readmill</a>.{% endif %}</p>
+	<ul id="order">
+	{% for product in order.products %}
+	    <li class="wrapper">
+	        <p>{{ product.name }}</p>
+	        <ul>
+	{% if product.license_key %}<li>License Key: {{ product.license_key }}</li>{% endif %}
+	            {% for file in product.files %}
+	            <li>
+	                <a href="{{ file.link }}">{{ product.name | truncatewords: 2 }}{% if file.extension == ".epub" %} <span>epub</span>{% elsif file.extension == ".mobi" %} <span>mobi</span>{% elsif file.extension == ".pdf" %} <span>pdf</span>{% endif %}</a>{% if file.filesize %} <span>({{ file.filesize}})</span>{% endif %}
+	                {% if company.uses_readmill %}
+	                    {% if file.extension == ".epub" %}
+	                            <div class="readmill">
+	                              <div class="send-to-readmill" data-display="small" data-download-url="{{ file.url }}"></div>
+	                            </div>
+	                    {% endif %}
+	                {% endif %}
+	            </li>
+	             {% endfor %}
+	        </ul>
+	    </li>
+	 {% endfor %}
+	</ul>
+	<p><br/><strong>Trouble downloading?</strong> <br/>Right click the link(s) above and 'Save File As...' or 'Save Target As...' or try a different browser like Firefox, Chrome, or Safari.</h6>
+	{% if company.uses_readmill %}
+	<script type="text/javascript">
+	    (function () {
+	        var st = document.createElement('script');
+	        st.type = 'text/javascript';
+	        st.async = true;
+	        st.src = 'https://platform.readmill.com/send.js';
+	        var p = document.getElementsByTagName('script')[0];
+	        p.parentNode.insertBefore(st, p);
+	    })();
+	</script>
+	{% endif %}
+	</section>
+<script src="/javascripts/jquery-1-3-1.js" type="text/javascript"></script>
+<script src="/javascripts/jquery-ui-1-8-11.js" type="text/javascript"></script>
+</body>
+</html>

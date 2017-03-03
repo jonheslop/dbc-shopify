@@ -1,0 +1,50 @@
+<section id="recently" class="partition cf {{blog.handle}}-archive">
+	{% paginate blog.articles by 10 %}
+	<header class="wrapper">
+		<h2 class="section_title">Recently at Do Books...</h2>
+	</header>
+	<ul class="cf">
+		{% for article in blog.articles  %}
+		<li class="cf">
+			<article>
+				<figure class="wrapper">
+					<a href="{{ article.url }}">
+					{% if article.excerpt != blank %}
+			        	{{ article.excerpt }}
+					{% else %}
+						{{ article.content | truncatewords: 3 }}
+					{% endif %}
+					</a>
+				</figure>
+				<div class="words wrapper">
+					<header>
+						<h1 class="blog-title"><a href="{{article.url}}">{{ article.title }}</a></h1>
+					</header>
+					<!-- Displays the body of the article-->
+					<div class="article-body cf">
+			        	{{ article.content | strip_html | truncatewords: 48 }}
+						<p><a href="{{article.url}}" title="Continue reading {{ article.title }}">Continue reading &raquo;</a></p>
+			      	</div>
+				</div>
+				<footer class="meta wrapper">
+					<div>
+					<p><span class="author">Posted by {{ article.author | truncatewords: 1, '' }}</span>
+					<span class="date">on {{ article.created_at | date: "%A %B %d, %Y" }}</span></p>
+					<p>Posted in: {% for tag in article.tags %} 
+						{% if forloop.last %}
+						<a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}">{{ tag }}</a>
+						{% else %}
+						<a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}">{{ tag }}</a>, 
+						{% endif %}
+					{% endfor %}</p>
+					</div>
+				</footer>
+			</article>
+		</li>
+	    {% endfor %}
+	</ul>
+	<div id="pagination" class="wrapper cf">
+      	{{ paginate | default_pagination }}
+	</div>
+	{% endpaginate %}
+</section>

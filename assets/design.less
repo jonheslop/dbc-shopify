@@ -1,0 +1,145 @@
+@font-size : 20;
+@em : @font-size*1em;
+@base : #33B44E;
+@text : #2e3133;
+@white : #F5F0E5;
+@pale : #E1EFDD;
+@contrast : #A34327; // @Base with Hue oved to 17
+@serif : "adobe-caslon-pro", Georgia, serif;
+@small : verdana, arial, sans-serif;
+
+.rounded(@radius: 4px) { -webkit-border-radius: @radius; -moz-border-radius: @radius; border-radius: @radius; }
+.box-sizing(@boxtype: border-box) { -webkit-box-sizing: @boxtype; -moz-box-sizing: @boxtype; -o-box-sizing: @boxtype; box-sizing: @boxtype; }
+.transition(@property: all) { -webkit-transition: @property .3s ease-out; -moz-transition: @property .3s ease-out; -o-transition: @property .3s ease-out; -ms-transition: @property .3s ease-out; transition: @property .3s ease-out; }
+.box-shadow (@string) { -webkit-box-shadow: @string; -moz-box-shadow: @string; box-shadow: @string; }
+.button(@color : @contrast, @padding-left : .75em, @noise : "light") { position: relative; -webkit-appearance: none; border: 1px solid darken(@color, 10%); background: @color url(~"{{ 'trans-noise-@{noise}.png' | asset_url }}") 0 0 repeat; color: @white; font-size: .8em; letter-spacing: 2px; text-transform: uppercase; .box-sizing; padding: 0.25em .75em .25em @padding-left; .rounded(2px); font-weight: bold; .box-shadow(inset 0 1px 4px fadeout(lighten(@color,80%), 75%)); text-shadow: 0 1px 3px rgba(0,0,0,.3); .transition(background-color); }
+
+body { font-family: @serif; color: @text; background-color: @white; margin: 0 0 1.5em 0; }
+h1, h2, h3, input, label, #toggle, .book, .caption strong, .review cite { font-family: @serif; -webkit-font-smoothing: antialiased; }
+h4, h5 { font-weight: normal; }
+.helperText { font-style: italic; }
+
+a { text-decoration: none; }
+div[role="main"] a:link, div[role="main"] a:visited, footer[role="contentinfo"] a:link, footer[role="contentinfo"] a:visited {/*  background: url(../i/small-line.gif) center bottom repeat-x; */ border-bottom: 0.1em solid @base; padding-bottom: 2px; color: darken(@base, 10%); .transition; }
+div[role="main"] a:hover, footer[role="contentinfo"] a:hover { color: @base; border-bottom-color: @base; }
+div[role="main"] a:active, footer[role="contentinfo"] a:active { color: @contrast; border-bottom-color: @contrast; }
+
+header[role="banner"] .header { margin-top: .75em; .rounded(2px); position: relative;  }
+#logo { font-size: 1em; }
+#logo a { display: block; text-indent: -9999px; background: url(~"{{ 'logo-greyblack.png' | asset_url }}") 0 0 no-repeat; background-size: 100%; height: 0; padding-bottom: 67.5%; width: 100%; }
+.tagline { color: @base; font-weight: normal; font-style: italic; font-family: @serif; }
+
+#subscribeToggle { padding: 0!important; }
+#subscribe { color: @base; text-align: left; position: relative; }
+#subscribe input { .box-sizing; }
+#subscribe label { font-size: .5em; font-style: italic; font-family: @serif; display: block; line-height: 1.5; margin-left: 2px; position: absolute; top: -1.5em; }
+#subscribe .submit { .button(@contrast, .75em, dark); }
+#email { .rounded(3xpx); border: 1px solid desaturate(darken(@base, 15%), 80%); }
+#email:hover { .box-shadow(0 0 3px @white); }
+#email:focus{ outline: none; .box-shadow(0 0 5px @white); }
+#subscribe #email:hover { .box-shadow(0 0 3px @base); }
+#subscribe #email:focus{ outline: none; .box-shadow(0 0 5px @base); border-color: @base; }
+
+.minicart_product { margin-top: .5em; font-family: @serif; }
+.minicart_product h4 { font-weight: bold; }
+.minicart_product h4, .minicart_product h5 { margin: 0; }
+.minicart_pay { text-transform: uppercase; .button(@base); font-family: @serif; text-align: center; padding: 1.5em 0 0; margin: .75em 0; background-image: url(~"{{ 'cart.png' | asset_url }}"), url(~"{{ 'trans-noise-light.png' | asset_url }}"); background-position: 47% 8px, 0 0; background-repeat: no-repeat; background-size: 24px 17px, 50px 25px; }
+.minicart_pay span { margin-left: 2px; }
+
+.menu-item { text-align: center; }
+.menu-item a:link, .menu-item a:visited { color: @base; border-bottom: 3px solid transparent; padding: 0 .25em; .transition(color); }
+.menu-item a:hover, .menu-item.selected a:link, .menu-item.selected a:visited { color: darken(@base, 10%); text-shadow: 0 0 4px rgba(255,255,255,.3); }
+
+div[role="main"] { background: rgba(255,255,255,.6); padding-top: 1.5em; padding-bottom: 3em; margin-top: 1em; margin-bottom: 3em; .rounded(2px); }
+.home div[role="main"] { padding-top: 0;  }
+p+p { margin-top: 1.5em; }
+
+.addtocart { margin-top: 1.5em; }
+.addtocart .helperText { color: @base; font-size: .75em; margin-bottom: .25em; margin-left: 2px; }
+.radioWrap { display: inline-block; position: relative; .box-sizing; margin: 0; padding: 0; float: left; }
+.bookFormat { -webkit-appearance: none; width: 100%; height: 2.25em; background: fadeout(@base, 50%) url(~"{{ 'trans-noise-light.png' | asset_url }}") 0 0 repeat; display: block; .transition(background-color); border: none; }
+.first .bookFormat{ -webkit-border-radius: 2px 0px 0px 2px; -moz-border-radius: 2px 0px 0px 2px; border-radius: 2px 0px 0px 2px; }
+.last .bookFormat { -webkit-border-radius: 0px 2px 2px 0px; -moz-border-radius: 0px 2px 2px 0px; border-radius: 0px 2px 2px 0px; }
+.middle .bookFormat { -webkit-border-radius: 0px 0px 0px 0px; -moz-border-radius: 0px 0px 0px 0px; border-radius: 0px 0px 0px 0px; border-left: 1px solid #fff; border-right: 1px solid #fff; background: fadeout(@base, 25%) url(~"{{ 'trans-noise-light.png' | asset_url }}") 0 0 repeat; }
+.addtocart label { font-weight: bold; position: absolute; top: 0; bottom: 0; left: 0; right: 0; font-size: .8em; text-align: center; line-height: 1; color: #fff; padding-top: .5em; text-shadow: 0 1px 3px rgba(0,0,0,.1); cursor: pointer; .transition(background-color); }
+.addtocart label span { font-family: @small; font-size: .642857143em; font-weight: 400; display: block; }
+
+.radioWrap:hover .bookFormat, .bookFormat:checked, .bookFormat:focus { height: 2.5em; border: 1px solid darken(@base, 15%); margin-top: -2px; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3), inset 0 1px 4px fadeout(lighten(@base,80%), 50%); .rounded(2px); text-shadow: 0 1px 3px rgba(0,0,0,.2); outline: none; }
+.radioWrap:hover .bookFormat, .bookFormat:focus { background-color: fadeout(@base, 15%); }
+.bookFormat:checked, .radioWrap:hover .bookFormat:checked, .bookFormat:checked:focus { background-color: @base; }
+.bookFormat:hover + label, .bookFormat:checked + label, .bookFormat:focus + label { text-shadow: 0 1px 3px rgba(0,0,0,.3); }
+.addtocart .submit { .button(@contrast, .8em, dark); height: 2.6em; }
+.addtocart .submit:hover, .submit:focus { background-color: lighten(@contrast, 5%); }
+.addtocart .submit:active { top: 1px; background-color: @contrast; }
+
+.section_title { /* background: url(../i/line.gif) center bottom repeat-x; */ border-bottom: .15em solid @base; margin-bottom: .75em }
+
+#intro hgroup { margin: 0 0 .75em; }
+#intro h2 { margin: 0; padding: 0; }
+.author { font-weight: normal; }	
+.review { margin-bottom: 1.5em; }
+.review blockquote { font-style: italic; margin-bottom: .75em; font-size: 1.2em; line-height: 1.5; }
+.review blockquote::before { content: "\201C"; margin-left: -.5em; }
+.review blockquote::after { content: "\201D"; }
+.review cite { font-weight: bold; font-family: @serif; font-style: normal; }
+
+/* .introduction { font-family: @serif; font-size: 1.25em; line-height: 1.5; } */
+#types .section_title { padding-bottom: .25em; }
+#types ul { list-style-type: none; }
+
+#featuredBook header { margin: 0 0 1.5em; }
+#featuredBook h1 { margin: 0; }
+.featuredBookCaption header { margin: 0 0 .75em; }
+.featuredBookCaption h2 { margin: 0; }
+
+#moreBooks h2 { margin-top: 0; }
+#moreBooks, #allBooks { list-style-type: none; margin-top: 3em; }
+#allBooks .description { margin-bottom: .75em; }
+#allBooks .bookPreview { min-height: 240px; }
+.bookPreview { position: relative; .transition; top: 0; }
+.bookPreview h3 { margin: 0 0 .75em;  }
+.bookPreview .author { display: block; }
+.bookPreview .buy { .button(@base); font-family: @serif; }
+.bookPreview .buy:hover { background-color: darken(@base, 5%); }
+.bookPreview a:link h3, .bookPreview a:visited h3, .bookPreview a:link p, .bookPreview a:visited p  { color: @text; }
+.bookPreview:hover { top: -.25em; box-shadow: 0 3px 1px fadeout(@text, 90%); }
+
+#miniAbout header h1 { font-weight: normal; font-size: 2.5em; margin: -0.2em 0 0; }
+
+#about header { margin: 0 0 1.5em; padding-top: 3em; padding-bottom: .75em; border-bottom-width: .3em; }
+#about h1 { margin: 0; }
+p+p { margin-top: .75em; }
+
+.download_link img { max-width: 100%; max-height: 100%; }
+
+.images img+img { margin-top: .75em; }
+
+/* fluid video */
+.fluidWrapper { position: relative; padding: 0; width: 100%; height: 0; padding-bottom: 56.25%; }
+.fluidWrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+footer[role="contentinfo"] { .rounded(2px); padding-top: 1.5em; padding-bottom: 1.5em; font-family: @serif; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; font-size: .6em; }
+footer[role="contentinfo"] .wrapper { line-height: 2; }
+.social { list-style-type: none; }
+.social li { display: inline-block; }
+.social li::after, .footer-menu-link:first-child::after { margin: 0 .4em 0 1em; content: "/"; }
+.social li:last-child::after { content: ""; }
+.twitter, .facebook, .mailto { position: relative; display: inline-block; text-indent: -9999px; content: ""; width: 30px; height: 24px; margin: 0 .5em; background-image: url(~"{{ 'sprite.png' | asset_url }}"); background-repeat: no-repeat; background-position-x: 0; background-size: 30px 64px; }
+.twitter { background-position-y: 0; top: .3em; }
+.facebook { background-position-y: -24px; top: .3em; }
+.mailto { background-position-y: -48px; top: .5em; }
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+
+body { background: url(~"{{ 'tile-subtle@2x.gif' | asset_url }}") 0 -20px repeat; background-size: 200px 152px; }
+header[role="banner"] { background-size: 150px 100px; }
+nav[role="navigation"] { background-size: 100px 100px; }
+div[role="main"] a:link, div[role="main"] a:visited, footer[role="contentinfo"] a:link, footer[role="contentinfo"] a:visited { background-image: url(../i/small-line@2x.gif); background-size: 200px 3px; }
+.section_title, #about header { background-image: url(~"{{ 'line@2x.gif' | asset_url }}"); background-size: 400px 8px; }
+.book h3, .bookFormat, .submit { background-size: 50px 25px; }
+.minicart_pay { background-size: 12px 9px, 50px 25px; }
+.twitter::before, .facebook::before, .mailto::before { background-image: url(~"{{ 'sprite@2x.png' | asset_url }}"); }
+}

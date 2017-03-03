@@ -1,0 +1,225 @@
+<ul id="newBooks" class="partition cf">
+		<header class="cf">
+			<hgroup class="wrapper">
+				<h1 class="section_title">Smart Working</h1>
+			</hgroup>
+		</header>
+		<div class="equalheights">
+	{% if collections.home-page %}
+	  {% for product in collections.smart-working.products %}
+		<li style="" class="bookPreview wrapper {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+			<a href="{{ product.url | within: collection }}" title="{{ product.title }}">
+				<figure class="cf">
+					<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+				</figure>
+			</a>
+		</li>
+	  {% endfor %}
+	  </div>
+	</ul>
+	 {% endif %}
+<ul id="newBooks" class="partition cf">
+		<header class="cf">
+			<hgroup class="wrapper">
+				<h1 class="section_title">Slow Living</h1>
+			</hgroup>
+		</header>
+		<div class="equalheights">
+	{% if collections.home-page %}
+	  {% for product in collections.slow-living.products %}
+		<li style="" class="bookPreview wrapper {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+			<a href="{{ product.url | within: collection }}" title="{{ product.title }}">
+				<figure class="cf">
+					<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+				</figure>
+			</a>
+		</li>
+	  {% endfor %}
+	  </div>
+	</ul>
+	 {% endif %}
+
+<!-- <ul id="newBooks" class="partition cf">
+		<header class="cf">
+			<hgroup class="wrapper">
+				<h1 class="section_title">Books that make it easier to&nbsp;Do&nbsp;stuff</h1>
+			</hgroup>
+		</header>
+		<div class="equalheights">
+	{% if collections.home-page %}
+	  {% for product in collections.guidebooks.products %}
+		<li class="bookPreview wrapper {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+			<a href="{{ product.url | within: collection }}" title="{{ product.title }}">
+				<figure class="cf">
+					<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+					{% if product.tags contains 'new' or product.tags contains 'New' %}
+						<span class="button">New</span>
+					{% else %}
+						<span class="button">Learn more</span>
+					{% endif %}
+				</figure>
+			</a>
+		</li>
+		{% if forloop.index == 4 %}
+			<li class="bookPreview wrapper ebook_notice">
+              <p>NEW: Free digital copy with each paperback purchase!</p>
+			</li>
+		{% endif %}
+	  {% endfor %}
+	  </div>
+	</ul>
+	 {% endif %} -->
+			{% if collections.bundles %}
+			  {% for product in collections.bundles.products %}
+				<form class="launch addtocart cf" action="/cart/add" method="post" style="margin-bottom:3em;">
+			      {% comment %} Return to product instead of going to cart {% endcomment %}
+			      <input type="hidden" name="return_to" value="back" />
+					<header>
+						<h2>{{collections.bundles.description}}</h2>
+					</header>
+					<div class="radioButtons cf">
+						{% for variant in product.variants %}
+			          {% if variant.available == true %}
+						<div class="wrapper" style="margin-left:25%;">
+						<input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
+						<label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">{% if variant.title == "Bundle" %}Add pb + ebook set{% else %}Add {{ variant.title }} set{% endif %} {{ variant.price | money | remove: '.00' }} <span class="description">{% if variant.title == "Bundle" %}5 Paperbacks &amp;&nbsp;4 eBooks {% elsif variant.title == "Paperback" %}14 books{% elsif variant.title == "eBook" %}Kindle, iBooks, Readmill etc.{% endif %}</span></label>
+						{% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
+			          	</div>
+						{% else %}
+						<div class="wrapper">
+						<input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat" />
+						<label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {{ variant.title }} set {{ variant.price | money | remove: '.00' }} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages{% elsif variant.title == "eBook" %}Kindle, iBooks, Readmill etc.{% endif %}</span></label>
+						{% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
+						</div>
+			          {% endif %}
+			         {% endfor %}
+					</div>
+				   {% unless product.available %}
+					<p class="coming_soon wrapper"><em>~ Available from 1st May 2014 ~</em></p>
+				   {% endunless %}
+					<div>
+						<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" /> 
+					</div>
+				</form>
+		  {% endfor %}
+		 {% endif %}
+
+<ul id="newBooks" class="partition cf">
+		<header class="cf">
+			<hgroup class="wrapper">
+              <h1 class="section_title">Gift ideas <span class="callout"></span></h1>
+			</hgroup>
+		</header>
+		<div class="gift-bundles equalheights">
+	{% if collections.home-page %}
+	  {% for product in collections.gift-bundles.products %}
+		<li style="" class="bookPreview wrapper {{ product.type | handleize }} {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+			<a href="{{ product.url | within: collection }}" title="{{ product.title }}">
+				<figure class="cf">
+					<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+                    <h4>{{ product.title }}</h4>	
+				</figure>
+			</a>
+		</li>
+	  {% endfor %}
+	  </div>
+	</ul>
+	 {% endif %}
+
+{% if collections.christmas %}
+		  {% for product in collections.christmas.products %}
+			<form class="christmas addtocart cf" action="/cart/add" method="post">
+		      {% comment %} Return to product instead of going to cart {% endcomment %}
+		      <input type="hidden" name="return_to" value="back" />
+				<header>
+					<h2>{{ collections.christmas.description }}</h2>
+				</header>
+				<select id="product-select" name="id">
+				{% for variant in product.variants %}
+					<option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+				{% endfor %}
+				</select>
+				<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" /> 
+				<script>
+				// <![CDATA[  
+				var selectCallback = function(variant, selector) {
+				  if (variant) {
+				    if (variant.available) {
+				      // Selected a valid variant that is available.
+				      $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Cart').fadeTo(200,1);
+				    } else {
+				      // Variant is sold out.
+				      $('#add').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);        
+				    }
+				    // Whether the variant is in stock or not, we can update the price and compare at price.
+				    if ( variant.compare_at_price > variant.price ) {
+				      $('#price-field').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
+				    } else {
+				      $('#price-field').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
+				    }        
+				  } else {
+				    // variant doesn't exist.
+				    $('#add').val('Unavailable').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+				  }
+				}
+				// initialize multi selector for product
+				jQuery(function($) {
+				  new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+				});
+				// ]]>
+				</script>
+			</form>
+		  {% endfor %}
+		 {% endif %}
+
+<section id="recently" class="partition cf">
+	<header class="wrapper">
+		<h2 class="section_title">Recently at Do&nbsp;books</h2>
+	</header>
+	<ul class="cf">
+		{% for article in blogs.news.articles limit:1 %}
+		<li class="cf">
+			<article>
+				<figure class="wrapper">
+					<a href="{{ article.url }}">
+					{% if article.excerpt != blank %}
+			        	{{ article.excerpt }}
+					{% else %}
+						{% capture article_img %}{{ article.content | truncatewords: 3 }}{% endcapture %}
+						{% if article_img contains "img" %}
+							{% include article_img %}
+						{% endif %}
+					{% endif %}
+					</a>
+				</figure>
+				<div class="words wrapper">
+					<header>
+						<h1 class="blog-title"><a href="{{article.url}}">{{ article.title }}</a></h1>
+					</header>
+					<!-- Displays the body of the article-->
+					<div class="article-body cf">
+			        	{{ article.content | strip_html | truncatewords: 48 }}
+						<p><a href="{{article.url}}" title="Continue reading {{ article.title }}">Continue reading &raquo;</a></p>
+			      	</div>
+				</div>
+			</article>
+		</li>
+	    {% endfor %}
+	</ul>
+</section>
+<aside id="miniAbout" class="partition cf">
+	<header class="wrapper">
+		<h2 class="section_title">Who we&nbsp;are</h2>
+	</header>
+	<figure class="wrapper">
+		<img src="//cdn.shopify.com/s/files/1/0176/9202/files/559205_449980518392636_1109027229_n_grande.jpg" />
+	</figure>
+	<div class="wrapper words">
+		<header>
+			<h1>The Do Book&nbsp;Company</h1>
+		</header>
+		<p>The Do Book Company is an independent publishing house based in Shoreditch, London. We publish a series of inspirational pocket guidebooks in print and digital&nbsp;formats.</p>
+		<p>You can find us on <a href="http://twitter.com/dobookco">Twitter</a>, <a href="https://www.facebook.com/DoBookCo">Facebook</a>, or you can <a href="/pages/subscribe">subscribe to our&nbsp;newsletter</a>.</p>
+		<p><a href="/pages/about-us">Learn more about us&nbsp;&raquo;</a></p>
+	</div>
+</aside>

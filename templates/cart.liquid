@@ -1,0 +1,98 @@
+<section id="cart_section" class="wrapper partition">
+	{% if cart.item_count == 0 %}
+	<header class="section_header">
+		<h1 class="section_title">Your Cart is empty&hellip;</h1>
+	</header>
+	<p>That&rsquo;s okay, <a href="{{ shop.url }}/collections/all">head over here &amp; check out our books &raquo;</a></p>
+  {% else %}
+<header>
+	<h1 class="section_title">Your basket o&rsquo; books&hellip;</h1>
+</header>
+<div id="cartwrap">
+	<form action="/cart" method="post" id="cartform">
+		<table id="cart" cellborder="0" cellpadding="0">
+			<thead>
+				<tr><th>&nbsp;</th><th>Item</th><th>Price</th><th>Quantity</th><th colspan="2" class="total_header">Item Total</th></tr>
+			</thead>
+			<tbody>
+			{% for item in cart.items %}
+				<tr class="cart-item">
+					<td class="cart-item-image"><img src="{{ item.product.images.first | product_img_url: 'thumb' }}" alt="{{ item.title | escape }}" /></div>
+					<td class="cart-item-name"><a href="{{ item.product.url }}">{{ item.title | truncatewords: 2, '' }} {{ item.variant.title }}</a></td>
+					<td class="cart-item-price">{{ item.price | money }}</td>
+					<td class="cart-item-qty"><input type="number" size="4" name="updates[{{item.variant.id}}]" id="updates_{{item.variant.id}}" value="{{item.quantity}}" class="field" /></td>
+					<td class="cart-item-lineprice">{{ item.line_price | money }}</td>
+					<td class="cart-item-delete"><a href="#" onclick="remove_item({{item.variant.id}}); return false;">Remove</a> </td>
+				</tr>
+			{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>&nbsp;</td>
+					<td colspan="3" class="label"><em>Postage &amp; tax will be calculated at the checkout</em></td>
+					<td class="label"><strong>Sub-total =</strong></td>
+					<td class="total"><strong>{{ cart.total_price | money }}</strong></td>
+				</tr>
+			</tfoot>
+		</table>
+		<div class="cart_buttons wrapper cf">
+		  <input type="submit" value="Checkout" name="checkout" id="pay_now" class="button" />
+
+	      <input type="submit" id="update-cart" name="update" value="Update Cart" class="button" />
+	</form>
+{% comment %} 
+
+		{% if cart.items.size <= collections.guidebooks.products.size %}
+			{% for item in cart.items limit:1 %}
+			{% if item.title contains "Christmas" %}
+			{% elsif item.title contains "Do" %}
+				{% capture format %}{{ item.variant.title }}{% endcapture %}
+				<form action="/cart/add" method="post">
+					{% for product in collections.bundles.products %}
+						{% for variant in product.variants %}
+						{% if variant.title == format %}
+				    	<input type="hidden" name="id[]" value="{{ variant.id }}" />
+						{% endif %}
+						{% endfor %}
+					{% endfor %}
+				    <input type="hidden" name="quantity" value="1" />
+				    <input type="submit" id="completeCart" class="button sumbit" value="Complete the {{ format }} collection &amp; save 15%" />
+				</form>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	    </div>
+	    {% if additional_checkout_buttons %}
+	      <div id="additional-checkouts" class="wrapper cf">
+			  <input type="submit" name="goto_pp" value="Checkout with PayPal" id="paypal_button" class="button">
+	          <em>Alternatively</em>
+	        <!-- {{ content_for_additional_checkout_buttons }} -->
+	      </div>
+	    {% endif %}
+{% endcomment %} 
+</div>
+{% comment %} {% include 'shipping-calculator' %} {% endcomment %}
+
+{% endif %}
+</section>
+<aside id="sidebar">
+	<section class="wrapper">
+		<h2 class="section_title">Delivery</h2>
+		<p>For UK addresses we post books Royal Mail First Class. For International orders we use the Royal Mail&rsquo;s Airmail&nbsp;service.</p>
+	</section>
+	<section class="wrapper">
+		<h2 class="section_title">Digital editions</h2>
+		<p>If you purchase a bundle or eBook you will receive an email with links to your downloads, once your payment has been&nbsp;processed.</p>
+	</section>
+	<section class="wrapper">
+		<h2 class="section_title">Returns</h2>
+		<p>If you bought your paperback book from this website and something&rsquo;s not right, you can return it within 30 days. We&rsquo;ll need your receipt or proof of purchase and it must be unused and in the same condition that you received&nbsp;it. <a href="http://thedobook.co/pages/legal-stuff">Read more&nbsp;&raquo;</a></p>
+	</section>
+</aside>
+<script type="text/javascript">
+function remove_item(id) {
+  document.getElementById('updates_'+id).value = 0;
+  document.getElementById('cartform').submit();
+}
+
+</script>

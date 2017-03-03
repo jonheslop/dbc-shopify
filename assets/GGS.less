@@ -1,0 +1,490 @@
+/*
+*
+*  Golden Grid System (1.01)	<http://goldengridsystem.com/>
+*  by Joni Korpi 				<http://jonikorpi.com/>
+*  licensed under MIT			<http://opensource.org/licenses/mit-license.php>
+*	
+*/
+
+
+//
+// Important numbers
+//
+
+@line: 30;
+@column: 100% / 18;
+@font-size: 20;
+@em:@font-size*1em;
+@base : #46750F;
+@text : #2e3133;
+@white : #FCFBF9;
+
+
+/*
+*
+*  Margin, padding, and border resets
+*  except for form elements
+*
+*/
+
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/*
+*
+*  Simple fluid media
+*
+*/
+
+figure {
+	position: relative;
+}
+figure img, figure object, figure embed, figure video, figure iframe, .article-body img {
+	max-width: 100%; 
+	display: block;
+	-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+			box-sizing: border-box;
+	 border: .5em solid @white;
+}
+img {
+	border: 0; 
+	-ms-interpolation-mode: bicubic;
+}
+
+
+/*
+*
+*	Zoomable baseline grid
+*	type size presets
+*
+*/
+
+body {
+	/* 20px / 30px */
+	font-size: @font-size / 16 * 1em; 
+	line-height: @line / @em;
+}
+
+.small {
+	/* 16px / 22 */
+	font-size: (@font-size*0.8) / @em;
+	line-height: (@line*0.75) / (@font-size*0.8125) * 1em;
+}
+
+.normal, h3 {
+	/* 16px / 24px */
+	font-size: 22 / @em;
+	line-height: @line / @em; /* 24 */
+}
+
+.large, h2, h1 {
+	/* 26 / 36px */
+	font-size: 26 / @em;
+	line-height: (@line*1.5) / 26 * 1em;
+}
+
+.huge {
+	/* 42px / 48px */
+	font-size: 42 / @em;
+	line-height: (@line*2) / 42 * 1em;
+}
+
+.massive {
+	/* 68px / 72px */
+	font-size: 68 / @em;
+	line-height: (@line*3) / 68 * 1em;
+}
+
+.gigantic {
+	/* 110px / 120px */
+	font-size: 110 / @em;
+	line-height: (@line*5) / 110 * 1em;
+}
+
+
+/*
+*
+*  Four-column grid active
+*  ----------------------------------------
+*  Margin	| #	 1	 2	 3	 4	 |	 Margin
+*  5.55555% | %	 25	 50	 75	 100 | 5.55555%
+*
+*/
+
+.container {
+	margin: 0 3px;
+}
+
+h1, h2 {
+	margin: (24/26*1em) 0 (36/26*1em);
+}
+
+h3 {
+	margin: (24/@em) 0 (24/@em);
+}
+
+/*
+*  Simple elastic gutters
+*  Note: box-sizing will not work in IE6-7
+*/
+
+.wrapper {
+	padding: 0 (@line/2)/@em;
+	-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+
+/*
+*
+*  Fixes for IE6-8
+*  http://jonikorpi.com/leaving-old-IE-behind/
+*
+*/
+
+.ie body {
+	width: 640/@em;
+	margin: 0 auto;
+	font-size: (@font-size) / @em;
+}
+
+.ie h1 {
+	.huge();
+	margin: (48/42*1em) 0 (24/42*1em);
+}
+
+/* TDBC Styles */
+#logo { margin: .5em 0; }
+header[role="banner"] hgroup { float: left; width: 33.333%; margin: 0 33.333%; }
+.book { float: left; width: 100%; margin: .5em 0 0; }
+.book:last-child { margin: .5em 0; }
+/* nav[role="navigation"] { display: none; height: 168px; } */
+.topNav { text-align: center; }
+.menu-item { display: inline-block; margin: .75em 0 0; }
+.menu-item::after { content: "|"; color: fadeout(@white, 60%); margin: 0 .25em; font-size: 1.5em; position: relative; top: 1px; }
+.menu-item:last-child::after { content: ""; }
+.tagline { display: none; }
+#booksToggle span { display: none; }
+#email { width: 57.5%; padding: 0.25em; }
+#subscribe { display: none; }
+#subscribe .submit { float:right; width: 37.5%; font-size: .8em; margin-top:1px; padding: 0.25em .75em; }
+#subscribe input { font-size: .8em; }
+.synopsis { display: none; }
+
+#minicartcontainer { background: lighten(@base, 20%); color: @white; }
+#minicart { float: left; width: 75%; margin: 0 12.5%; }
+.minicart_product { float: left; width: 75%; }
+.minicart_pay { float: left; width: 25%; }
+
+#images, #details, #dolecture { float: left; width: 100%; margin-bottom: 1.5em; }
+.radioWrap { width: 33.33333333%; }
+.addtocart .submit { width: 100%; height: 36px; }
+.radioButtons { margin-bottom: 1em; height: 2.25em; float: left; width: 100%; }
+#about hgroup { float: left; width: 100%; }
+
+.caption { margin-top: .75em; }
+
+footer[role="contentinfo"] .wrapper + .wrapper { margin-top: 1.5em; }
+
+.book h3 { display: block; padding: 1.5em 0; margin: 0; font-size: 1.125em; }
+.book h3 span { margin-left: 2.5em; display: inline-block; position: relative; }
+.book h3 span::before { content: ""; position: absolute; left: -5em; top: -50%; display: block; width: 48px; height: 48px; background: url(../i/globe.png) 0 0 no-repeat; background-size: 48px 48px; margin: 0 1.5em; }
+
+.section_title h2 { margin: 0; }
+#download_sample { float: left; width: 100%; margin: 1.5em 0; }
+#download_sample h3 { margin: 0; padding: 1.5em .75em; }
+#download_sample img { display: none; }
+
+.download_link:link h3, .download_link:visited h3 { text-align: center; background-color: @white; border-bottom: none!important; color: @text!important; }
+.download_link:hover h3 { background-color: lighten(@base, 50%); }
+
+.inline_img { width: 33.33333333%; float: right; margin: 0.25em 0 .75em .75em; border: .5em solid @white; }
+
+#about aside { margin-top: 1.5em; }
+#about #subscribe { display: block; float: right; width: 100%; margin: .75em 0 1.5em; }
+#about #subscribe input { font-size: 1em; }
+#about #subscribe label { font-size: .75em; }
+#about h2 { margin: 1.5em 0 .75em; }
+	
+.bookPreview img { float: left; width: 37.5%; display: block; margin: 0 .75em .75em 0; }
+.inspirational img { width: 50%; }
+
+footer[role="contentinfo"] { background: rgba(255,255,255,.75); padding-top: .75em; padding-bottom: .75em; margin-bottom: 3em; text-align: center; }
+
+/* @media screen and (max-width: 480px) */
+@media screen and (max-width: 30em) {
+	body { font-size: 1em; }
+}
+
+/* @media screen and (min-width: 640px) */
+@media screen and (min-width: 40em) {
+		
+	h1 {
+		.huge();
+		margin: (48/42*1em) 0 (24/42*1em);
+	}
+	#minicartcontainer { margin: -1.5em 0 .75em @column*.5; width: 100-@column*2; background-color: transparent; }
+	#minicart { width: 50%; margin: 0 25% 0; background: fadeout(@base, 25%); color: @white; -webkit-border-bottom-left-radius: 2px; -webkit-border-bottom-right-radius: 2px; -moz-border-radius-bottomleft: 2px; -moz-border-radius-bottomright: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; font-size: .75em; }
+	header[role="banner"] hgroup { float: left; width: 20%; margin: 0 2.5%; }
+	.book { font-size: .8em; width: 43.75%; margin: .75em 0; }
+	.book:last-child { margin: .75em 0; }
+	.tagline { display: block; font-size: .8em; position: absolute; top: .25em; right: 2.4em; margin: 0; width: 50%; padding: 0 .75em; text-align: right; }
+	.topNav { text-align: right; position: absolute; right: 2em; bottom: 0; }
+	.menu-item::after { font-size: 2em; }
+	#subscribe { position: relative; top: -2px; }
+
+	#images { width: 50%; }	
+	#details { width: 50%; }	
+	#dolecture { margin-top: 1.5em; }
+	.embedWrapper { float: left; width: 100%; }
+	.caption { float: left; width: 75%; margin: .75em 12.5%; }
+	.home .topNav { margin-top: 1.5em; }
+	.book a span { margin-left: 1.5em; }
+	.book a span::before { left: -3.5em; top:-10%; width: 24px; height: 24px; background-size: 24px 24px; margin: 0 1.5em; }
+
+
+}
+
+
+/*
+*
+*  Eight-column grid active
+*  ----------------------------------------------------------------------
+*  Margin	| #	 1	   2	 3	   4	 5	   6	 7	   8   |   Margin
+*  5.55555% | %	 12.5  25.0	 37.5  50.0	 62.5  75.0	 87.5  100 | 5.55555%
+*	
+*
+*/
+
+/* @media screen and (min-width: 720px) */
+@media screen and (min-width: 45em) {
+	.container {
+		margin: 0 @column*.5;
+		padding: 0 @column*.5;
+	}
+
+	#images { width: 37.5%; }	
+	#details { width: 62.5%; }	
+	nav[role="navigation"] { height: 9.5em; }
+	
+	#dolecture { margin-top: 1.5em; }
+	.embedWrapper { float: left; width: 37.5%; }
+	.caption { float: left; width: 62.5%; margin: 0; }
+	#reviews, #authorBio { float: left; width: 100%; }
+
+	.home header[role="banner"] hgroup #logo { width: 25%; margin: 2em 37.5% 0; }
+
+	#about hgroup { float: left; width: 62.5%; }
+	#about #subscribe { width: 37.5%; margin: .75em 0 0; font-size: .7em; }
+	#about #subscribe input { padding: .75em;  }
+	
+	.synopsis { display: block; }
+
+	.partition { margin-bottom: 1.5em; }
+
+	#about aside { margin-top: 3em; }
+	#about aside .words { width: 62.5%; float: right; }
+	#about aside .words h2 { margin: 0; }
+	#about aside .images { width: 37.5%; float: left; margin: 0; }
+	
+	.featuredBookImage, .featuredBookCaption { float: left; width: 50%; }
+
+	.bookPreview { float: left; width: 50%; margin-bottom: 1.5em; }
+}
+
+
+/* @media screen and (min-width: 888px) */
+@media screen and (min-width: 55.5em) {
+	.menu-item a:link, .menu-item a:visited { font-size: 1.25em; }
+	.menu-item:last-child { margin-left: .25em; }
+	.book { width: 33.3333333%; }
+
+	nav[role="navigation"] { height: auto; }
+
+	#minicartcontainer { position: absolute; top: 0; z-index: 9999; margin: 0; }
+	#minicart { width: 25%; margin: 0 50% 0 28.125%; }
+	.minicart_product { float: left; width: 75%; }
+	.minicart_pay { float: left; width: 25%; }
+
+	#reviews, #authorBio { float: left; width: 62.5%; }
+
+	#what, #who { float: left; width: 50%; }
+	#about h2 { margin: 0 0 .75em; }
+
+	.featuredBookImage { width: 62.5%; }
+	.featuredBookCaption { width: 37.5%; }
+
+	.introduction { float:left; width: 50%; }
+	.introduction p { margin-right: 25%; }
+	.types.inspirationals { }
+	.types { float: left; width: 50%; }
+	.types .inline_img { float: left; margin: 0.25em 1.5em .75em 0; }
+	.inspirationals .inline_img { width: 44.444444444%; }
+	
+	/* Blog */
+	.blog #news-section, .blog-article { float:left; width: 75%; }
+	#news-section .section_header, .blog-article .section_header { padding-top: 1em;  margin-right: 16.666666666%; }
+	.blog-article { margin-bottom: 4em; }
+	.article-body img { float: left; margin: 0 1.5em .75em -26.333333333%; width:47.5%; }
+	.article-body p { margin: 0 16.666666666%; padding: 0 .75em; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+	.article-body h3 { margin: .75em 16.666666666%; padding: 0 .75em; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+	.article-body blockquote { font-size: 1.5em; font-style: italic; line-height: 1.3;  margin: 1.5em 16.666666666% 1.5em 0; padding: 0 .75em; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+	.meta { margin: 1.5em 0 0 16.666666666%; }
+	.meta p { font-size: .8125em; }
+	#blog_sidebar { float:left; width: 25%; }
+}
+
+
+/* @media screen and (min-width: 984px) */
+@media screen and (min-width: 61.5em) {
+
+	header[role="banner"] hgroup { float: left; width: 12.5%; margin: 0; }
+
+	#logo { width: 100%; margin: .5em 5% .5em 0; }
+	.topNav { margin-top: .75em; }
+	nav[role="navigation"] .helperText { display: block; text-align: right; margin: 5.5em 0 .5em; line-height: 1.5; float: left; width: 14.286%; }
+	.tagline { font-size: .8em; }
+	.book { font-size: 1em; }
+
+	#minicart { width: 25%; margin: 0 37.5%; }
+
+	#images { width: 43.75%; margin-right: 6.25%; }
+	#details { width: 50%; }
+	#details p, #who p { margin-right: 12.5%; }
+	.addtocart .submit { width: 17.5%; margin: 0 0 0 2.5%; }
+	.radioButtons { width: 80%; margin-bottom: 0; height: 2.25em; }
+	
+	#dolecture { width: 31.25%; float: left; margin-top: 0; margin-left: 6.25% }
+	.embedWrapper { float: left; width: 100%; }
+	.caption { float: left; width: 100%; }
+	.caption { margin-top: .75em; }	
+
+	#what { float: left; width: 43.75%; margin-right: 6.25%; margin-bottom: 1.5em; }
+	#who { float: left; width: 50%; margin-bottom: 1.5em; }
+
+	#about #subscribe { font-size: .8em; }
+	#about aside .words { width: 43.75%; margin-right: 6.25%;}
+	#about aside .images { width: 37.5%; margin: 0 6.25%; }
+	#download_sample { width: 25%; margin: 0 6.25%; height: auto; }
+	#download_sample img { display: inline; padding: .75em 0; }
+	#download_sample h3 { padding-bottom: .75em; height: auto; }
+
+	#moreBooks .bookPreview { float: left; width: 33.333333333%; }
+	#allBooks .bookPreview { float: left; width: 33.333333333%; }
+	
+	#miniAbout header { float: left; width: 50%; margin: 0 6.25%; }
+	#miniAbout .words { float: left; width: 37.5%; }
+
+}
+
+
+/* @media screen and (min-width: 1200px) */
+@media screen and (min-width: 75em) {
+	.home header[role="banner"] hgroup #logo { float: left; width: 12.5%; margin: 1.5em 12.5% 0 0; }
+	.topNav { width: 66%; }
+	.book a span::before { left: -3.5em; top:0; width: 32px; height: 32px; background-size: 32px 32px; margin: 0 1.5em; }
+
+	#minicart { font-size: 1em; }
+	
+	.social { text-align: left; float: left; }
+	.legal{ text-align: right; float: right; }
+	footer[role="contentinfo"] .wrapper + .wrapper { margin-top: 0; }
+	
+	.featuredBookImage { width: 56.25%; margin-right: 6.25%; }
+	.featuredBookCaption { width: 37.5%; }
+
+	.bookPreview { width: 25%; }
+
+	#authorBio { width: 56.25%; }
+	#dolecture { margin-right: 6.25%; }
+
+
+}
+
+
+/* @media screen and (min-width: 1392px) */
+@media screen and (min-width: 87em) {
+	
+	
+}
+
+
+/* @media screen and (min-width: 1680px) */
+@media screen and (min-width: 105em) {
+	
+	.container {
+		margin: 0 @column*2.5;
+		padding: 0 @column*2.5;
+	}
+	
+	
+}
+
+
+/*
+*
+*  Sixteen-column grid active
+*  ----------------------------------------------------------------------------------------------------------------------
+*  Margin	| #	 1	   2	 3	   4	 5	   6	 7	   8	 9	   10	 11	   12	 13	   14	 15	   16  |   Margin
+*  5.55555% | %	 6.25  12.5	 18.75 25.0	 31.25 37.5	 43.75 50.0	 56.25 62.5	 68.75 75.0	 81.25 87.5	 93.75 100 | 5.55555%
+*	
+*
+*/
+
+/* @media screen and (min-width: 1872px) */
+@media screen and (min-width: 117em) {
+	
+	.container {
+		margin: 0 @column*.5;
+		padding: 0 @column*.5;
+	}
+	
+}
+
+
+/* @media screen and (min-width: 2080px) */
+@media screen and (min-width: 130em) {
+
+	body {
+		/* Zoom baseline grid to 18/16 = 1.125 */
+		font-size: (@font-size + 2) / @em;
+		max-width: 2560/@em;
+	}
+	
+}

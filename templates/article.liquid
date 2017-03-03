@@ -1,0 +1,28 @@
+<section class="single partition cf">
+    <article class="blog-article">
+		<header class="cf">
+			<hgroup class="wrapper">
+				<h1 class="section_title">{{article.title}}</h1>
+			</hgroup>
+		</header>
+    
+    	<!-- Displays the body of the article-->
+    	<div class="article-body wrapper cf">
+        	{{ article.content }}
+      	</div>
+    	<!-- Display the meta info like the author and the date posted -->
+    	<footer class="meta wrapper">
+		<div>
+    		<p><span class="author">Posted by {{ article.author | truncatewords: 1, '' }}</span>
+    		<span class="date">on {{ article.created_at | date: "%A %B %d, %Y" }}</span></p>
+    		<p>Posted in: {% for tag in article.tags %} 
+    			{% if forloop.last %}
+    			<a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}">{{ tag }}</a>
+    			{% else %}
+    			<a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}">{{ tag }}</a>, 
+    			{% endif %}
+    		{% endfor %}</p>
+		</div>
+    	</footer>
+    </article>
+</section>

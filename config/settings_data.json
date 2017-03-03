@@ -1,0 +1,16 @@
+{
+  "current": {
+    "customer_layout": "customer_area",
+    "shipping_calculator_heading": "Get shipping estimates",
+    "shipping_calculator_default_country": "United Kingdom",
+    "shipping_calculator_submit_button_label": "Calculate shipping",
+    "shipping_calculator_submit_button_label_disabled": "Calculating...",
+    "checkout_banner_background_color": "#fff",
+    "checkout_accent_color": "#2a9dcc",
+    "checkout_button_color": "#2a9dcc",
+    "checkout_call_to_action_color": "#8fc243",
+    "shipping_calculator": "Enabled",
+    "checkout_logo": "",
+    "checkout_use_header_image": false
+  }
+}
