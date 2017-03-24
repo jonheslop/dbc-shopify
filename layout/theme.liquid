@@ -15,13 +15,13 @@
     <script type="text/javascript" src="//use.typekit.com/tds2rqc.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <link rel="stylesheet" href="//unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
-    <script src="//unpkg.com/jquery@3.1.1"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 </head>
 
-<body class="cf {{ template | replace: '.', ' ' | truncatewords: 1, '' }}" id="{{ page_title | handle }}">
-  <div class="ml7 ph3">
-    <header role="banner" class="fixed vh-100 bg-dbc-grey top-0 left-0 w5 flex content-center justify-center flex-column border-box pa4">
+<body class="cf {{ template | replace: '.', ' ' | truncatewords: 1, '' }} dark-gray" id="{{ page_title | handle }}">
+  <div class="ml7 ph4">
+      <header role="banner" class="fixed-ns vh-100-ns w-100 w5-ns bg-near-white dark-gray top-0 left-0 flex content-center justify-center flex-column border-box pa4 pb0 pb4-ns">
         <div class="items-start flex-auto">
             <h1>
                 <a href="{{ shop.url }}">
@@ -31,7 +31,7 @@
             <nav role="navigation" class="lh-copy mt5">
               <ul class="list pa0">
                 {% for link in linklists.main-menu.links %}
-                <li>
+                <li class="f4 mb2">
                   <a href="{{ link.url }}" class="dbc-orange link dim{% if link.active %}near-black{% endif %}">{{ link.title }}</a>
                 </li>
                 {% endfor %}
@@ -58,19 +58,23 @@
         {% endfor %}
         Site&nbsp;by&nbsp;<a href="http://jonheslop.com">Jon&nbsp;Heslop</a>&nbsp;/ Powered&nbsp;by&nbsp;<a href="http://shopify.com">Shopify</a></p>
   </footer>
+    <script src="//unpkg.com/jquery@3.1.1"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    {{ 'app.js' | asset_url | script_tag }}
+
     {{ 'jquery.fancybox.js' | asset_url | script_tag }}
     <script type="text/javascript">
-      jQuery(document).ready(function($) {
-          $(".fancybox").fancybox({
-          helpers : {
-              overlay : {
-                  css : {
-                      'background' : 'rgba(46, 49, 51, .8)'
-                  }
-              }
-          }
-      });
-      });
+    //   jQuery(document).ready(function($) {
+    //       $(".fancybox").fancybox({
+    //       helpers : {
+    //           overlay : {
+    //               css : {
+    //                   'background' : 'rgba(46, 49, 51, .8)'
+    //               }
+    //           }
+    //       }
+    //   });
+    //   });
     </script>
 
     <script>

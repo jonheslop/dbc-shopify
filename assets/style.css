@@ -1,5 +1,5 @@
 :root {
-    --dbc-orange: #d93c12;
+    --dbc-orange: #ee5830;
     --dbc-grey: #f4efef;
 }
 
@@ -40,4 +40,118 @@ h2 {
 h3 {
   font-family: "adobe-caslon-pro", Georgia, serif;
   font-weight: 600;
+}
+
+
+.slick-arrow {
+    appearance: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(0 -50%);
+    z-index: 100;
+    background: transparent;
+    padding: .5em;
+    width: 4em;
+    height: 4em;
+    color: transparent;
+    border: 0;
+    outline: none;
+}
+
+.slick-prev {
+    left: 1em;
+}
+
+.slick-next {
+    right: 1em;
+    text-align: right;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 3em;
+    line-height: 1;
+
+    opacity: .75;
+    color: white;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+    opacity: 1;
+}
+
+.slick-prev:before {
+    content: '\27EA';
+}
+
+.slick-next:before {
+    content: '\27EB';
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.slick-dots li {
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.slick-dots button {
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+
+.slick-dots li button:before {
+    font-size: 2em;
+    line-height: .625;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li button:hover:before {
+    opacity: .75;
+}
+
+.slide-text {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
