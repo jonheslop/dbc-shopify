@@ -2,7 +2,7 @@
     <section class="home-slider pv4">
       {% if settings.homepage_slide_show_1 %}
       <article class="relative" style="height:auto">
-        <a href="{{ settings.homepage_slide_link_1 }}" class="link near-white dim">
+        <a href="{{ settings.homepage_slide_link_1 }}" class="link near-white {{ settings.homepage_slide_overlay_1 }}">
             <img src="{{ 'homepage_slide_image_1.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_1 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_1_position }} {{ settings.homepage_slide_text_1_align }}" style="color: {{ settings.homepage_slide_1_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_1 }}</h1>
@@ -13,7 +13,7 @@
       {% endif %}
       {% if settings.homepage_slide_show_2 %}
       <article class="relative" style="height:auto">
-        <a href="{{ settings.homepage_slide_link_2 }}" class="link near-white dim">
+        <a href="{{ settings.homepage_slide_link_2 }}" class="link near-white {{ settings.homepage_slide_overlay_2 }}">
             <img src="{{ 'homepage_slide_image_2.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_2 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_2_position }} {{ settings.homepage_slide_text_2_align }}" style="color: {{ settings.homepage_slide_2_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_2 }}</h1>
@@ -24,7 +24,7 @@
       {% endif %}
       {% if settings.homepage_slide_show_3 %}
       <article class="relative" style="height:auto">
-        <a href="{{ settings.homepage_slide_link_3 }}" class="link near-white dim">
+        <a href="{{ settings.homepage_slide_link_3 }}" class="link near-white {{ settings.homepage_slide_overlay_3 }}">
             <img src="{{ 'homepage_slide_image_3.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_3 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_3_position }} {{ settings.homepage_slide_text_3_align }}" style="color: {{ settings.homepage_slide_3_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_3 }}</h1>
@@ -35,7 +35,7 @@
       {% endif %}
       {% if settings.homepage_slide_show_4 %}
       <article class="relative" style="height:auto">
-        <a href="{{ settings.homepage_slide_link_4 }}" class="link near-white dim">
+        <a href="{{ settings.homepage_slide_link_4 }}" class="link near-white {{ settings.homepage_slide_overlay_4 }}">
             <img src="{{ 'homepage_slide_image_4.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_4 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_4_position }} {{ settings.homepage_slide_text_4_align }}" style="color: {{ settings.homepage_slide_4_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_4 }}</h1>
@@ -46,7 +46,7 @@
       {% endif %}
       {% if settings.homepage_slide_show_5 %}
       <article class="relative" style="height:auto">
-        <a href="{{ settings.homepage_slide_link_5 }}" class="link near-white dim">
+        <a href="{{ settings.homepage_slide_link_5 }}" class="link near-white {{ settings.homepage_slide_overlay_5 }}">
             <img src="{{ 'homepage_slide_image_5.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_5 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_5_position }} {{ settings.homepage_slide_text_5_align }}" style="color: {{ settings.homepage_slide_5_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_5 }}</h1>

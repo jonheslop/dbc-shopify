@@ -197,3 +197,25 @@ h3 {
     bottom: 2em;
     right: 2em;
 }
+
+.light-overlay::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    opacity: .2;
+    content: '';
+}
+
+.dark-overlay::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #111;
+    opacity: .2;
+    content: '';
+}

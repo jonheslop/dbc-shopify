@@ -73,6 +73,17 @@
                  "default": "tc"
             },
             {
+                 "type": "radio",
+                 "id": "homepage_slide_overlay_1",
+                 "options": [
+                   { "value": "", "label": "None"},
+                   { "value": "dark-overlay", "label": "Darken image"},
+                   { "value": "light-overlay", "label": "Lighten image"}
+                 ],
+                 "label": "Tint image",
+                 "default": ""
+            },
+            {
                 "type": "header",
                 "content": "Slide 2"
             },
@@ -136,6 +147,17 @@
                  ],
                  "label": "Text alignment",
                  "default": "tc"
+            },
+            {
+                 "type": "radio",
+                 "id": "homepage_slide_overlay_2",
+                 "options": [
+                   { "value": "", "label": "None"},
+                   { "value": "dark-overlay", "label": "Darken image"},
+                   { "value": "light-overlay", "label": "Lighten image"}
+                 ],
+                 "label": "Tint image",
+                 "default": ""
             },
             {
                 "type": "header",
@@ -203,6 +225,17 @@
                  "default": "tc"
             },
             {
+                 "type": "radio",
+                 "id": "homepage_slide_overlay_3",
+                 "options": [
+                   { "value": "", "label": "None"},
+                   { "value": "dark-overlay", "label": "Darken image"},
+                   { "value": "light-overlay", "label": "Lighten image"}
+                 ],
+                 "label": "Tint image",
+                 "default": ""
+            },
+            {
                 "type": "header",
                 "content": "Slide 4"
             },
@@ -268,6 +301,17 @@
                  "default": "tc"
             },
             {
+                 "type": "radio",
+                 "id": "homepage_slide_overlay_4",
+                 "options": [
+                   { "value": "", "label": "None"},
+                   { "value": "dark-overlay", "label": "Darken image"},
+                   { "value": "light-overlay", "label": "Lighten image"}
+                 ],
+                 "label": "Tint image",
+                 "default": ""
+            },
+            {
                 "type": "header",
                 "content": "Slide 5"
             },
@@ -331,6 +375,17 @@
                  ],
                  "label": "Text alignment",
                  "default": "tc"
+            },
+            {
+                 "type": "radio",
+                 "id": "homepage_slide_overlay_5",
+                 "options": [
+                   { "value": "", "label": "None"},
+                   { "value": "dark-overlay", "label": "Darken image"},
+                   { "value": "light-overlay", "label": "Lighten image"}
+                 ],
+                 "label": "Tint image",
+                 "default": ""
             }
         ]
     }
