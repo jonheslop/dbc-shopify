@@ -45,6 +45,34 @@
                 "label": "Call to action URL"
             },
             {
+                 "type": "radio",
+                 "id": "homepage_slide_text_1_position",
+                 "options": [
+                   { "value": "top-left", "label": "Top left"},
+                   { "value": "top-center", "label": "Top center"},
+                   { "value": "top-right", "label": "Top right"},
+                   { "value": "center-left", "label": "Center left"},
+                   { "value": "center-center", "label": "Center center"},
+                   { "value": "center-right", "label": "Center right"},
+                   { "value": "bottom-left", "label": "Bottom left"},
+                   { "value": "bottom-center", "label": "Bottom center"},
+                   { "value": "bottom-right", "label": "Bottom right"}
+                 ],
+                 "label": "Text position",
+                 "default": "center-center"
+            },
+            {
+                 "type": "radio",
+                 "id": "homepage_slide_text_1_align",
+                 "options": [
+                   { "value": "tl", "label": "Left"},
+                   { "value": "tc", "label": "Center"},
+                   { "value": "tr", "label": "Right"}
+                 ],
+                 "label": "Text alignment",
+                 "default": "tc"
+            },
+            {
                 "type": "header",
                 "content": "Slide 2"
             },
@@ -80,6 +108,34 @@
                 "type": "text",
                 "id": "homepage_slide_link_2",
                 "label": "Call to action URL"
+            },
+            {
+                 "type": "radio",
+                 "id": "homepage_slide_text_2_position",
+                 "options": [
+                   { "value": "top-left", "label": "Top left"},
+                   { "value": "top-center", "label": "Top center"},
+                   { "value": "top-right", "label": "Top right"},
+                   { "value": "center-left", "label": "Center left"},
+                   { "value": "center-center", "label": "Center center"},
+                   { "value": "center-right", "label": "Center right"},
+                   { "value": "bottom-left", "label": "Bottom left"},
+                   { "value": "bottom-center", "label": "Bottom center"},
+                   { "value": "bottom-right", "label": "Bottom right"}
+                 ],
+                 "label": "Text position",
+                 "default": "center-center"
+            },
+            {
+                 "type": "radio",
+                 "id": "homepage_slide_text_2_align",
+                 "options": [
+                   { "value": "tl", "label": "Left"},
+                   { "value": "tc", "label": "Center"},
+                   { "value": "tr", "label": "Right"}
+                 ],
+                 "label": "Text alignment",
+                 "default": "tc"
             },
             {
                 "type": "header",
@@ -119,6 +175,34 @@
                 "label": "Call to action URL"
             },
             {
+                 "type": "radio",
+                 "id": "homepage_slide_text_3_position",
+                 "options": [
+                   { "value": "top-left", "label": "Top left"},
+                   { "value": "top-center", "label": "Top center"},
+                   { "value": "top-right", "label": "Top right"},
+                   { "value": "center-left", "label": "Center left"},
+                   { "value": "center-center", "label": "Center center"},
+                   { "value": "center-right", "label": "Center right"},
+                   { "value": "bottom-left", "label": "Bottom left"},
+                   { "value": "bottom-center", "label": "Bottom center"},
+                   { "value": "bottom-right", "label": "Bottom right"}
+                 ],
+                 "label": "Text position",
+                 "default": "center-center"
+            },
+            {
+                 "type": "radio",
+                 "id": "homepage_slide_text_3_align",
+                 "options": [
+                   { "value": "tl", "label": "Left"},
+                   { "value": "tc", "label": "Center"},
+                   { "value": "tr", "label": "Right"}
+                 ],
+                 "label": "Text alignment",
+                 "default": "tc"
+            },
+            {
                 "type": "header",
                 "content": "Slide 4"
             },
@@ -156,6 +240,34 @@
                 "label": "Call to action URL"
             },
             {
+                 "type": "radio",
+                 "id": "homepage_slide_text_4_position",
+                 "options": [
+                   { "value": "top-left", "label": "Top left"},
+                   { "value": "top-center", "label": "Top center"},
+                   { "value": "top-right", "label": "Top right"},
+                   { "value": "center-left", "label": "Center left"},
+                   { "value": "center-center", "label": "Center center"},
+                   { "value": "center-right", "label": "Center right"},
+                   { "value": "bottom-left", "label": "Bottom left"},
+                   { "value": "bottom-center", "label": "Bottom center"},
+                   { "value": "bottom-right", "label": "Bottom right"}
+                 ],
+                 "label": "Text position",
+                 "default": "center-center"
+            },
+            {
+                 "type": "radio",
+                 "id": "homepage_slide_text_4_align",
+                 "options": [
+                   { "value": "tl", "label": "Left"},
+                   { "value": "tc", "label": "Center"},
+                   { "value": "tr", "label": "Right"}
+                 ],
+                 "label": "Text alignment",
+                 "default": "tc"
+            },
+            {
                 "type": "header",
                 "content": "Slide 5"
             },
@@ -191,6 +303,34 @@
                 "type": "text",
                 "id": "homepage_slide_link_5",
                 "label": "Call to action URL"
+            },
+            {
+                 "type": "radio",
+                 "id": "homepage_slide_text_5_position",
+                 "options": [
+                   { "value": "top-left", "label": "Top left"},
+                   { "value": "top-center", "label": "Top center"},
+                   { "value": "top-right", "label": "Top right"},
+                   { "value": "center-left", "label": "Center left"},
+                   { "value": "center-center", "label": "Center center"},
+                   { "value": "center-right", "label": "Center right"},
+                   { "value": "bottom-left", "label": "Bottom left"},
+                   { "value": "bottom-center", "label": "Bottom center"},
+                   { "value": "bottom-right", "label": "Bottom right"}
+                 ],
+                 "label": "Text position",
+                 "default": "center-center"
+            },
+            {
+                 "type": "radio",
+                 "id": "homepage_slide_text_5_align",
+                 "options": [
+                   { "value": "tl", "label": "Left"},
+                   { "value": "tc", "label": "Center"},
+                   { "value": "tr", "label": "Right"}
+                 ],
+                 "label": "Text alignment",
+                 "default": "tc"
             }
         ]
     }

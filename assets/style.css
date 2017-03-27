@@ -146,12 +146,57 @@ h3 {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.slick-dots li button:hover:before {
+.slick-dots li button:hover:before,
+.slick-dots .slick-active button:before {
     opacity: .75;
 }
 
-.slide-text {
+.slide-text-top-left {
+    top: 2em;
+    left: 2em;
+}
+
+.slide-text-top-center {
+    top: 2em;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.slide-text-top-right {
+    top: 2em;
+    right: 2em;
+}
+
+.slide-text-center-left {
+    top: 50%;
+    left: 2em;
+    transform: translate(0, -50%);
+}
+
+.slide-text-center-center {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.slide-text-center-right {
+    top: 50%;
+    right: 2em;
+    transform: translate(0, -50%);
+}
+
+.slide-text-bottom-left {
+    bottom: 2em;
+    left: 2em;
+}
+
+.slide-text-bottom-center {
+    bottom: 2em;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.slide-text-bottom-right {
+    bottom: 2em;
+    right: 2em;
 }
