@@ -127,40 +127,29 @@
      {% endif %} -->
             {% if collections.bundles %}
               {% for product in collections.bundles.products %}
-                <form class="launch addtocart cf" action="/cart/add" method="post" style="margin-bottom:3em;">
+                <form class="addtocart pa4 bg-dbc-washed-orange br2 ba bw1 b--dbc-orange tc" action="/cart/add" method="post">
                   {% comment %} Return to product instead of going to cart {% endcomment %}
                   <input type="hidden" name="return_to" value="back" />
                     <header>
                         <h2>{{collections.bundles.description}}</h2>
                     </header>
-                    <div class="radioButtons cf">
-                        {% for variant in product.variants %}
+                    {% for variant in product.variants %}
                       {% if variant.available == true %}
-                        <div class="wrapper" style="margin-left:25%;">
-                        <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
-                        <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">{% if variant.title == "Bundle" %}Add pb + ebook set{% else %}Add {{ variant.title }} set{% endif %} {{ variant.price | money | remove: '.00' }} <span class="description">{% if variant.title == "Bundle" %}5 Paperbacks &amp;&nbsp;4 eBooks {% elsif variant.title == "Paperback" %}14 books{% elsif variant.title == "eBook" %}Kindle, iBooks, Readmill etc.{% endif %}</span></label>
-                        {% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
-                          </div>
+                        <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="dn"/>
+                        <label for="format_{{variant.id}}" class="radio-button-label dib myriad fw6 input-reset br2 ba bw1 bg-dbc-washed-orange ttu pv2 ph4 tracked dbc-orange">{% if variant.title == "Bundle" %}Add pb + ebook set{% else %}Add {{ variant.title }} set{% endif %} {{ variant.price | money | remove: '.00' }} <span class="db mt2 i caslon fw4 ttn" style="letter-spacing: 0;">14 books</span></label>
                         {% else %}
-                        <div class="wrapper">
-                        <input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat" />
-                        <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {{ variant.title }} set {{ variant.price | money | remove: '.00' }} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages{% elsif variant.title == "eBook" %}Kindle, iBooks, Readmill etc.{% endif %}</span></label>
-                        {% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
-                        </div>
+                        Out of stock
                       {% endif %}
                      {% endfor %}
-                    </div>
                    {% unless product.available %}
                     <p class="coming_soon wrapper"><em>~ Available from 1st May 2014 ~</em></p>
                    {% endunless %}
-                    <div>
-                        <input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
-                    </div>
+                    <input type="submit" class="dn submit" value="Add to Basket" id="add" name="add" />
                 </form>
           {% endfor %}
          {% endif %}
 
-<ul id="newBooks" class="partition cf">
+<!-- <ul id="newBooks" class="partition cf">
         <header class="cf">
             <hgroup class="wrapper">
               <h1 class="section_title">Gift ideas <span class="callout"></span></h1>
@@ -180,7 +169,7 @@
       {% endfor %}
       </div>
     </ul>
-     {% endif %}
+     {% endif %} -->
 
 {% if collections.christmas %}
           {% for product in collections.christmas.products %}
@@ -228,7 +217,7 @@
           {% endfor %}
          {% endif %}
 
-<section id="recently" class="partition cf">
+<!-- <section id="recently" class="partition cf">
     <header class="wrapper">
         <h2 class="section_title">Recently at Do&nbsp;books</h2>
     </header>
@@ -252,7 +241,6 @@
                     <header>
                         <h1 class="blog-title"><a href="{{article.url}}">{{ article.title }}</a></h1>
                     </header>
-                    <!-- Displays the body of the article-->
                     <div class="article-body cf">
                         {{ article.content | strip_html | truncatewords: 48 }}
                         <p><a href="{{article.url}}" title="Continue reading {{ article.title }}">Continue reading &raquo;</a></p>
@@ -278,4 +266,4 @@
         <p>You can find us on <a href="http://twitter.com/dobookco">Twitter</a>, <a href="https://www.facebook.com/DoBookCo">Facebook</a>, or you can <a href="/pages/subscribe">subscribe to our&nbsp;newsletter</a>.</p>
         <p><a href="/pages/about-us">Learn more about us&nbsp;&raquo;</a></p>
     </div>
-</aside>
+</aside> -->

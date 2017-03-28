@@ -1,5 +1,6 @@
 :root {
     --dbc-orange: #ee5830;
+    --dbc-washed-orange: #fdeae6;
     --dbc-grey: #f4efef;
 }
 
@@ -12,6 +13,15 @@
 }
 .bg-dbc-orange {
     background-color: var(--dbc-orange);
+}
+.dbc-washed-orange {
+    color: var(--dbc-washed-orange);
+}
+.b--dbc-washed-orange {
+    border-color: var(--dbc-washed-orange);
+}
+.bg-dbc-washed-orange {
+    background-color: var(--dbc-washed-orange);
 }
 .dbc-grey {
     color: var(--dbc-grey);
@@ -42,6 +52,23 @@ h3 {
   font-weight: 600;
 }
 
+.caslon {
+    font-family: "adobe-caslon-pro", Georgia, serif;
+}
+
+.myriad {
+ font-family: "myriad-pro-condensed", sans-serif;
+}
+
+.left-align-with-logo {
+    margin-left: 1.5rem;
+}
+
+input:checked + .radio-button-label,
+.radio-button-label:hover {
+    background-color: var(--dbc-orange);
+    color: #fff;
+}
 
 .slick-arrow {
     appearance: none;

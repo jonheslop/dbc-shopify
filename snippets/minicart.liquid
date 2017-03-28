@@ -1,19 +1,11 @@
-{% if cart.item_count != 0 %}
-	<div id="miniandmicro">
-		<section id="minicart" class="wrapper cf">
-			<h4 class="section_title">Basket <em><a href="/cart">(edit)</a></em></h4>
-			{% for item in cart.items %}
-   			<h5 class="minicart_product{% if forloop.last %} last{% endif %}">{% if item.quantity >= 2 %}{{item.quantity}}x{% endif %} <a href="{{ item.product.url }}">{{ item.title | truncatewords: 2, '' }} {{ item.variant.title }}</a> {{ item.price | money | remove: '.00' }}{% if item.quantity >= 2 %} <em>(each)</em>{% endif %}</h5>
-			{% endfor %}
-   			<h5 class="cart-total-price">{{ cart.total_price | money | remove: '.00' }} + postage</h5>
-    		<a class="submit button" href="/cart">Pay</a>
-    	</section>
-		{% if cart.item_count != 0 %}
-		<section id="microcart" class="wrapper cf">
-			<h4 class="section_title">Basket: <em>{{ cart.item_count }}{% if cart.item_count == 1 %} item{% else %} items{% endif %}</em></h4>
-			<a class="submit button" href="/cart">Pay</a>
-    	</section>
-		{% endif %}
-	</div>
-{% endif %}
-
+<div id="microcartwrap">
+    <h4 id="microcart" class="mv0 left-align-with-logo">
+        {% if cart.item_count != 0 %}
+            <a class="link dbc-orange" href="/cart">
+        {% endif %}
+        Basket: <em>{{ cart.item_count }}{% if cart.item_count == 1 %} item{% else %} items{% endif %}</em>
+        {% if cart.item_count != 0 %}
+            </a>
+        {% endif %}
+    </h4>
+</div>
