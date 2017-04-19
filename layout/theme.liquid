@@ -18,9 +18,8 @@
       	{{ 'GGS.css' | asset_url | stylesheet_tag }}
          <!--<![endif]-->
       	{{ 'design.css' | asset_url | stylesheet_tag }}
-    {% else %}
-        {{ 'style.min.css' | asset_url | stylesheet_tag }}
     {% endif %}
+    {{ 'style.min.css' | asset_url | stylesheet_tag }}
 
   	{% if template == 'product' %}
       	{{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
