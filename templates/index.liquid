@@ -124,7 +124,7 @@
       {% endfor %}
       </div>
     </ul>
-     {% endif %} -->
+     {% endif %}
             {% if collections.bundles %}
               {% for product in collections.bundles.products %}
                 <form class="addtocart pa4 bg-dbc-washed-orange br2 ba bw1 b--dbc-orange tc" action="/cart/add" method="post">
@@ -147,7 +147,7 @@
                     <input type="submit" class="dn submit" value="Add to Basket" id="add" name="add" />
                 </form>
           {% endfor %}
-         {% endif %}
+         {% endif %}-->
 
 <!-- <ul id="newBooks" class="partition cf">
         <header class="cf">
@@ -171,7 +171,7 @@
     </ul>
      {% endif %} -->
 
-{% if collections.christmas %}
+        {% if collections.christmas %}
           {% for product in collections.christmas.products %}
             <form class="christmas addtocart cf" action="/cart/add" method="post">
               {% comment %} Return to product instead of going to cart {% endcomment %}
@@ -217,6 +217,36 @@
           {% endfor %}
          {% endif %}
 
+        <section class="partition mv5">
+            <div class="cf" style="margin: 0 -1rem;">
+                <article class="fl w-100 w-third-ns tc pa3 border-box relative bg-near-black">
+                    <div class="aspect-ratio aspect-ratio--1x1 mb4">
+                        <div class="aspect-ratio--object cover z-0 o-90" style="background:url(https://d3uepj124s5rcx.cloudfront.net/items/2y1d2U2w03431S0Q1S1f/Whosit-&-Whatsit-DoBooks-.jpg) center;"></div>
+                        <header class="absolute left-0 right-0 absolute-vertical-align near-white z-1">
+                            <h2 class="f3 ma0">Events</h2>
+                            <p>See our upcoming events »</p>
+                        </header>
+                    </div>
+                </article>
+                <article class="fl w-100 w-third-ns tc pa3 border-box relative bg-near-black">
+                    <div class="aspect-ratio aspect-ratio--1x1 mb4">
+                        <div class="aspect-ratio--object cover z-0 o-90" style="background:url(https://d3uepj124s5rcx.cloudfront.net/items/2y1d2U2w03431S0Q1S1f/Whosit-&-Whatsit-DoBooks-.jpg) center;"></div>
+                        <header class="absolute left-0 right-0 absolute-vertical-align near-white z-1">
+                            <h2 class="f3 ma0">About</h2>
+                            <p>See our upcoming events »</p>
+                        </header>
+                    </div>
+                </article>
+                <article class="fl w-100 w-third-ns tc pa3 border-box relative bg-near-black">
+                    <div class="aspect-ratio aspect-ratio--1x1 mb4">
+                        <div class="aspect-ratio--object cover z-0 o-90" style="background:url(https://d3uepj124s5rcx.cloudfront.net/items/2y1d2U2w03431S0Q1S1f/Whosit-&-Whatsit-DoBooks-.jpg) center;"></div>
+                        <header class="absolute left-0 right-0 absolute-vertical-align near-white z-1">
+                            <h2 class="f3 ma0">Stockists</h2>
+                        </header>
+                    </div>
+                </article>
+            </div>
+        </section>
 <!-- <section id="recently" class="partition cf">
     <header class="wrapper">
         <h2 class="section_title">Recently at Do&nbsp;books</h2>
