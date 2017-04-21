@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="//unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     {% if template != 'index' %}
-        {{ 'normalise.css' | asset_url | stylesheet_tag }}
          <!--[if lte IE 8]>
       	{{ 'GGS-ie.css' | asset_url | stylesheet_tag }}
          <![endif]-->
@@ -42,7 +41,7 @@
                 </a>
             </h1>
             <nav role="navigation" class="lh-copy ma0 mt5-ns left-align-with-logo">
-              <ul class="list pa0 tc tl-ns">
+              <ul class="list pa0 mb0 tc tl-ns">
                 {% for link in linklists.main-menu.links %}
                 <li class="f5 f4-ns mb2 dib db-ns mh3 mh0-ns">
                   <a href="{{ link.url }}" class="near black hover-dbc-orange link {% if link.active %}dbc-orange{% endif %}">{{ link.title }}</a>
@@ -52,9 +51,9 @@
             </nav>
         </div>
         {% if template != 'cart' %}
-        <div id="minicartwrap">
-        {% include 'minicart' %}
-        </div>
+          <div id="minicartwrap">
+            {% include 'minicart' %}
+          </div>
         {% endif %}
     </header>
   <section class="container cf pv4" role="main" id="content">

@@ -270,3 +270,24 @@ a:hover .dark-overlay-dim.dark-overlay::before {
   top: -.5rem;
   position: relative;
 }
+
+figure {
+  margin: 0;
+}
+
+.columned-list {
+  column-count: 2;
+  column-gap: 1em;
+}
+
+@media screen and (min-width: 30em) {
+  .columned-list {
+    column-count: 3;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .columned-list {
+    column-count: 4;
+  }
+}

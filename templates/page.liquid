@@ -1,10 +1,8 @@
 	<section id="{{page.handle}}" class="partition">
-		<header class="cf">
-			<hgroup class="wrapper">
-				<h1 class="section_title">{{page.title}}</h1>
-			</hgroup>
-		</header>
-		<div class="page-content wrapper">
+		<header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+        <h1 class="f3 f2-ns ma0 lh-title">{{page.title}}</h1>
+    </header>
+		<div class="page-content ph3 ph0-ns">
 			{% if page.handle == "subscribe" %}
 			<form action="http://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate wrapper" target="_blank" novalidate>
 				<label for="mce-EMAIL">Sign up for news about our books</label>
@@ -60,7 +58,7 @@
 							<p class="coming_soon wrapper"><em>~ Available from 16th May 2013 ~</em></p>
 						   {% endunless %}
 							<div>
-								<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" /> 
+								<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
 							</div>
 						</form>
 				</ul>
@@ -123,5 +121,3 @@
 			{% endif %}
 		</div>
 	</section>
-	
-	
