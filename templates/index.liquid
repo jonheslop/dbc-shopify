@@ -1,5 +1,5 @@
 {% if settings.homepage_slideshow %}
-    <section class="home-slider pv4">
+    <section class="home-slider">
       {% if settings.homepage_slide_show_1 %}
       <article class="relative" style="height:auto">
         <a href="{{ settings.homepage_slide_link_1 }}" class="link near-white {{ settings.homepage_slide_overlay_1 }}">
@@ -60,13 +60,13 @@
 
 {% if collections.home-page %}
 <section class="partition mv5">
-    <header class="bb bw1 b--dbc-orange mb3">
+    <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
         <h1 class="f3 f2-ns ma0 lh-title">Smart Working</h1>
     </header>
-    <div class="cf" style="margin: 0 -1rem;">
+    <div class="cf grid-offset">
       {% for product in collections.smart-working.products %}
         <article class="fl w-50 w-third-m w-20-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
-            <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
+            <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
                 <figure class="ma0">
                     <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
                 </figure>
@@ -78,13 +78,13 @@
  {% endif %}
  {% if collections.home-page %}
  <section class="partition mv5">
-     <header class="bb bw1 b--dbc-orange mb3">
+     <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
          <h1 class="f3 f2-ns ma0 lh-title">Slow Living</h1>
      </header>
-     <div class="cf" style="margin: 0 -1rem;">
+     <div class="cf grid-offset">
          {% for product in collections.slow-living.products %}
          <article class="fl w-50 w-third-m w-20-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
-             <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
+             <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
                  <figure class="ma0">
                      <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
                  </figure>
@@ -217,36 +217,45 @@
           {% endfor %}
          {% endif %}
 
+       {% if settings.info_boxes %}
         <section class="partition mv5">
-            <div class="cf" style="margin: 0 -1rem;">
-                <article class="fl w-100 w-third-ns tc pa3 border-box relative bg-near-black">
-                    <div class="aspect-ratio aspect-ratio--1x1 mb4">
-                        <div class="aspect-ratio--object cover z-0 o-90" style="background:url(https://d3uepj124s5rcx.cloudfront.net/items/2y1d2U2w03431S0Q1S1f/Whosit-&-Whatsit-DoBooks-.jpg) center;"></div>
-                        <header class="absolute left-0 right-0 absolute-vertical-align near-white z-1">
-                            <h2 class="f3 ma0">Events</h2>
-                            <p>See our upcoming events »</p>
+            <div class="cf grid-offset">
+                <article class="fl w-100 w-third-ns tc pa3 border-box relative">
+                  <a href="{{ settings.homepage_box_link_1 }}">
+                    <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
+                        <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_1.jpg' | asset_url }}) center;"></div>
+                        <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
+                            <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_1 }}</h2>
+                            <p>{{ settings.homepage_box_subtitle_1 }}&nbsp;»</p>
                         </header>
                     </div>
+                  </a>
                 </article>
-                <article class="fl w-100 w-third-ns tc pa3 border-box relative bg-near-black">
-                    <div class="aspect-ratio aspect-ratio--1x1 mb4">
-                        <div class="aspect-ratio--object cover z-0 o-90" style="background:url(https://d3uepj124s5rcx.cloudfront.net/items/2y1d2U2w03431S0Q1S1f/Whosit-&-Whatsit-DoBooks-.jpg) center;"></div>
-                        <header class="absolute left-0 right-0 absolute-vertical-align near-white z-1">
-                            <h2 class="f3 ma0">About</h2>
-                            <p>See our upcoming events »</p>
+                <article class="fl w-100 w-third-ns tc pa3 border-box relative">
+                  <a href="{{ settings.homepage_box_link_2 }}">
+                    <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
+                        <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_2.jpg' | asset_url }}) center;"></div>
+                        <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
+                            <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_2 }}</h2>
+                            <p>{{ settings.homepage_box_subtitle_2 }}&nbsp;»</p>
                         </header>
                     </div>
+                  </a>
                 </article>
-                <article class="fl w-100 w-third-ns tc pa3 border-box relative bg-near-black">
-                    <div class="aspect-ratio aspect-ratio--1x1 mb4">
-                        <div class="aspect-ratio--object cover z-0 o-90" style="background:url(https://d3uepj124s5rcx.cloudfront.net/items/2y1d2U2w03431S0Q1S1f/Whosit-&-Whatsit-DoBooks-.jpg) center;"></div>
-                        <header class="absolute left-0 right-0 absolute-vertical-align near-white z-1">
-                            <h2 class="f3 ma0">Stockists</h2>
+                <article class="fl w-100 w-third-ns tc pa3 border-box relative">
+                  <a href="{{ settings.homepage_box_link_3 }}">
+                    <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
+                        <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_3.jpg' | asset_url }}) center;"></div>
+                        <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
+                            <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_3 }}</h2>
+                            <p>{{ settings.homepage_box_subtitle_3 }}&nbsp;»</p>
                         </header>
                     </div>
+                  </a>
                 </article>
             </div>
         </section>
+        {% endif %}
 <!-- <section id="recently" class="partition cf">
     <header class="wrapper">
         <h2 class="section_title">Recently at Do&nbsp;books</h2>

@@ -6,10 +6,12 @@ body,input {
 h1, h2 {
   font-family: "adobe-caslon-pro", Georgia, serif;
   -webkit-font-smoothing: antialiased;
-  font-weight: 600; }
+  font-weight: 600;
+  line-height: 1.25; }
 h3 {
   font-family: "adobe-caslon-pro", Georgia, serif;
-  font-weight: 600; }
+  font-weight: 600;
+  line-height: 1.25; }
 
 .partition {
   margin: 0 0 3em; }
@@ -18,7 +20,6 @@ a {
   text-decoration: none; }
 
 section[role="main"] a:link, section[role="main"] a:visited, footer[role="content-info"] a:link, footer[role="content-info"] a:visited {
-  text-decoration: underline;
   color: #d93c12;
   position: relative;
   -webkit-transition: all 0.3s ease-out;
@@ -47,7 +48,7 @@ nav[role="navigation"] ul {
   padding: 0; }
 nav[role="navigation"] li {
   font-size: 1.25em; }
-nav[role="navigation"] a:link, nav[role="navigation"] a:visited, #minicart a:link, #minicart a:visited {
+nav[role="navigation"] a:link, nav[role="navigation"] a:visited {
   color: #ee5830;
   padding: 0 0.25em;
   -webkit-transition: color 0.3s ease-out;
@@ -57,7 +58,7 @@ nav[role="navigation"] a:link, nav[role="navigation"] a:visited, #minicart a:lin
   transition: color 0.3s ease-out; }
 nav[role="navigation"] a.inactive:link {
   position: relative; }
-nav[role="navigation"] a:hover, #minicart a:hover {
+nav[role="navigation"] a:hover {
   color: #d93c12;
   text-shadow: 0 0 4px rgba(255, 255, 255, 0.3); }
 nav[role="navigation"] .inactive:after {
@@ -201,17 +202,6 @@ section[role="main"] .bookPreview a:hover .button {
 blockquote { margin: .75em 0 .75em .5em; padding-left: .5em; border-left: .25em solid #f8f8f8; }
 .review+.review { margin-top: 1.5em; }
 
-.cart #minicart { display:none; }
-#minicart, #microcart { margin-top: 1.5em; padding: .75em .75em .25em; background-color: #FDEDE9; border:1px solid #FCDCD4; -webkit-border-radius: .25em; -moz-border-radius: .25em; border-radius: .25em; }
-#minicart h5 { text-align: center; }
-#minicart h4 em { display: none; }
-#minicart h4.section_title { border-bottom-color: #ee5830!important; }
-#minicart:hover h4 em { display: inline; }
-.minicart_product { border-bottom: 1px solid #ee5830; margin-bottom: .75em; }
-.minicart_product.last { border-bottom: 4px double #ee5830; }
-#minicart .submit.button:link, #minicart .submit.button:visited { color: #f8f8f8; }
-#minicart #completeCart { width: 100%; white-space: normal; }
-#microcart h4.section_title { border-bottom: none; margin-bottom: 0; }
 
 .just-updated #minicart, .just-updated #microcart {
 -webkit-animation: cssAnimation .6s 1 ease;
@@ -219,16 +209,16 @@ blockquote { margin: .75em 0 .75em .5em; padding-left: .5em; border-left: .25em 
 -o-animation: cssAnimation .6s 1 ease;
 }
 @-webkit-keyframes cssAnimation {
-	from { background-color: #E98C74; }
-	to { background-color: #FDEDE9; }
+	from { background-color: #ee5830; }
+	to { background-color: #f4f4f4; }
 }
 @-moz-keyframes cssAnimation {
-	from { background-color: #E98C74; }
-	to { background-color: #FDEDE9; }
+	from { background-color: #ee5830; }
+	to { background-color: #f4f4f4; }
 }
 @-o-keyframes cssAnimation {
-	from { background-color: #E98C74; }
-	to { background-color: #FDEDE9; }
+	from { background-color: #ee5830; }
+	to { background-color: #f4f4f4; }
 }
 
 #cart { width: 100%; }
@@ -257,7 +247,7 @@ blockquote { margin: .75em 0 .75em .5em; padding-left: .5em; border-left: .25em 
 #legal-stuff h4+p, #legal-stuff h5+p { margin-top: 0; }
 #legal-stuff h5 { font-style: italic; margin-top: .75em; }
 
-/* Book specific Colours */ 
+/* Book specific Colours */
 #do-grow-start-with-10-simple-vegetables .section_title {
   border-bottom-color: #749052;
 }
@@ -432,7 +422,7 @@ footer[role="content-info"] .social {
   box-shadow: 0 0 5px #ee5830;
   border-color: #ee5830; }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
 	.twitter, .facebook, .instagram, .mailto {
 
 	  background-image: url(social-new-2x.png);}
@@ -440,7 +430,7 @@ footer[role="content-info"] .social {
 
 .bookPreview { position: relative; }
 
-.ebook_notice p { 
+.ebook_notice p {
   position: absolute;
   background-color: #F2FCFF;
   top: 0;

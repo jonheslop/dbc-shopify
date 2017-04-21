@@ -388,5 +388,90 @@
                  "default": ""
             }
         ]
+    },
+    {
+        "name": "Info Boxes",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "info_boxes",
+                "label": "Display info boxes"
+            },
+            {
+                "type": "header",
+                "content": "Box 1"
+            },
+            {
+                "type": "image",
+                "id": "homepage_box_image_1.jpg",
+                "label": "Box image",
+                "max-width": 2048
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_title_1",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_subtitle_1",
+                "label": "Subtitle"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_link_1",
+                "label": "Call to action URL"
+            },
+            {
+                "type": "header",
+                "content": "Box 2"
+            },
+            {
+                "type": "image",
+                "id": "homepage_box_image_2.jpg",
+                "label": "Box image",
+                "max-width": 2048
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_title_2",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_subtitle_2",
+                "label": "Subtitle"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_link_2",
+                "label": "Call to action URL"
+            },
+            {
+                "type": "header",
+                "content": "Box 3"
+            },
+            {
+                "type": "image",
+                "id": "homepage_box_image_3.jpg",
+                "label": "Box image",
+                "max-width": 2048
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_title_3",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_subtitle_3",
+                "label": "Subtitle"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_link_3",
+                "label": "Call to action URL"
+            }
+        ]
     }
 ]

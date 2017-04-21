@@ -1,47 +1,43 @@
 <!-- Every 12 products in the collection, paginate -->
 {% paginate collection.products by 18 %}
 {% if collection.handle == "all" %}
-<ul id="newBooks" class="partition cf">
-		<header class="cf">
-			<hgroup class="wrapper">
-				<h1 class="section_title">Smart Working</h1>
-			</hgroup>
-		</header>
-		<div class="equalheights">
-	{% if collections.home-page %}
-	  {% for product in collections.smart-working.products %}
-		<li style="" class="bookPreview wrapper {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
-			<a href="{{ product.url | within: collection }}" title="{{ product.title }}">
-				<figure class="cf">
-					<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
-				</figure>
-			</a>
-		</li>
-	  {% endfor %}
-	  </div>
-	</ul>
-	 {% endif %}
-<ul id="newBooks" class="partition cf">
-		<header class="cf">
-			<hgroup class="wrapper">
-				<h1 class="section_title">Slow Living</h1>
-			</hgroup>
-		</header>
-		<div class="equalheights">
-	{% if collections.home-page %}
-	  {% for product in collections.slow-living.products %}
-		<li style="" class="bookPreview wrapper {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
-			<a href="{{ product.url | within: collection }}" title="{{ product.title }}">
-				<figure class="cf">
-					<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
-				</figure>
-			</a>
-		</li>
-	  {% endfor %}
-	  </div>
-	</ul>
-	 {% endif %}
-			{% if collections.bundles %}
+{% if collections.home-page %}
+<section class="partition mv5">
+    <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+        <h1 class="f3 f2-ns ma0 lh-title">Smart Working</h1>
+    </header>
+    <div class="cf grid-offset">
+      {% for product in collections.smart-working.products %}
+        <article class="fl w-50 w-third-m w-20-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+            <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
+                <figure class="ma0">
+                    <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+                </figure>
+            </a>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+ {% endif %}
+ {% if collections.home-page %}
+ <section class="partition mv5">
+     <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+         <h1 class="f3 f2-ns ma0 lh-title">Slow Living</h1>
+     </header>
+     <div class="cf grid-offset">
+         {% for product in collections.slow-living.products %}
+         <article class="fl w-50 w-third-m w-20-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+             <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
+                 <figure class="ma0">
+                     <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+                 </figure>
+             </a>
+         </article>
+       {% endfor %}
+     </div>
+   </section>
+  {% endif %}
+			<!-- {% if collections.bundles %}
 			  {% for product in collections.bundles.products %}
 				<form class="launch addtocart cf" action="/cart/add" method="post" style="margin-bottom:3em;">
 			      {% comment %} Return to product instead of going to cart {% endcomment %}
@@ -70,32 +66,31 @@
 					<p class="coming_soon wrapper"><em>~ Available from 1st May 2014 ~</em></p>
 				   {% endunless %}
 					<div>
-						<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" /> 
+						<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
 					</div>
 				</form>
 		  {% endfor %}
-		 {% endif %}
-<ul id="newBooks" class="partition cf">
-		<header class="cf">
-			<hgroup class="wrapper">
-              <h1 class="section_title">Gift ideas</h1>
-			</hgroup>
-		</header>
-		<div class="gift-bundles equalheights">
+		 {% endif %} -->
+
+ <section class="partition mv5">
+     <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+         <h1 class="f3 f2-ns ma0 lh-title">Gift ideas</h1>
+     </header>
 	{% if collections.home-page %}
+	<div class="cf grid-offset">
 	  {% for product in collections.gift-bundles.products %}
-		<li style="" class="bookPreview wrapper {{ product.type | handleize }} {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
-			<a href="{{ product.url | within: collection }}" title="{{ product.title }}">
-				<figure class="cf">
+		<article class="fl w-50 w-third-m w-25-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+			<a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="link product-thumb">
+				<figure class="ma0">
 					<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
-                    <h4>{{ product.title }}</h4>	
+              <h4 class="mt2 f5">{{ product.title }}</h4>
 				</figure>
 			</a>
-		</li>
+		</article>
 	  {% endfor %}
-	  </div>
-	</ul>
-	 {% endif %}
+		</div>
+		{% endif %}
+	</section>
 
 {% else %}
 <section id="featuredBook" class="partition cf">
@@ -138,9 +133,9 @@
 				<option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
 			{% endfor %}
 			</select>
-			<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" /> 
+			<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
 			<script>
-			// <![CDATA[  
+			// <![CDATA[
 			var selectCallback = function(variant, selector) {
 			  if (variant) {
 			    if (variant.available) {
@@ -148,14 +143,14 @@
 			      $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Cart').fadeTo(200,1);
 			    } else {
 			      // Variant is sold out.
-			      $('#add').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);        
+			      $('#add').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
 			    }
 			    // Whether the variant is in stock or not, we can update the price and compare at price.
 			    if ( variant.compare_at_price > variant.price ) {
 			      $('#price-field').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
 			    } else {
 			      $('#price-field').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
-			    }        
+			    }
 			  } else {
 			    // variant doesn't exist.
 			    $('#add').val('Unavailable').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
@@ -200,7 +195,7 @@
 				<p class="coming_soon wrapper"><em>~ Available from 16th May 2013 ~</em></p>
 			   {% endunless %}
 				<div>
-					<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" /> 
+					<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
 				</div>
 			</form>
 	  {% endfor %}
