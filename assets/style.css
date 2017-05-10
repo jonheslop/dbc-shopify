@@ -60,6 +60,10 @@ h3 {
  font-family: "myriad-pro-condensed", sans-serif;
 }
 
+.antialiased {
+    -webkit-font-smoothing: antialiased;
+}
+
 @media screen and (min-width: 30em) {
   .left-align-with-logo {
       margin-left: 1.5rem;
@@ -289,5 +293,14 @@ figure {
 @media screen and (min-width: 60em) {
   .columned-list {
     column-count: 4;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  header[role="banner"] {
+    width: 14rem;
+  }
+  .container-wrapper {
+    margin-left: 14rem;
   }
 }

@@ -61,7 +61,7 @@
 {% if collections.home-page %}
 <section class="partition mv5">
     <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
-        <h1 class="f3 f2-ns ma0 lh-title">Smart Working</h1>
+        <h1 class="f3 fw5 f2-ns ma0 lh-title">Smart Working</h1>
     </header>
     <div class="cf grid-offset">
       {% for product in collections.smart-working.products %}
@@ -79,7 +79,7 @@
  {% if collections.home-page %}
  <section class="partition mv5">
      <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
-         <h1 class="f3 f2-ns ma0 lh-title">Slow Living</h1>
+         <h1 class="f3 fw5 f2-ns ma0 lh-title">Slow Living</h1>
      </header>
      <div class="cf grid-offset">
          {% for product in collections.slow-living.products %}
@@ -149,27 +149,25 @@
           {% endfor %}
          {% endif %}-->
 
-<!-- <ul id="newBooks" class="partition cf">
-        <header class="cf">
-            <hgroup class="wrapper">
-              <h1 class="section_title">Gift ideas <span class="callout"></span></h1>
-            </hgroup>
-        </header>
-        <div class="gift-bundles equalheights">
-    {% if collections.home-page %}
-      {% for product in collections.gift-bundles.products %}
-        <li style="" class="bookPreview wrapper {{ product.type | handleize }} {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
-            <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
-                <figure class="cf">
-                    <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
-                    <h4>{{ product.title }}</h4>
-                </figure>
-            </a>
-        </li>
-      {% endfor %}
-      </div>
-    </ul>
-     {% endif %} -->
+        <section class="cf mv5">
+            <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+                <h1 class="f3 fw5 f2-ns ma0 lh-title">Gift ideas</h1>
+            </header>
+            <div class="cf grid-offset">
+            {% if collections.home-page %}
+              {% for product in collections.gift-bundles.products %}
+              <article class="fl w-50 w-25-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+                  <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb no-underline">
+                    <figure class="ma0">
+                        <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+                        <h4 class="orange mt3 mb0">{{ product.title }}</h4>
+                    </figure>
+                  </a>
+              </article>
+              {% endfor %}
+          {% endif %}
+          </div>
+      </section>
 
         {% if collections.christmas %}
           {% for product in collections.christmas.products %}
