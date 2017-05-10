@@ -473,5 +473,40 @@
                 "label": "Call to action URL"
             }
         ]
+    },
+    {
+        "name": "Page Header images",
+        "settings": [
+            {
+                "type": "header",
+                "content": "About Page"
+            },
+            {
+                "type": "image",
+                "id": "do-book-co-about_header_image.jpg",
+                "label": "Header Image",
+                "max-width": 2048
+            },
+            {
+                "type": "header",
+                "content": "Events Page"
+            },
+            {
+                "type": "image",
+                "id": "do-book-co-events_header_image.jpg",
+                "label": "Header Image",
+                "max-width": 2048
+            },
+            {
+                "type": "header",
+                "content": "Stockists Page"
+            },
+            {
+                "type": "image",
+                "id": "do-book-co-stockists_header_image.jpg",
+                "label": "Header Image",
+                "max-width": 2048
+            }
+        ]
     }
 ]

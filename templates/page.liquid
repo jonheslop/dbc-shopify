@@ -1,16 +1,27 @@
+    {% if page.handle == "stockists" or page.handle == "about-us" or page.handle == "events" %}
+    <figure class="cf mb4">
+        {% if page.handle == "stockists" %}
+        <img src="{{ 'do-book-co-stockists_header_image.jpg' | asset_url }}" alt="{{ page.title }}"/>
+        {% elsif page.handle == "about-us" %}
+        <img src="{{ 'do-book-co-about_header_image.jpg' | asset_url }}" alt="{{ page.title }}"/>
+        {% elsif page.handle == "events" %}
+        <img src="{{ 'do-book-co-events_header_image.jpg' | asset_url }}" alt="{{ page.title }}"/>
+        {% endif %}
+    </figure>
+    {% endif %}
     <section id="{{page.handle}}" class="partition">
         <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
-        <h1 class="f3 fw5 f2-ns ma0 lh-title">{{page.title}}</h1>
-    </header>
+            <h1 class="f3 fw5 f2-ns ma0 lh-title">{{ page.title }}</h1>
+        </header>
         <div class="page-content ph3 ph0-ns">
             {% if page.handle == "subscribe" %}
             <form action="http://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate cf" target="_blank" novalidate>
-                <div class="mv3 f4">{{page.content}}</div>
+                <div class="mv3 f4">{{ page.content }}</div>
                 <input class="fl w-75 pa3 lh-copy br1 bw1 br--left ba b--dbc-orange lh--copy" type="mce-EMAIL" id="mce-EMAIL" name="EMAIL" placeholder="your.name@email.com" value="" required>
                 <input class="fl w-25 pa3 lh-copy br1 bw1 br--right bg-dbc-orange white ba b--dbc-orange ttu myriad fw4 tracked antialiased" type="submit" id="mc-embedded-subscribe" value="Sign Up" />
             </form>
             {% else %}
-            {{page.content}}
+            {{ page.content }}
             {% endif %}
         </div>
     </section>
