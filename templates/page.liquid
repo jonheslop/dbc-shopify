@@ -4,12 +4,10 @@
     </header>
         <div class="page-content ph3 ph0-ns">
             {% if page.handle == "subscribe" %}
-            <form action="http://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate wrapper" target="_blank" novalidate>
-                <fieldset class="br1 pa3 cf">
-                    <legend class="ph2 gray">Sign up for news about our books</legend>
-                    <input class="fl w-75 pa3 lh-copy br1 br--left ba b--dbc-orange lh--copy" type="mce-EMAIL" id="mce-EMAIL" name="EMAIL" placeholder="your.name@email.com" value="" required>
-                    <input class="fl w-25 pa3 lh-copy br1 br--right bg-dbc-orange white ba b--dbc-orange ttu myriad fw4 tracked antialiased" type="submit" id="mc-embedded-subscribe" value="Sign Up" />
-                </fieldset>
+            <form action="http://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate cf" target="_blank" novalidate>
+                <div class="mv3 f4">{{page.content}}</div>
+                <input class="fl w-75 pa3 lh-copy br1 bw1 br--left ba b--dbc-orange lh--copy" type="mce-EMAIL" id="mce-EMAIL" name="EMAIL" placeholder="your.name@email.com" value="" required>
+                <input class="fl w-25 pa3 lh-copy br1 bw1 br--right bg-dbc-orange white ba b--dbc-orange ttu myriad fw4 tracked antialiased" type="submit" id="mc-embedded-subscribe" value="Sign Up" />
             </form>
             {% else %}
             {{page.content}}

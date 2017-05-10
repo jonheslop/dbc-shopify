@@ -59,7 +59,7 @@
 {% endif %}
 
 {% if collections.home-page %}
-<section class="partition mv5">
+<section class="cf mv5">
     <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
         <h1 class="f3 fw5 f2-ns ma0 lh-title">Smart Working</h1>
     </header>
@@ -76,8 +76,9 @@
     </div>
   </section>
  {% endif %}
+
  {% if collections.home-page %}
- <section class="partition mv5">
+ <section class="cf mv5">
      <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
          <h1 class="f3 fw5 f2-ns ma0 lh-title">Slow Living</h1>
      </header>
@@ -95,165 +96,130 @@
    </section>
   {% endif %}
 
-<!-- <ul id="newBooks" class="partition cf">
-        <header class="cf">
-            <hgroup class="wrapper">
-                <h1 class="section_title">Books that make it easier to&nbsp;Do&nbsp;stuff</h1>
-            </hgroup>
-        </header>
-        <div class="equalheights">
-    {% if collections.home-page %}
-      {% for product in collections.guidebooks.products %}
-        <li class="bookPreview wrapper {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
-            <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
-                <figure class="cf">
-                    <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
-                    {% if product.tags contains 'new' or product.tags contains 'New' %}
-                        <span class="button">New</span>
-                    {% else %}
-                        <span class="button">Learn more</span>
-                    {% endif %}
-                </figure>
-            </a>
-        </li>
-        {% if forloop.index == 4 %}
-            <li class="bookPreview wrapper ebook_notice">
-              <p>NEW: Free digital copy with each paperback purchase!</p>
-            </li>
-        {% endif %}
-      {% endfor %}
-      </div>
-    </ul>
-     {% endif %}
-            {% if collections.bundles %}
-              {% for product in collections.bundles.products %}
-                <form class="addtocart pa4 bg-dbc-washed-orange br2 ba bw1 b--dbc-orange tc" action="/cart/add" method="post">
-                  {% comment %} Return to product instead of going to cart {% endcomment %}
-                  <input type="hidden" name="return_to" value="back" />
-                    <header>
-                        <h2>{{collections.bundles.description}}</h2>
-                    </header>
-                    {% for variant in product.variants %}
-                      {% if variant.available == true %}
-                        <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="dn"/>
-                        <label for="format_{{variant.id}}" class="radio-button-label dib myriad fw6 input-reset br2 ba bw1 bg-dbc-washed-orange ttu pv2 ph4 tracked dbc-orange">{% if variant.title == "Bundle" %}Add pb + ebook set{% else %}Add {{ variant.title }} set{% endif %} {{ variant.price | money | remove: '.00' }} <span class="db mt2 i caslon fw4 ttn" style="letter-spacing: 0;">14 books</span></label>
-                        {% else %}
-                        Out of stock
-                      {% endif %}
-                     {% endfor %}
-                   {% unless product.available %}
-                    <p class="coming_soon wrapper"><em>~ Available from 1st May 2014 ~</em></p>
-                   {% endunless %}
-                    <input type="submit" class="dn submit" value="Add to Basket" id="add" name="add" />
-                </form>
-          {% endfor %}
-         {% endif %}-->
-
-        <section class="cf mv5">
+    <div class="cf grid-offset">
+        <section class="fl w-100 w-60-l cf mv4 pa3-ns border-box">
             <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
-                <h1 class="f3 fw5 f2-ns ma0 lh-title">Gift ideas</h1>
+                <h3 class="f3 f4-ns ma0 lh-title">Subscribe to our newsletter</h3>
             </header>
-            <div class="cf grid-offset">
-            {% if collections.home-page %}
-              {% for product in collections.gift-bundles.products %}
-              <article class="fl w-50 w-25-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
-                  <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb no-underline">
-                    <figure class="ma0">
-                        <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
-                        <h4 class="orange mt3 mb0">{{ product.title }}</h4>
-                    </figure>
-                  </a>
-              </article>
-              {% endfor %}
-          {% endif %}
-          </div>
-      </section>
-
-        {% if collections.christmas %}
-          {% for product in collections.christmas.products %}
-            <form class="christmas addtocart cf" action="/cart/add" method="post">
-              {% comment %} Return to product instead of going to cart {% endcomment %}
-              <input type="hidden" name="return_to" value="back" />
-                <header>
-                    <h2>{{ collections.christmas.description }}</h2>
-                </header>
-                <select id="product-select" name="id">
-                {% for variant in product.variants %}
-                    <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
-                {% endfor %}
-                </select>
-                <input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
-                <script>
-                // <![CDATA[
-                var selectCallback = function(variant, selector) {
-                  if (variant) {
-                    if (variant.available) {
-                      // Selected a valid variant that is available.
-                      $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Cart').fadeTo(200,1);
-                    } else {
-                      // Variant is sold out.
-                      $('#add').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
-                    }
-                    // Whether the variant is in stock or not, we can update the price and compare at price.
-                    if ( variant.compare_at_price > variant.price ) {
-                      $('#price-field').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
-                    } else {
-                      $('#price-field').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
-                    }
-                  } else {
-                    // variant doesn't exist.
-                    $('#add').val('Unavailable').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
-                  }
-                }
-                // initialize multi selector for product
-                jQuery(function($) {
-                  new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
-                });
-                // ]]>
-                </script>
+            <form action="http://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate cf mh3 mh0-ns" target="_blank" novalidate>
+                <input class="fl w-70 pa3 lh-copy br1 bw1 br--left ba b--dbc-orange lh--copy" type="mce-EMAIL" id="mce-EMAIL" name="EMAIL" placeholder="your.name@email.com" value="" required>
+                <input class="fl w-30 pa3 lh-copy br1 bw1 br--right bg-dbc-orange white ba b--dbc-orange ttu myriad fw4 tracked antialiased" type="submit" id="mc-embedded-subscribe" value="Sign Up" />
             </form>
-          {% endfor %}
-         {% endif %}
-
-       {% if settings.info_boxes %}
-        <section class="partition mv5">
-            <div class="cf grid-offset">
-                <article class="fl w-100 w-third-ns tc pa3 border-box relative">
-                  <a href="{{ settings.homepage_box_link_1 }}">
-                    <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
-                        <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_1.jpg' | asset_url }}) center;"></div>
-                        <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
-                            <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_1 }}</h2>
-                            <p>{{ settings.homepage_box_subtitle_1 }}&nbsp;»</p>
-                        </header>
-                    </div>
-                  </a>
-                </article>
-                <article class="fl w-100 w-third-ns tc pa3 border-box relative">
-                  <a href="{{ settings.homepage_box_link_2 }}">
-                    <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
-                        <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_2.jpg' | asset_url }}) center;"></div>
-                        <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
-                            <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_2 }}</h2>
-                            <p>{{ settings.homepage_box_subtitle_2 }}&nbsp;»</p>
-                        </header>
-                    </div>
-                  </a>
-                </article>
-                <article class="fl w-100 w-third-ns tc pa3 border-box relative">
-                  <a href="{{ settings.homepage_box_link_3 }}">
-                    <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
-                        <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_3.jpg' | asset_url }}) center;"></div>
-                        <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
-                            <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_3 }}</h2>
-                            <p>{{ settings.homepage_box_subtitle_3 }}&nbsp;»</p>
-                        </header>
-                    </div>
-                  </a>
-                </article>
-            </div>
         </section>
-        {% endif %}
+
+        <section class="fl w-100 w-40-l cf mv4 pa3-ns border-box">
+            <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+                <h3 class="f3 f4-ns ma0 lh-title">The Essential Do Library</h3>
+            </header>
+            <a class="link dim db pa2 ba tc br1 bw1 b--dbc bg-dbc-orange white lh-title ttu tracked myriad antialiased mh3 mh0-ns" href="https://thedobook.co/products/complete-11-book-bundle">Buy the Complete Library <span class="db">for £112</span></a>
+        </section>
+    </div>
+    
+    <section class="cf mv4 fl w-100">
+        <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+            <h1 class="f3 fw5 f2-ns ma0 lh-title">Gift ideas</h1>
+        </header>
+        <div class="cf grid-offset">
+        {% if collections.home-page %}
+          {% for product in collections.gift-bundles.products %}
+          <article class="fl w-50 w-25-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+              <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb no-underline">
+                <figure class="ma0">
+                    <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+                    <h4 class="orange mt3 mb0">{{ product.title }}</h4>
+                </figure>
+              </a>
+          </article>
+          {% endfor %}
+      {% endif %}
+      </div>
+  </section>
+
+    {% if collections.christmas %}
+      {% for product in collections.christmas.products %}
+        <form class="christmas addtocart cf" action="/cart/add" method="post">
+          {% comment %} Return to product instead of going to cart {% endcomment %}
+          <input type="hidden" name="return_to" value="back" />
+            <header>
+                <h2>{{ collections.christmas.description }}</h2>
+            </header>
+            <select id="product-select" name="id">
+            {% for variant in product.variants %}
+                <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+            {% endfor %}
+            </select>
+            <input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
+            <script>
+            // <![CDATA[
+            var selectCallback = function(variant, selector) {
+              if (variant) {
+                if (variant.available) {
+                  // Selected a valid variant that is available.
+                  $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Cart').fadeTo(200,1);
+                } else {
+                  // Variant is sold out.
+                  $('#add').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+                }
+                // Whether the variant is in stock or not, we can update the price and compare at price.
+                if ( variant.compare_at_price > variant.price ) {
+                  $('#price-field').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
+                } else {
+                  $('#price-field').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
+                }
+              } else {
+                // variant doesn't exist.
+                $('#add').val('Unavailable').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+              }
+            }
+            // initialize multi selector for product
+            jQuery(function($) {
+              new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+            });
+            // ]]>
+            </script>
+        </form>
+      {% endfor %}
+     {% endif %}
+
+   {% if settings.info_boxes %}
+    <section class="fl w-100 mv4 cf">
+        <div class="cf grid-offset">
+            <article class="fl w-100 w-third-ns tc pa3 border-box relative">
+              <a href="{{ settings.homepage_box_link_1 }}">
+                <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
+                    <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_1.jpg' | asset_url }}) center;"></div>
+                    <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
+                        <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_1 }}</h2>
+                        <p>{{ settings.homepage_box_subtitle_1 }}&nbsp;»</p>
+                    </header>
+                </div>
+              </a>
+            </article>
+            <article class="fl w-100 w-third-ns tc pa3 border-box relative">
+              <a href="{{ settings.homepage_box_link_2 }}">
+                <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
+                    <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_2.jpg' | asset_url }}) center;"></div>
+                    <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
+                        <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_2 }}</h2>
+                        <p>{{ settings.homepage_box_subtitle_2 }}&nbsp;»</p>
+                    </header>
+                </div>
+              </a>
+            </article>
+            <article class="fl w-100 w-third-ns tc pa3 border-box relative">
+              <a href="{{ settings.homepage_box_link_3 }}">
+                <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
+                    <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_3.jpg' | asset_url }}) center;"></div>
+                    <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
+                        <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_3 }}</h2>
+                        <p>{{ settings.homepage_box_subtitle_3 }}&nbsp;»</p>
+                    </header>
+                </div>
+              </a>
+            </article>
+        </div>
+    </section>
+    {% endif %}
 <!-- <section id="recently" class="partition cf">
     <header class="wrapper">
         <h2 class="section_title">Recently at Do&nbsp;books</h2>
