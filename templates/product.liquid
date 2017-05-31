@@ -1,133 +1,133 @@
 <section class="partition cf">
-	<figure id="images" class="wrapper">
-	  {% for image in product.images %}
-		{% if forloop.first %}
-		<img class="featured" src="{{ image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'grande' }}" />
-		{% elsif forloop.last %}
-		<a href="{{ image | product_img_url: '1024x1024' }}" class="fancybox" rel="book-spreads"><img class="thumb last" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'compact' }}" /></a>
-		{% else %}
-		<a href="{{ image | product_img_url: '1024x1024' }}" class="fancybox" rel="book-spreads"><img class="thumb" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'compact' }}" /></a>
-		{% endif %}
-	  {% endfor %}
-	</figure>
-	<section id="details" class="wrapper">
-		<article id="intro">
-			<hgroup>
-				<h2 class="section_title"><span class="title">{{ product.title }}</span> <span class="author">{{ product.vendor | replace: ' ', '&nbsp;'}}</span></h2>
-			</hgroup>
-			{{ product.description }}
-			{% if product.title contains "Gift" %}
-			<form class="addtocart cf" action="/cart/add" method="post">
-		      {% comment %} Return to product instead of going to cart {% endcomment %}
-		      <input type="hidden" name="return_to" value="back" />
-				<header>
-					<h5 class="section_title">Choose your 3 titles:</h5>
-					 <div id="price-field"></div>
-				</header>
-					<select id="product-select" name="id">
-					{% for variant in product.variants %}
-						<option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
-					{% endfor %}
-					</select>
-					<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" /> 
-			</form>
-			{% else %}
-			<form class="addtocart cf" action="/cart/add" method="post">
-		      {% comment %} Return to product instead of going to cart {% endcomment %}
-		      <input type="hidden" name="return_to" value="back" />
-				<header>
-					<h5 class="section_title">Choose a format:</h5>
-				</header>
-				<div class="radioButtons cf">
-					{% for variant in product.variants %}
-		          {% if variant.available == true %}
-					<div class="wrapper">
-					<input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
-					<label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {% if variant.title == "Paperback" %}Paperback{% unless product.title contains "Disrupt" %} &amp; eBook{% endunless %}{% else %}{{ variant.title }}{% endif %} {{ variant.price | money | remove: '.00' }} {% if variant.compare_at_price %}{{ variant.compare_at_price  | money | remove: '.00' | prepend: '(was ' | append: ')'}}{% endif %} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages {% unless product.title contains "Disrupt" %}(includes eBook too){% endunless %}{% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
-					{% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
-		          	</div>
-					{% else %}
-					<div class="wrapper">
-					<input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat" />
-					<label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">{{ variant.title }} Unavailable <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages (includes eBook too){% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
-					{% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
-					</div>
-		          {% endif %}
-		         {% endfor %}
-				</div>
-				{% if product.tags contains 'coming soon' and product.title contains 'breathe' %}
-					<p class="coming_soon wrapper"><em>~ Available from 5 May 2016 ~</em></p>
-				{% elsif product.tags contains 'coming soon' %}
-					<p class="coming_soon wrapper"><em>~ Available from 5 May 2016 ~</em></p>
-				{% else %}
-   			   {% unless product.available %}
-				<p class="coming_soon wrapper"><em>~ Sold out ~</em></p>
-			   {% endunless %}
+    <figure id="images" class="wrapper">
+      {% for image in product.images %}
+        {% if forloop.first %}
+        <img class="featured" src="{{ image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'grande' }}" />
+        {% elsif forloop.last %}
+        <a href="{{ image | product_img_url: '1024x1024' }}" class="fancybox" rel="book-spreads"><img class="thumb last" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'compact' }}" /></a>
+        {% else %}
+        <a href="{{ image | product_img_url: '1024x1024' }}" class="fancybox" rel="book-spreads"><img class="thumb" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'compact' }}" /></a>
+        {% endif %}
+      {% endfor %}
+    </figure>
+    <section id="details" class="wrapper">
+        <article id="intro">
+            <hgroup>
+                <h2 class="section_title"><span class="title">{{ product.title }}</span> <span class="author">{{ product.vendor | replace: ' ', '&nbsp;'}}</span></h2>
+            </hgroup>
+            {{ product.description }}
+            {% if product.title contains "Gift" %}
+            <form class="addtocart cf" action="/cart/add" method="post">
+              {% comment %} Return to product instead of going to cart {% endcomment %}
+              <input type="hidden" name="return_to" value="back" />
+                <header>
+                    <h5 class="section_title">Choose your 3 titles:</h5>
+                     <div id="price-field"></div>
+                </header>
+                    <select id="product-select" name="id">
+                    {% for variant in product.variants %}
+                        <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                    {% endfor %}
+                    </select>
+                    <input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
+            </form>
+            {% else %}
+            <form class="addtocart cf" action="/cart/add" method="post">
+              {% comment %} Return to product instead of going to cart {% endcomment %}
+              <input type="hidden" name="return_to" value="back" />
+                <header>
+                    <h5 class="section_title">Choose a format:</h5>
+                </header>
+                <div class="radioButtons cf">
+                    {% for variant in product.variants %}
+                  {% if variant.available == true %}
+                    <div class="wrapper">
+                    <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
+                    <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {% if variant.title == "Paperback" %}Paperback{% unless product.title contains "Disrupt" %} &amp; eBook{% endunless %}{% else %}{{ variant.title }}{% endif %} {{ variant.price | money | remove: '.00' }} {% if variant.compare_at_price %}{{ variant.compare_at_price  | money | remove: '.00' | prepend: '(was ' | append: ')'}}{% endif %} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages {% unless product.title contains "Disrupt" %}(includes eBook too){% endunless %}{% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
+                    {% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
+                      </div>
+                    {% else %}
+                    <div class="wrapper">
+                    <input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat" />
+                    <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">{{ variant.title }} Unavailable <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages (includes eBook too){% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
+                    {% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
+                    </div>
+                  {% endif %}
+                 {% endfor %}
+                </div>
+                {% if product.tags contains 'coming soon' and product.title contains 'breathe' %}
+                    <p class="coming_soon wrapper"><em>~ Available from 5 May 2016 ~</em></p>
+                {% elsif product.tags contains 'coming soon' %}
+                    <p class="coming_soon wrapper"><em>~ Available from 5 May 2016 ~</em></p>
+                {% else %}
+                  {% unless product.available %}
+                <p class="coming_soon wrapper"><em>~ Sold out ~</em></p>
+               {% endunless %}
 
               {% endif %}
-				<div>
-					<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" /> 
-				</div>
-			</form>
-			{% endif %}
+                <div>
+                    <input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
+                </div>
+            </form>
+            {% endif %}
 
-		</article>
-	</section>
+        </article>
+    </section>
 </section>
 {% unless product.handle contains "bundle" or product.handle contains "gift" or product.type == "Gift" %}
 <section class="partition cf">
-	<section id="summary">
-		<header class="wrapper">
-			<hgroup>
-				<h2 class="section_title">Summary</h2>
-			</hgroup>
-		</header>
-		<article class="wrapper">
-			{% capture list_snippet %}{{ product.vendor | handleize }}-list{% endcapture %}
-			{% include list_snippet %}
-	</section>
-	<section id="authorBio">
-		<header class="wrapper">
-			<hgroup>
-				<h2 class="section_title">About the author</h2>
-			</hgroup>
-		</header>
-		<article class="wrapper">
-			{% capture bio_snippet %}{{ product.vendor | handleize }}-bio{% endcapture %}
-			{% include bio_snippet %}
-	</section>
+    <section id="summary">
+        <header class="wrapper">
+            <hgroup>
+                <h2 class="section_title">Summary</h2>
+            </hgroup>
+        </header>
+        <article class="wrapper">
+            {% capture list_snippet %}{{ product.vendor | handleize }}-list{% endcapture %}
+            {% include list_snippet %}
+    </section>
+    <section id="authorBio">
+        <header class="wrapper">
+            <hgroup>
+                <h2 class="section_title">About the author</h2>
+            </hgroup>
+        </header>
+        <article class="wrapper">
+            {% capture bio_snippet %}{{ product.vendor | handleize }}-bio{% endcapture %}
+            {% include bio_snippet %}
+    </section>
 </section>
 {% capture details_snippet %}{{ product.vendor | handleize }}-details{% endcapture %}
 {% capture details_snippet_content %}{% include details_snippet %}{% endcapture %}
 {% unless details_snippet_content contains "Liquid error" %}
 <section id="additional-details" class="partition cf">
-	{% include details_snippet %}
+    {% include details_snippet %}
 </section>
 {% endunless %}
 <section class="partition cf">
-	<aside id="dolecture" class="cf">
-    	<figure class="embed cf">
-    		<div class="wrapper embedWrapper">
-				{% capture lecture_snippet %}{{ product.vendor | handleize }}-lecture{% endcapture %}
-				{% include lecture_snippet %}
-    		</div>
-    		<figcaption class="caption wrapper">
-				{% capture lecture_description_snippet %}{{ product.vendor | handleize }}-lecture-description{% endcapture %}
-				{% include lecture_description_snippet %}
-    		</figcaption>
-    	</figure>
+    <aside id="dolecture" class="cf">
+        <figure class="embed cf">
+            <div class="wrapper embedWrapper">
+                {% capture lecture_snippet %}{{ product.vendor | handleize }}-lecture{% endcapture %}
+                {% include lecture_snippet %}
+            </div>
+            <figcaption class="caption wrapper">
+                {% capture lecture_description_snippet %}{{ product.vendor | handleize }}-lecture-description{% endcapture %}
+                {% include lecture_description_snippet %}
+            </figcaption>
+        </figure>
     </aside>
 </section>
 {% capture reviews_snippet %}{{ product.vendor | handleize }}-reviews{% endcapture %}
 {% capture reviews_snippet_content %}{% include reviews_snippet %}{% endcapture %}
 {% unless reviews_snippet_content contains "Liquid error" %}
 <section class="partition cf">
-	<section id="reviews" class="wrapper">
-		<hgroup>
-			<h2 class="section_title">Reviews</h2>
-		</hgroup>
-			{% include reviews_snippet %}
-	</section>
+    <section id="reviews" class="wrapper">
+        <hgroup>
+            <h2 class="section_title">Reviews</h2>
+        </hgroup>
+            {% include reviews_snippet %}
+    </section>
 </section>
 {% endunless %}
 {% endunless %}
