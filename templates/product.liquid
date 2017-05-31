@@ -76,16 +76,16 @@
 </section>
 {% unless product.handle contains "bundle" or product.handle contains "gift" or product.type == "Gift" %}
 <section class="partition cf">
-    <section id="summary">
-        <header class="wrapper">
-            <hgroup>
-                <h2 class="section_title">Summary</h2>
-            </hgroup>
-        </header>
-        <article class="wrapper">
-            {% capture list_snippet %}{{ product.vendor | handleize }}-list{% endcapture %}
-            {% include list_snippet %}
+    {% capture reviews_snippet %}{{ product.vendor | handleize }}-reviews{% endcapture %}
+    {% capture reviews_snippet_content %}{% include reviews_snippet %}{% endcapture %}
+    {% unless reviews_snippet_content contains "Liquid error" %}
+    <section id="reviews" class="wrapper">
+        <hgroup>
+            <h2 class="section_title">Reviews</h2>
+        </hgroup>
+            {% include reviews_snippet %}
     </section>
+    {% endunless %}
     <section id="authorBio">
         <header class="wrapper">
             <hgroup>
@@ -118,18 +118,18 @@
         </figure>
     </aside>
 </section>
-{% capture reviews_snippet %}{{ product.vendor | handleize }}-reviews{% endcapture %}
-{% capture reviews_snippet_content %}{% include reviews_snippet %}{% endcapture %}
-{% unless reviews_snippet_content contains "Liquid error" %}
 <section class="partition cf">
-    <section id="reviews" class="wrapper">
-        <hgroup>
-            <h2 class="section_title">Reviews</h2>
-        </hgroup>
-            {% include reviews_snippet %}
+    <section id="summary">
+        <header class="wrapper">
+            <hgroup>
+                <h2 class="section_title">Summary</h2>
+            </hgroup>
+        </header>
+        <article class="wrapper">
+            {% capture list_snippet %}{{ product.vendor | handleize }}-list{% endcapture %}
+            {% include list_snippet %}
     </section>
 </section>
-{% endunless %}
 {% endunless %}
 
 <!--   <div id="product-alternative">

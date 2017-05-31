@@ -305,3 +305,37 @@ figure {
     margin-left: 14rem;
   }
 }
+
+.video-container {
+    position: relative;
+}
+
+.video-container img,
+.video-container iframe {
+    position: absolute;
+}
+
+.video-container img {
+    z-index: 10;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    width: 0;
+    height: 0;
+    border-top: 2rem solid transparent;
+    border-bottom: 2rem solid transparent;
+    border-left: 3rem solid white;
+    transform: translate(-50%, -50%);
+}
+
+.play-button:hover {
+    border-left-color: var(--dbc-orange);
+}
+
+.video-container iframe {
+    z-index: 0;
+}

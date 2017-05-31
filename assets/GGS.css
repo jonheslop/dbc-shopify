@@ -132,14 +132,14 @@ body {
     float: right;
     width: 46.153846154%; }
 
-#summary, #authorBio { float: left; width: 50%; }
+#reviews, #authorBio { float: left; width: 50%; }
 
 #dolecture .embedWrapper { float: left; width: 50%; }
 #dolecture .caption { float: left; width: 50%; }
 #dolecture .caption h2 { margin-top: 0; }
 
 #download_sample { float:left; width: 18.75%; margin-right: 6.25%; margin-top: 3em; }
-#reviews { float:left; width: 75%; }
+#summary { float:left; width: 75%; }
 
 .thumb { width: 30%; }
 a:nth-of-type(3) .thumb { margin-right: 0; }
@@ -172,14 +172,13 @@ a:first-of-type .thumb, a:nth-of-type(2) .thumb, a:nth-of-type(4) .thumb, a:nth-
     .partition header:first-child h1 {
       margin: 0; }
 
-	#summary, #authorBio { width: 46.153846154%; }
-	#summary { margin-right: 7.692307692%; }
+	#reviews, #authorBio { width: 50%; }
 
 	#dolecture .embedWrapper { width: 69.230769231%; }
 	#dolecture .caption { width: 30.769230769%; }
 
  	#download_sample { width: 23.076923077%; margin-right: 7.692307692%; margin-top: 3em; }
-	#reviews { float:left; width: 69.230769231%; }
+	#summary { float:left; width: 69.230769231%; }
 
 	#cart_section { float: left; width:69.230769231%; }
 	#sidebar { float: left; width:30.769230769%; }
