@@ -9,7 +9,8 @@
     {% endif %}
     <link rel="stylesheet" href="//unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-    {% if template != 'index' %}
+    {% if template == 'index' or template == 'product' %}
+    {% else %}
          <!--[if lte IE 8]>
       	{{ 'GGS-ie.css' | asset_url | stylesheet_tag }}
          <![endif]-->

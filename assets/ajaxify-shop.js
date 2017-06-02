@@ -58,7 +58,7 @@ Shopify.onItemAdded = function(line_item, form) {
 Shopify.onCartUpdate = function(cart, form) {
 		jQ('#minicartwrap').load('../../ #miniandmicro', function(){
 			$('body').addClass('just-updated');
-      window.scrollTo(0, 0);
+    //   window.scrollTo(0, 0);
 			$('.bookformat').prop('checked', false);
 		});
 };

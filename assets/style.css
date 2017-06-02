@@ -306,6 +306,8 @@ figure {
   }
 }
 
+/* PRODUCT PAGE */
+
 .video-container {
     position: relative;
 }
@@ -315,7 +317,7 @@ figure {
     position: absolute;
 }
 
-.video-container img {
+.video-container .aspect-ratio--object {
     z-index: 10;
 }
 
@@ -338,4 +340,124 @@ figure {
 
 .video-container iframe {
     z-index: 0;
+}
+
+.review blockquote { margin: .75em 0 .75em .5em; padding-left: .5em; border-left: .25em solid #f8f8f8; font-size: 1.125em; line-height: 1.5; }
+.review cite { font-weight: bold; }
+.review+.review { margin-top: 1.5em; }
+
+figure iframe, figure object, figure embed, figure video {
+  max-width: 100%;
+  display: block; }
+
+.button {
+    -webkit-appearance: none;
+    display: block;
+    margin: .75em 0;
+    padding: .25em .75em;
+    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: .25em;
+    font-family: "myriad-pro-condensed", sans-serif;
+    text-transform: uppercase;
+    border: 1px solid #f2f2f2;
+    -webkit-font-smoothing: antialiased;
+}
+.button:hover {
+    border: 1px solid #D9D9D9;
+}
+
+.bookformat {
+    display: none;
+}
+
+.addtocart header {
+    margin: 1.5em 0;
+    position: relative;
+}
+
+#price-field {
+    position: absolute;
+    top:.25em;
+    right: 0;
+    font-size: .8125em;
+}
+
+.launch header {
+    margin: .75em 0;
+}
+
+.addtocart label span {
+    display: block;
+    font-size: .75em;
+    font-family: "adobe-caslon-pro", Georgia, serif;
+    text-transform: none;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.2;
+    margin-top:.25em;
+}
+
+.addtocart label.button {
+    padding-bottom: .125em;
+    transition: all 0.3s ease-out;
+}
+
+.bookformat:checked+label {
+    background-color: var(--dbc-washed-orange);
+    border-color: var(--dbc-orange);
+}
+
+.addtocart .submit.button {
+    width: 100%;
+    margin-top: 0;
+}
+
+.js .addtocart .submit.button {
+    display: none;
+}
+
+.addtocart .button {
+    margin-top: 0;
+}
+
+.addtocart .helperText {
+    text-align: center;
+    line-height: 1.2;
+    font-weight: normal;
+}
+
+section[role="main"] .helperText a:link,
+section[role="main"] .helperText a:visited { text-decoration: none!important;
+    color: #8B8B8B;
+    font-style: italic;
+}
+
+.selector-wrapper label {
+    font-size: .8125em;
+    display: block;
+    width: 100%;
+}
+
+.selector-wrapper select {
+    display: block;
+    width: 100%;
+}
+
+.just-updated #minicart, .just-updated #microcart {
+-webkit-animation: cssAnimation 1s 1 ease;
+-moz-animation: cssAnimation 1s 1 ease;
+-o-animation: cssAnimation 1s 1 ease;
+}
+@-webkit-keyframes cssAnimation {
+	from { background-color: #ee5830; }
+	to { background-color: #f4f4f4; }
+}
+@-moz-keyframes cssAnimation {
+	from { background-color: #ee5830; }
+	to { background-color: #f4f4f4; }
+}
+@-o-keyframes cssAnimation {
+	from { background-color: #ee5830; }
+	to { background-color: #f4f4f4; }
 }

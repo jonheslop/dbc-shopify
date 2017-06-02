@@ -9,6 +9,6 @@ $(document).ready(function(){
   $('.play-button').click(function(e){
     e.preventDefault();
     this.remove();
-    $('.video-container img').remove();
+    $('.video-container .aspect-ratio--object').remove();
   });
 });
