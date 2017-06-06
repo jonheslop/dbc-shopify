@@ -17,13 +17,16 @@
             </header>
             <div class="lh-copy">
             {{ product.description }}
-            {% capture list_snippet %}{{ product.metafields.attribute.author | handleize }}-list{% endcapture %}
-            {% unless list_snippet contains "Liquid error" %}
-            <header class="bb bw1 b--dbc-orange mb3">
-                  <h4 class="f5 fw5 f4-ns ma0 lh-title">Summary</h4>
-            </header>
-            <article class="lh-copy">
-                {% include list_snippet %}
+            {% unless product.handle contains "bundle" or product.handle contains "gift" or product.type == "Gift" %}
+                {% capture list_snippet %}{{ product.metafields.attribute.author | handleize }}-list{% endcapture %}
+                {% unless list_snippet contains "Liquid error" %}
+                <header class="bb bw1 b--dbc-orange mb3">
+                      <h4 class="f5 fw5 f4-ns ma0 lh-title">Summary</h4>
+                </header>
+                <article class="lh-copy">
+                    {% include list_snippet %}
+                </article>
+                {% endunless %}
             {% endunless %}
             </div>
             {% if product.title contains "Gift" %}
