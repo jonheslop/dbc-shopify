@@ -471,6 +471,56 @@
                 "type": "text",
                 "id": "homepage_box_link_3",
                 "label": "Call to action URL"
+            },
+            {
+                "type": "header",
+                "content": "Box 4"
+            },
+            {
+                "type": "image",
+                "id": "homepage_box_image_4.jpg",
+                "label": "Box image",
+                "max-width": 2048
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_title_4",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_subtitle_4",
+                "label": "Subtitle"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_link_4",
+                "label": "Call to action URL"
+            },
+            {
+                "type": "header",
+                "content": "Box 5"
+            },
+            {
+                "type": "image",
+                "id": "homepage_box_image_5.jpg",
+                "label": "Box image",
+                "max-width": 2048
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_title_5",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_subtitle_5",
+                "label": "Subtitle"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_link_5",
+                "label": "Call to action URL"
             }
         ]
     },

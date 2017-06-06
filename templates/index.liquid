@@ -184,6 +184,7 @@
    {% if settings.info_boxes %}
     <section class="fl w-100 mv4 cf">
         <div class="cf grid-offset">
+            {% if settings.homepage_box_title_1 != '' %}
             <article class="fl w-100 w-third-ns tc pa3 border-box relative">
               <a href="{{ settings.homepage_box_link_1 }}">
                 <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
@@ -195,6 +196,8 @@
                 </div>
               </a>
             </article>
+            {% endif %}
+            {% if settings.homepage_box_title_2 != '' %}
             <article class="fl w-100 w-third-ns tc pa3 border-box relative">
               <a href="{{ settings.homepage_box_link_2 }}">
                 <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
@@ -206,6 +209,8 @@
                 </div>
               </a>
             </article>
+            {% endif %}
+            {% if settings.homepage_box_title_3 != '' %}
             <article class="fl w-100 w-third-ns tc pa3 border-box relative">
               <a href="{{ settings.homepage_box_link_3 }}">
                 <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
@@ -217,56 +222,35 @@
                 </div>
               </a>
             </article>
+            {% endif %}
+        </div>
+        <div class="cf grid-offset">
+            {% if settings.homepage_box_title_4 != '' %}
+            <article class="fl w-100 w-50-ns tc pa3 border-box relative">
+              <a href="{{ settings.homepage_box_link_4 }}">
+                <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
+                    <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_4.jpg' | asset_url }}) center;"></div>
+                    <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
+                        <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_4 }}</h2>
+                        <p>{{ settings.homepage_box_subtitle_4 }}&nbsp;»</p>
+                    </header>
+                </div>
+              </a>
+            </article>
+            {% endif %}
+            {% if settings.homepage_box_title_5 != '' %}
+            <article class="fl w-100 w-50-ns tc pa3 border-box relative">
+              <a href="{{ settings.homepage_box_link_5 }}">
+                <div class="aspect-ratio aspect-ratio--1x1 bg-near-black mb4">
+                    <div class="dark-overlay dark-overlay-dim aspect-ratio--object cover z-0" style="background:url({{ 'homepage_box_image_5.jpg' | asset_url }}) center;"></div>
+                    <header class="absolute left-0 right-0 absolute-vertical-align white z-1">
+                        <h2 class="f3 f2-l ma0">{{ settings.homepage_box_title_5 }}</h2>
+                        <p>{{ settings.homepage_box_subtitle_5 }}&nbsp;»</p>
+                    </header>
+                </div>
+              </a>
+            </article>
+            {% endif %}
         </div>
     </section>
     {% endif %}
-<!-- <section id="recently" class="partition cf">
-    <header class="wrapper">
-        <h2 class="section_title">Recently at Do&nbsp;books</h2>
-    </header>
-    <ul class="cf">
-        {% for article in blogs.news.articles limit:1 %}
-        <li class="cf">
-            <article>
-                <figure class="wrapper">
-                    <a href="{{ article.url }}">
-                    {% if article.excerpt != blank %}
-                        {{ article.excerpt }}
-                    {% else %}
-                        {% capture article_img %}{{ article.content | truncatewords: 3 }}{% endcapture %}
-                        {% if article_img contains "img" %}
-                            {% include article_img %}
-                        {% endif %}
-                    {% endif %}
-                    </a>
-                </figure>
-                <div class="words wrapper">
-                    <header>
-                        <h1 class="blog-title"><a href="{{article.url}}">{{ article.title }}</a></h1>
-                    </header>
-                    <div class="article-body cf">
-                        {{ article.content | strip_html | truncatewords: 48 }}
-                        <p><a href="{{article.url}}" title="Continue reading {{ article.title }}">Continue reading &raquo;</a></p>
-                      </div>
-                </div>
-            </article>
-        </li>
-        {% endfor %}
-    </ul>
-</section>
-<aside id="miniAbout" class="partition cf">
-    <header class="wrapper">
-        <h2 class="section_title">Who we&nbsp;are</h2>
-    </header>
-    <figure class="wrapper">
-        <img src="//cdn.shopify.com/s/files/1/0176/9202/files/559205_449980518392636_1109027229_n_grande.jpg" />
-    </figure>
-    <div class="wrapper words">
-        <header>
-            <h1>The Do Book&nbsp;Company</h1>
-        </header>
-        <p>The Do Book Company is an independent publishing house based in Shoreditch, London. We publish a series of inspirational pocket guidebooks in print and digital&nbsp;formats.</p>
-        <p>You can find us on <a href="http://twitter.com/dobookco">Twitter</a>, <a href="https://www.facebook.com/DoBookCo">Facebook</a>, or you can <a href="/pages/subscribe">subscribe to our&nbsp;newsletter</a>.</p>
-        <p><a href="/pages/about-us">Learn more about us&nbsp;&raquo;</a></p>
-    </div>
-</aside> -->
