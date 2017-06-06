@@ -297,7 +297,7 @@ figure {
   }
 }
 
-@media screen and (min-width: 60em) {
+@media screen and (min-width: 30em) {
   header[role="banner"] {
     width: 14rem;
   }
@@ -371,11 +371,6 @@ figure iframe, figure object, figure embed, figure video {
     display: none;
 }
 
-.addtocart header {
-    margin: 1.5em 0;
-    position: relative;
-}
-
 #price-field {
     position: absolute;
     top:.25em;
@@ -403,6 +398,7 @@ figure iframe, figure object, figure embed, figure video {
     transition: all 0.3s ease-out;
 }
 
+.button.special,
 .bookformat:checked+label {
     background-color: var(--dbc-washed-orange);
     border-color: var(--dbc-orange);

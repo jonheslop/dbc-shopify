@@ -1,22 +1,30 @@
-<section class="cf">
-    <figure id="images" class="fl w-100 w-30-l pa3 border-box">
+<section class="cf grid-offset">
+    <figure id="images" class="fl w-100 w-30-l ph3 border-box">
       {% for image in product.images %}
         {% if forloop.first %}
         <img class="ba b--light-gray mb3" src="{{ image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'grande' }}" />
         {% elsif forloop.last %}
-        <a href="{{ image | product_img_url: '1024x1024' }}" class="fancybox fl w-third border-box pa1" rel="book-spreads"><img class="ba b--light-gray" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'compact' }}" /></a>
+        <a href="{{ image | product_img_url: '1024x1024' }}" class="fancybox fl w-third border-box pa1" data-fancybox="book-spreads"><img class="ba b--light-gray" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'compact' }}" /></a>
         {% else %}
-        <a href="{{ image | product_img_url: '1024x1024' }}" class="fancybox fl w-third border-box pa1" rel="book-spreads"><img class="ba b--light-gray" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'compact' }}" /></a>
+        <a href="{{ image | product_img_url: '1024x1024' }}" class="fancybox fl w-third border-box pa1" data-fancybox="book-spreads"><img class="ba b--light-gray" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" data-at2x="{{ image | product_img_url: 'compact' }}" /></a>
         {% endif %}
       {% endfor %}
     </figure>
-    <section id="details" class="fl w-100 w-70-l pa3 border-box">
+    <section id="details" class="fl w-100 w-70-l ph3 border-box">
         <article id="intro">
             <header class="bb bw1 b--dbc-orange mb3 mh0">
                 <h2 class="f4 fw5 f3-ns ma0 lh-title"><span class="title">{{ product.title }}</span> <span class="i">{{ product.vendor | replace: ' ', '&nbsp;'}}</span></h2>
             </header>
             <div class="lh-copy">
             {{ product.description }}
+            {% capture list_snippet %}{{ product.metafields.attribute.author | handleize }}-list{% endcapture %}
+            {% unless list_snippet contains "Liquid error" %}
+            <header class="bb bw1 b--dbc-orange mb3">
+                  <h4 class="f5 fw5 f4-ns ma0 lh-title">Summary</h4>
+            </header>
+            <article class="lh-copy">
+                {% include list_snippet %}
+            {% endunless %}
             </div>
             {% if product.title contains "Gift" %}
             <form class="addtocart cf" action="/cart/add" method="post">
@@ -37,25 +45,41 @@
             <form class="addtocart cf" action="/cart/add" method="post">
               {% comment %} Return to product instead of going to cart {% endcomment %}
               <input type="hidden" name="return_to" value="back" />
-              <header class="bb bw1 b--dbc-orange mb3">
+              <header class="bb bw1 b--dbc-orange mv3">
                   <h5 class="f6 fw5 ma0 lh-title">Choose a format:</h5>
               </header>
                 <div class="radioButtons cf grid-offset">
                     {% for variant in product.variants %}
-                  {% if variant.available == true %}
-                    <div class="fl w-100 w-50-ns border-box ph3">
-                    <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
-                    <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {% if variant.title == "Paperback" %}Paperback{% unless product.title contains "Disrupt" %} &amp; eBook{% endunless %}{% else %}{{ variant.title }}{% endif %} {{ variant.price | money | remove: '.00' }} {% if variant.compare_at_price %}{{ variant.compare_at_price  | money | remove: '.00' | prepend: '(was ' | append: ')'}}{% endif %} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages {% unless product.title contains "Disrupt" %}(includes eBook too){% endunless %}{% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
-                    {% if variant.title contains "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
+                      {% if variant.title contains "pecial" %}
+                      <div class="fl w-100 border-box pa3">
+                          <div class="bg-near-white ba b--light-silver br2 cf">
+                              <figure class="fl w-100 w-third-l pa3 border-box">
+                                  <a href="{{ variant.image.src | product_img_url: '600x600' }}" data-fancybox="special" class="fancybox"><img class="br1" src="{{ variant.image.src | product_img_url: '480x480' }}" alt="{{ variant.title }}"></a>
+                              </figure>
+                              <div class="fl w-100 w-two-thirds pa3 border-box">
+                                  <header class="bb bw1 b--dbc-orange mb3">
+                                      <h5 class="f5 fw5 ma0 lh-title">Special Edition</h5>
+                                  </header>
+                                  <p>{{ product.metafields.attribute.special }}</p>
+                                  <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
+                                  <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %} special">Add Special Edition<span class="description">{{ product.metafields.attribute.pagecount }} pages (includes eBook too)</span></label>
+                              </div>
+                          </div>
                       </div>
-                    {% else %}
-                    <div class="fl w-100 w-50-ns border-box ph3">
-                    <input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat" />
-                    <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">{{ variant.title }} Unavailable <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages (includes eBook too){% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
-                    {% if variant.title contains "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
-                    </div>
-                  {% endif %}
-                 {% endfor %}
+                      {% elsif variant.available == true %}
+                        <div class="fl w-100 w-50-ns border-box ph3">
+                            <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
+                            <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {% if variant.title == "Paperback" %}Paperback{% unless product.title contains "Disrupt" %} &amp; eBook{% endunless %}{% else %}{{ variant.title }}{% endif %} {{ variant.price | money | remove: '.00' }} {% if variant.compare_at_price %}{{ variant.compare_at_price  | money | remove: '.00' | prepend: '(was ' | append: ')'}}{% endif %} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages {% unless product.title contains "Disrupt" %}(includes eBook too){% endunless %}{% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
+                            {% if variant.title contains "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
+                        </div>
+                      {% else %}
+                        <div class="fl w-100 w-50-ns border-box ph3">
+                            <input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat" />
+                            <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">{{ variant.title }} Unavailable <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages (includes eBook too){% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
+                            {% if variant.title contains "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
                 </div>
                 {% if product.tags contains 'coming soon' %}
                     <p class="coming_soon wrapper"><em>~ Available from 5 May ~</em></p>
@@ -76,7 +100,7 @@
 </section>
 {% unless product.handle contains "bundle" or product.handle contains "gift" or product.type == "Gift" %}
 <section class="cf mv4 mv5-ns grid-offset">
-    {% capture reviews_snippet %}{{ product.vendor | handleize }}-reviews{% endcapture %}
+    {% capture reviews_snippet %}{{ product.metafields.attribute.author | handleize }}-reviews{% endcapture %}
     {% capture reviews_snippet_content %}{% include reviews_snippet %}{% endcapture %}
     {% unless reviews_snippet_content contains "Liquid error" %}
     <section id="reviews" class="fl w-50-l pa3 border-box">
@@ -86,42 +110,34 @@
             {% include reviews_snippet %}
     </section>
     {% endunless %}
-    <section class="fl w-50-l pa3 border-box">
+    <section class="fr w-50-l pa3 border-box">
         <header class="bb bw1 b--dbc-orange mb3">
             <h2 class="f4 fw5 f3-ns ma0 lh-title">About the author</h2>
         </header>
         <article class="wrapper">
-            {% capture bio_snippet %}{{ product.vendor | handleize }}-bio{% endcapture %}
+            {% capture bio_snippet %}{{ product.metafields.attribute.author | handleize }}-bio{% endcapture %}
             <div class="lh-copy">{% include bio_snippet %}</div>
     </section>
 </section>
-{% capture details_snippet %}{{ product.vendor | handleize }}-details{% endcapture %}
+<section class="cf mv4 mv5-ns grid-offset">
+    <figure class="embed cf">
+        <div class="fl w-100 w-70-l border-box pa3">
+            {% capture lecture_snippet %}{{ product.metafields.attribute.author | handleize }}-lecture{% endcapture %}
+            {% include lecture_snippet %}
+        </div>
+        <figcaption class="fr w-100 w-30-l border-box pa3">
+            {% capture lecture_description_snippet %}{{ product.metafields.attribute.author | handleize }}-lecture-description{% endcapture %}
+            {% include lecture_description_snippet %}
+        </figcaption>
+    </figure>
+</section>
+{% capture details_snippet %}{{ product.metafields.attribute.author | handleize }}-details{% endcapture %}
 {% capture details_snippet_content %}{% include details_snippet %}{% endcapture %}
 {% unless details_snippet_content contains "Liquid error" %}
 <section id="additional-details" class="cf mv4 mv5-ns grid-offset">
     {% include details_snippet %}
 </section>
 {% endunless %}
-<section class="cf mv4 mv5-ns grid-offset">
-    <figure class="embed cf">
-        <div class="fl w-100 w-70-l border-box pa3">
-            {% capture lecture_snippet %}{{ product.vendor | handleize }}-lecture{% endcapture %}
-            {% include lecture_snippet %}
-        </div>
-        <figcaption class="fr w-100 w-30-l border-box pa3">
-            {% capture lecture_description_snippet %}{{ product.vendor | handleize }}-lecture-description{% endcapture %}
-            {% include lecture_description_snippet %}
-        </figcaption>
-    </figure>
-</section>
-<section class="cf mv4 mv5-ns w-100 w-70-l ph3 pl0-l">
-    <header class="bb bw1 b--dbc-orange mb3">
-          <h4 class="f5 fw5 f4-ns ma0 lh-title">Summary</h4>
-    </header>
-    <article class="lh-copy">
-        {% capture list_snippet %}{{ product.vendor | handleize }}-list{% endcapture %}
-        {% include list_snippet %}
-</section>
 {% endunless %}
 
 <!--   <div id="product-alternative">
