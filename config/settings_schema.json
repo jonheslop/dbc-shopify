@@ -521,6 +521,31 @@
                 "type": "text",
                 "id": "homepage_box_link_5",
                 "label": "Call to action URL"
+            },
+            {
+                "type": "header",
+                "content": "Box 6"
+            },
+            {
+                "type": "image",
+                "id": "homepage_box_image_6.jpg",
+                "label": "Box image",
+                "max-width": 2048
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_title_6",
+                "label": "Title"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_subtitle_6",
+                "label": "Subtitle"
+            },
+            {
+                "type": "text",
+                "id": "homepage_box_link_6",
+                "label": "Call to action URL"
             }
         ]
     },

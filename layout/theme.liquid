@@ -61,12 +61,10 @@
       {{ content_for_layout }}
   </section><!-- role="main" -->
   <footer role="content-info" class="mt5 mb4">
-    <!-- <ul class="wrapper social">
-      <li class="twitter"><a href="http://twitter.com/dobookco">Twitter</a></li>
-      <li class="facebook"><a href="https://www.facebook.com/DoBookCo">Facebook</a></li>
-      <li class="instagram"><a href="http://instagram.com/dobookco/">Instagram</a></li>
-      <li class="pinterest"><a href="http://www.pinterest.com/dobookco/">Pinterest</a></li>
-    </ul> -->
+    <ul class="list tc pa0">
+      <li class="dib mr3"><a href="http://twitter.com/dobookco"><img class="w2 h2" src="{{ 'twitter.svg' | asset_url }}" title="Twitter" /></a></li>
+      <li class="dib ml3"><a href="http://instagram.com/dobookco/"><img class="w2 h2" src="{{ 'instagram.svg' | asset_url }}" title="Instagram" /></a></li>
+    </ul>
     <p class="tc f6">
         {% for link in linklists.footer.links %}
           <span class="mh2"><a class="link dbc-orange " href="{{ link.url }}">{{ link.title }}</a></span>

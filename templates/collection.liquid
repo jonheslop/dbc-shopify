@@ -37,44 +37,10 @@
      </div>
    </section>
   {% endif %}
-			<!-- {% if collections.bundles %}
-			  {% for product in collections.bundles.products %}
-				<form class="launch addtocart cf" action="/cart/add" method="post" style="margin-bottom:3em;">
-			      {% comment %} Return to product instead of going to cart {% endcomment %}
-			      <input type="hidden" name="return_to" value="back" />
-					<header>
-						<h2>{{collections.bundles.description}}</h2>
-					</header>
-					<div class="radioButtons cf">
-						{% for variant in product.variants %}
-			          {% if variant.available == true %}
-						<div class="wrapper" style="margin-left:25%;">
-						<input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
-						<label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">{% if variant.title == "Bundle" %}Add pb + ebook set{% else %}Add {{ variant.title }} set{% endif %} {{ variant.price | money | remove: '.00' }} <span class="description">{% if variant.title == "Bundle" %}5 Paperbacks &amp;&nbsp;4 eBooks {% elsif variant.title == "Paperback" %}14 books{% elsif variant.title == "eBook" %}Kindle, iBooks, Readmill etc.{% endif %}</span></label>
-						{% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
-			          	</div>
-						{% else %}
-						<div class="wrapper">
-						<input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat" />
-						<label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {{ variant.title }} set {{ variant.price | money | remove: '.00' }} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages{% elsif variant.title == "eBook" %}Kindle, iBooks, Readmill etc.{% endif %}</span></label>
-						{% if variant.title == "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
-						</div>
-			          {% endif %}
-			         {% endfor %}
-					</div>
-				   {% unless product.available %}
-					<p class="coming_soon wrapper"><em>~ Available from 1st May 2014 ~</em></p>
-				   {% endunless %}
-					<div>
-						<input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
-					</div>
-				</form>
-		  {% endfor %}
-		 {% endif %} -->
 
  <section class="partition mv5">
      <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
-         <h1 class="f3 fw5 f2-ns ma0 lh-title">{{ collection.title }}</h1>
+         <h1 class="f3 fw5 f2-ns ma0 lh-title">{{ collections.gift-bundles.title }}</h1>
      </header>
 	{% if collections.home-page %}
 	<div class="cf grid-offset">
