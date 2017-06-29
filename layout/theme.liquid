@@ -88,7 +88,22 @@
     <p class="tc f6">
         Site&nbsp;by&nbsp;<a class="link dbc-orange" href="http://jonheslop.com">Jon&nbsp;Heslop</a>&nbsp; | Powered&nbsp;by&nbsp;<a class="link dbc-orange" href="http://shopify.com">Shopify</a></p>
   </footer>
-    <!-- <script src="//unpkg.com/jquery@3.1.1"></script> -->
+
+  <aside class="popup-overlay fixed top-0 left-0 w-100 h-100 bg-black-70 dn">
+      <section class="popup-box absolute w-90 w-50-l bg-white pa2 pa4-ns br1" data-expires="90" data-delay="5">
+          <span class="popup_close-box absolute right-0 top-0 right-1-ns top-1-ns"></span>
+          <section class="fl w-100 cf">
+              <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+                  <h3 class="f3 f4-ns ma0 lh-title">Subscribe to our newsletter</h3>
+              </header>
+              <form action="http://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate cf mh3 mh0-ns" target="_blank" novalidate>
+                  <input class="fl w-70 pa3 lh-copy br1 bw1 br--left ba b--dbc-orange lh--copy outline-0" type="mce-EMAIL" id="mce-EMAIL" name="EMAIL" placeholder="your.name@email.com" value="" required style="max-height: 3.75em;">
+                  <input class="fl w-30 pa3 lh-copy br1 bw1 br--right bg-dbc-orange white ba b--dbc-orange ttu myriad fw4 tracked antialiased dim" type="submit" id="mc-embedded-subscribe" value="Sign Up" />
+              </form>
+          </section>
+      </section>
+  </aside>
+
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     {{ 'api.jquery.js' | asset_url | script_tag }}
     {{ 'ajaxify-shop.js' | asset_url | script_tag }}

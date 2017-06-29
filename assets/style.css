@@ -457,3 +457,38 @@ section[role="main"] .helperText a:visited { text-decoration: none!important;
 	from { background-color: #ee5830; }
 	to { background-color: #f4f4f4; }
 }
+
+/* Popup subscribe thing */
+.popup-box {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup_close-box {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+ }
+.popup_close-box:hover::before, .popup_close-box:hover::after {
+  background: var(--dbc-orange);
+}
+
+.popup_close-box::before, .popup_close-box::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -4px;
+    background: #000;
+    border-radius: 3px;
+ }
+  .popup_close-box::before {
+     transform: rotate(45deg);
+  }
+  .popup_close-box::after {
+    transform: rotate(-45deg);
+  }
