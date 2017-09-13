@@ -8,6 +8,19 @@
     <meta name="description" content="{{ shop.description }}">
     {% endif %}
 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@dobookco">
+    <meta name="twitter:site" content="@dobookco">
+    <meta name="twitter:title" content="{{ page_title }}">
+    <meta name="twitter:description" content="shop.description">
+    {% if template contains 'product' %}
+      {% for image in product.images %}
+        <meta name="twitter:image:src" content="http:{{ image | img_url: 'grande' }}">
+        {% endfor %}
+    {% else %}
+    <meta name="twitter:image:src" content="https://cdn.shopify.com/s/files/1/0176/9202/t/3/assets/homepage_box_image_3.jpg">
+    {% endif %}
+
     <meta property="og:title" content="{{ page_title }}" />
     <meta property="og:site_name" content="{{ shop.name }}" />
     <meta property="og:url" content="{{ canonical_url }}" />
