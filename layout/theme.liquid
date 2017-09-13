@@ -14,7 +14,7 @@
     <meta name="twitter:title" content="{{ page_title }}">
     <meta name="twitter:description" content="shop.description">
     {% if template contains 'product' %}
-      {% for image in product.images %}
+      {% for image in product.images limit:1 %}
         <meta name="twitter:image:src" content="http:{{ image | img_url: 'grande' }}">
         {% endfor %}
     {% else %}
