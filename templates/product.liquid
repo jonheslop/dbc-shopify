@@ -70,19 +70,24 @@
                           </div>
                       </div>
                       {% elsif variant.available == true %}
-                        <div class="fl w-100 w-50-ns border-box ph3">
+                        <div class="fl w-100 {% if product.metafields.attribute.audiobook %}w-third-ns{% else %}w-50-ns{% endif %} border-box ph3">
                             <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
                             <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {% if variant.title == "Paperback" %}Paperback{% unless product.title contains "Disrupt" %} &amp; eBook{% endunless %}{% else %}{{ variant.title }}{% endif %} {{ variant.price | money | remove: '.00' }} {% if variant.compare_at_price %}{{ variant.compare_at_price  | money | remove: '.00' | prepend: '(was ' | append: ')'}}{% endif %} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages {% unless product.title contains "Disrupt" %}(includes eBook too){% endunless %}{% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
                             {% if variant.title contains "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
                         </div>
                       {% else %}
-                        <div class="fl w-100 w-50-ns border-box ph3">
+                        <div class="fl w-100 {% if product.metafields.attribute.audiobook %}w-third-ns{% else %}w-50-ns{% endif %} border-box ph3">
                             <input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat" />
                             <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">{{ variant.title }} Unavailable <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages (includes eBook too){% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
                             {% if variant.title contains "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
                         </div>
                       {% endif %}
                     {% endfor %}
+                    {% if product.metafields.attribute.audiobook %}
+                        <div class="fl w-100 w-third-ns border-box ph3">
+                          <a target="_blank" class="button dark-gray link" href="{{ product.metafields.attribute.audiobook }}">Buy Audiobook <span class="description">via Audible.com</span></a>
+                        </div>
+                    {% endif %}
                 </div>
                 {% if product.tags contains 'coming soon' %}
                     <p class="coming_soon wrapper tc lh-title"><em>~ Available to pre-order now ~<br/>Shipping just ahead of publication on 14th September 2017 </em></p>

@@ -382,7 +382,8 @@ figure iframe, figure object, figure embed, figure video {
     margin: .75em 0;
 }
 
-.addtocart label span {
+.addtocart label span,
+.description {
     display: block;
     font-size: .75em;
     font-family: "adobe-caslon-pro", Georgia, serif;
