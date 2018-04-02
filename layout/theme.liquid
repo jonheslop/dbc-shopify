@@ -62,28 +62,26 @@
 
 <body class="cf {{ template | replace: '.', ' ' | truncatewords: 1, '' }} dark-gray" id="{{ page_title | handle }}">
   <div class="ml7-ns pr4-ns container-wrapper">
-      <header role="banner" class="fixed-ns vh-100-ns w-100 w5-ns bg-white dark-gray top-0 left-0 flex content-center justify-center flex-column border-box pa2 pa4-ns pb0 pb4-ns">
-        <div class="items-start flex-auto">
-            <h1 class="ma0 tc tl-ns">
-                <a href="{{ shop.url }}">
-                    <img src="{{ 'dobookco.svg' | asset_url }}" alt="{{ shop.name }}" class="w4" />
-                </a>
-            </h1>
-            <nav role="navigation" class="lh-copy ma0 mt5-ns left-align-with-logo">
-              <ul class="list pa0 mb0 tc tl-ns">
-                {% for link in linklists.main-menu.links %}
-                <li class="f5 f4-ns mb2 dib db-ns mh3 mh0-ns">
-                  <a href="{{ link.url }}" class="near black hover-dbc-orange link {% if link.active %}dbc-orange{% endif %}">{{ link.title }}</a>
-                </li>
-                {% endfor %}
-              </ul>
-            </nav>
-        </div>
-        {% if template != 'cart' %}
-          <div id="minicartwrap">
-            {% include 'minicart' %}
-          </div>
-        {% endif %}
+      <header role="banner" class="fixed-ns vh-100-ns w-100 w5-ns bg-white dark-gray top-0 left-0 border-box pa2 pa4-ns pb0 pb4-ns">
+          <h1 class="ma0 tc tl-ns">
+              <a href="{{ shop.url }}">
+                  <img src="{{ 'dobookco.svg' | asset_url }}" alt="{{ shop.name }}" class="w4" />
+              </a>
+          </h1>
+          <nav role="navigation" class="lh-copy ma0 mt5-ns left-align-with-logo">
+            <ul class="list pa0 mb0 tc tl-ns">
+              {% for link in linklists.main-menu.links %}
+              <li class="f5 f4-ns mb2 dib db-ns mh3 mh0-ns">
+                <a href="{{ link.url }}" class="near black hover-dbc-orange link {% if link.active %}dbc-orange{% endif %}">{{ link.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </nav>
+          {% if template != 'cart' %}
+            <div id="minicartwrap">
+              {% include 'minicart' %}
+            </div>
+          {% endif %}
     </header>
   <section class="container cf pv4" role="main" id="content">
       {{ content_for_layout }}

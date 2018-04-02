@@ -441,22 +441,21 @@ section[role="main"] .helperText a:visited { text-decoration: none!important;
     width: 100%;
 }
 
-.just-updated #minicart, .just-updated #microcart {
--webkit-animation: cssAnimation 1s 1 ease;
--moz-animation: cssAnimation 1s 1 ease;
--o-animation: cssAnimation 1s 1 ease;
+.just-updated #microcart {
+    animation: colorchange 500ms 1 linear;
 }
-@-webkit-keyframes cssAnimation {
-	from { background-color: #ee5830; }
-	to { background-color: #f4f4f4; }
-}
-@-moz-keyframes cssAnimation {
-	from { background-color: #ee5830; }
-	to { background-color: #f4f4f4; }
-}
-@-o-keyframes cssAnimation {
-	from { background-color: #ee5830; }
-	to { background-color: #f4f4f4; }
+
+@keyframes colorchange {
+    0%, 50% {
+        background: var(--dbc-washed-orange);
+    }
+
+    99% {
+        background: var(--dbc-washed-orange);
+    }
+    99% {
+        background: #fff;
+    }
 }
 
 /* Popup subscribe thing */
