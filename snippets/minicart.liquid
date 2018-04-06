@@ -1,8 +1,11 @@
 {% if cart.item_count != 0 %}
 	<div id="miniandmicro">
 		<section id="microcart" class="lh-copy left-align-with-logo">
-			<h4 class="f5 f4-ns fw4 ma0 tc tl-ns cf bt bw1 b--dbc-orange pt3"><a class="link dbc-orange cf db" href="/cart">Basket<span class="dn-ns">:</span><br class="dn db-ns"/>
-      <em class="f5 fl-ns mt2-ns">{{ cart.item_count }}{% if cart.item_count == 1 %} item{% else %} items{% endif %}</em> <span class="f5 fr-ns ml4 ml0-ns mt2-ns">Pay&nbsp;»</span></a>
+			<h4 class="f5 f4-ns fw4 ma0 tc tl-ns cf bt bw1 b--dbc-orange pt3">
+        <a class="link dbc-orange cf db" href="/cart">Basket<span class="dn-ns">:</span><br class="dn db-ns"/>
+          <em class="f5 fl-ns mt2-ns">{{ cart.item_count }}{% if cart.item_count == 1 %} item{% else %} items{% endif %}</em>
+          <span class="f5 fr-ns ml4 ml0-ns mt2-ns">Pay&nbsp;»</span>
+        </a>
       </h4>
   	</section>
 	</div>

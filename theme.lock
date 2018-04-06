@@ -2,12 +2,12 @@
 assets/ajaxify-shop.js:
   development: 2018-04-02T11:23:39+01:00   60d8b89ba7867a87966a5717ae6f8ca6
 assets/style.css:
-  development: 2018-04-02T11:54:23+01:00   bc9fec3f7b2065237bfd95516345dc60
+  development: 2018-04-02T20:29:42+01:00   916166ddaf83697c3fb5a800f59d6203
 assets/style.min.css:
-  development: 2018-04-02T13:47:36+01:00
+  development: 2018-04-02T20:29:42+01:00   50c4531d8b0c3d1b06f877f2dc9b6008
 layout/theme.liquid:
   development: 2018-04-02T10:26:10+01:00   4a8f0288970149e1d9f175f344eb4853
 snippets/minicart.liquid:
-  development: 2018-04-02T11:56:12+01:00   3a07d7a7a94b2ed785efdadf00cb1ca6
+  development: 2018-04-02T20:27:12+01:00   f0ebda0fd7052de097736bef3e1a9030
 templates/product.liquid:
   development: 2017-12-06T09:41:06+00:00   3fba63b12a683c728fb2247decf0d589

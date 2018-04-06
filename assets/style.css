@@ -453,7 +453,7 @@ section[role="main"] .helperText a:visited { text-decoration: none!important;
     99% {
         background: var(--dbc-washed-orange);
     }
-    99% {
+    100% {
         background: #fff;
     }
 }
