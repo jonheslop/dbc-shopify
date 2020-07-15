@@ -156,7 +156,21 @@
 {% endunless %}
 {% endunless %}
 
-<!--   <div id="product-alternative">
-    <h3>Like what you see?</h3>
-    Browse more {{ 'products like this' | link_to_type }} or more products by {{ product.vendor | link_to_vendor }}.
-  </div> -->
+{% if collections[product.metafields.attribute.related].products.size != 0 %}
+    <div>
+        <header class="bb bw1 b--dbc-orange mb3 ">
+            <h4 class="f5 fw5 f4-ns ma0 lh-title">Related titles</h4>
+        </header>
+        <div class="grid-offset book-grid">
+        {% for product in collections[product.metafields.attribute.related].products %}
+            <article class="border-box pa3 fl w-50 w-third-m w-20-l {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+                <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
+                    <figure class="ma0">
+                        <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+                    </figure>
+                </a>
+            </article>
+        {% endfor %}
+        </div>
+    </div>
+{% endif %}
