@@ -1,13 +1,19 @@
 <html>
 <head>
     {{ content_for_header }}
-    <title>{{ page_title }} — {{ shop.name }}</title>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VVTM65');</script>
+<!-- End Google Tag Manager -->
+  <title>{{ page_title }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    {% if shop.description != blank and template == "index" %}
-    <meta name="description" content="{{ shop.description }}">
-    {% endif %}
-
+		<meta name="description" content="{{ page_description }}" />
+<meta name="google-site-verification" content="NbdJm7w0uV4QSrZRYqP45hntYREM7y5p47GOb6kO-0w" />
+  <link rel="icon" href="//cdn.shopify.com/s/files/1/0176/9202/t/3/assets/do_book_co_icon.png?v=1576766630" type="image/png" />
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@dobookco">
     <meta name="twitter:site" content="@dobookco">
@@ -61,6 +67,10 @@
 </head>
 
 <body class="cf {{ template | replace: '.', ' ' | truncatewords: 1, '' }} dark-gray" id="{{ page_title | handle }}">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VVTM65"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <div class="ml7-ns pr4-ns container-wrapper">
       <header role="banner" class="fixed-ns vh-100-ns w-100 w5-ns bg-white dark-gray top-0 left-0 border-box pa2 pa4-ns pb0 pb4-ns">
           <h1 class="ma0 tc tl-ns">
@@ -97,7 +107,7 @@
         {% endfor %}
     </p>
     <p class="tc f6">
-        Site&nbsp;by&nbsp;<a class="link dbc-orange" href="http://jonheslop.com">Jon&nbsp;Heslop</a>&nbsp; | Powered&nbsp;by&nbsp;<a class="link dbc-orange" href="http://shopify.com">Shopify</a></p>
+        Site&nbsp;by&nbsp;<a class="link dbc-orange" href="http://jonheslop.com">Jon&nbsp;Heslop</a>&nbsp; | Powered&nbsp;by&nbsp;<a rel="nofollow" class="link dbc-orange" href="http://shopify.com">Shopify</a></p>
   </footer>
 
   <aside class="popup-overlay fixed top-0 left-0 w-100 h-100 bg-black-70 dn">
@@ -107,7 +117,7 @@
               <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
                   <h3 class="f3 f4-ns ma0 lh-title">Subscribe to our newsletter</h3>
               </header>
-              <form action="http://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate cf mh3 mh0-ns" target="_blank" novalidate>
+              <form action="https://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate cf mh3 mh0-ns" target="_blank" novalidate>
                   <input class="fl w-70 pa3 lh-copy br1 bw1 br--left ba b--dbc-orange lh--copy outline-0" type="mce-EMAIL" id="mce-EMAIL" name="EMAIL" placeholder="your.name@email.com" value="" required style="max-height: 3.75em;">
                   <input class="fl w-30 pa3 lh-copy br1 bw1 br--right bg-dbc-orange white ba b--dbc-orange ttu myriad fw4 tracked antialiased dim" type="submit" id="mc-embedded-subscribe" value="Sign Up" />
               </form>

@@ -1,9 +1,10 @@
+<!-- Bust cache -->
 {% if settings.homepage_slideshow %}
     <section class="home-slider">
       {% if settings.homepage_slide_show_1 %}
       <article class="relative" style="height:auto">
         <a href="{{ settings.homepage_slide_link_1 }}" class="link near-white {{ settings.homepage_slide_overlay_1 }}">
-            <img src="{{ 'homepage_slide_image_1.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_1 }}"/>
+            <img src="{{ 'homepage_slide_image_1' | asset_url }}" alt="{{ settings.homepage_slide_title_1 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_1_position }} {{ settings.homepage_slide_text_1_align }}" style="color: {{ settings.homepage_slide_1_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_1 }}</h1>
                 <h2 class="f5 f4-l i ma0 mt2">{{ settings.homepage_slide_text_1 }}</h2>
@@ -14,7 +15,7 @@
       {% if settings.homepage_slide_show_2 %}
       <article class="relative" style="height:auto">
         <a href="{{ settings.homepage_slide_link_2 }}" class="link near-white {{ settings.homepage_slide_overlay_2 }}">
-            <img src="{{ 'homepage_slide_image_2.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_2 }}"/>
+            <img src="{{ 'homepage_slide_image_2' | asset_url }}" alt="{{ settings.homepage_slide_title_2 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_2_position }} {{ settings.homepage_slide_text_2_align }}" style="color: {{ settings.homepage_slide_2_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_2 }}</h1>
                 <h2 class="f5 f4-l i ma0 mt2">{{ settings.homepage_slide_text_2 }}</h2>
@@ -25,7 +26,7 @@
       {% if settings.homepage_slide_show_3 %}
       <article class="relative" style="height:auto">
         <a href="{{ settings.homepage_slide_link_3 }}" class="link near-white {{ settings.homepage_slide_overlay_3 }}">
-            <img src="{{ 'homepage_slide_image_3.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_3 }}"/>
+            <img src="{{ 'homepage_slide_image_3' | asset_url }}" alt="{{ settings.homepage_slide_title_3 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_3_position }} {{ settings.homepage_slide_text_3_align }}" style="color: {{ settings.homepage_slide_3_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_3 }}</h1>
                 <h2 class="f5 f4-l i ma0 mt2">{{ settings.homepage_slide_text_3 }}</h2>
@@ -36,7 +37,7 @@
       {% if settings.homepage_slide_show_4 %}
       <article class="relative" style="height:auto">
         <a href="{{ settings.homepage_slide_link_4 }}" class="link near-white {{ settings.homepage_slide_overlay_4 }}">
-            <img src="{{ 'homepage_slide_image_4.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_4 }}"/>
+            <img src="{{ 'homepage_slide_image_4' | asset_url }}" alt="{{ settings.homepage_slide_title_4 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_4_position }} {{ settings.homepage_slide_text_4_align }}" style="color: {{ settings.homepage_slide_4_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_4 }}</h1>
                 <h2 class="f5 f4-l i ma0 mt2">{{ settings.homepage_slide_text_4 }}</h2>
@@ -47,7 +48,7 @@
       {% if settings.homepage_slide_show_5 %}
       <article class="relative" style="height:auto">
         <a href="{{ settings.homepage_slide_link_5 }}" class="link near-white {{ settings.homepage_slide_overlay_5 }}">
-            <img src="{{ 'homepage_slide_image_5.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_5 }}"/>
+            <img src="{{ 'homepage_slide_image_5' | asset_url }}" alt="{{ settings.homepage_slide_title_5 }}"/>
             <div class="absolute measure lh-title slide-text-{{ settings.homepage_slide_text_5_position }} {{ settings.homepage_slide_text_5_align }}" style="color: {{ settings.homepage_slide_5_colour }}">
                 <h1 class="f3 f2-l ma0">{{ settings.homepage_slide_title_5 }}</h1>
                 <h2 class="f5 f4-l i ma0 mt2">{{ settings.homepage_slide_text_5 }}</h2>
@@ -63,9 +64,9 @@
     <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
         <h1 class="f3 fw5 f2-ns ma0 lh-title">Smart Working</h1>
     </header>
-    <div class="cf grid-offset">
+    <div class="grid-offset book-grid">
       {% for product in collections.smart-working.products %}
-        <article class="fl w-50 w-third-m w-20-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+        <article class="border-box pa3 fl w-50 w-third-m w-20-l {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
             <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
                 <figure class="ma0">
                     <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
@@ -80,11 +81,30 @@
  {% if collections.home-page %}
  <section class="cf mv5">
      <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
-         <h1 class="f3 fw5 f2-ns ma0 lh-title">Slow Living</h1>
+         <h1 class="f3 fw5 f2-ns ma0 lh-title">Life Skills</h1>
      </header>
-     <div class="cf grid-offset">
+    <div class="grid-offset book-grid">
          {% for product in collections.slow-living.products %}
-         <article class="fl w-50 w-third-m w-20-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+         <article class="border-box pa3 fl w-50 w-third-m w-20-l {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+             <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
+                 <figure class="ma0">
+                     <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+                 </figure>
+             </a>
+         </article>
+       {% endfor %}
+     </div>
+   </section>
+  {% endif %}
+
+ {% if collections.home-page %}
+ <section class="cf mv5">
+     <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+         <h1 class="f3 fw5 f2-ns ma0 lh-title">Hardbacks</h1>
+     </header>
+    <div class="grid-offset book-grid">
+         {% for product in collections.hardbacks.products %}
+         <article class="border-box pa3 fl w-50 w-third-m w-20-l {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
              <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
                  <figure class="ma0">
                      <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
@@ -101,7 +121,7 @@
             <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
                 <h3 class="f3 f4-ns ma0 lh-title">Subscribe to our newsletter</h3>
             </header>
-            <form action="http://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate cf mh3 mh0-ns" target="_blank" novalidate>
+            <form action="https://dobook.us1.list-manage.com/subscribe/post?u=c168767534dca14d175477829&amp;id=ab276620f8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate cf mh3 mh0-ns" target="_blank" novalidate>
                 <input class="fl w-70 pa3 lh-copy br1 bw1 br--left ba b--dbc-orange lh--copy outline-0" type="mce-EMAIL" id="mce-EMAIL" name="EMAIL" placeholder="your.name@email.com" value="" required style="max-height: 3.75em;">
                 <input class="fl w-30 pa3 lh-copy br1 bw1 br--right bg-dbc-orange white ba b--dbc-orange ttu myriad fw4 tracked antialiased dim" type="submit" id="mc-embedded-subscribe" value="Sign Up" />
             </form>

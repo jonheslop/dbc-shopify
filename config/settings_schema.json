@@ -1,587 +1,812 @@
 [
-    {
-        "name": "Slideshow",
-        "settings": [
-            {
-                "type": "checkbox",
-                "id": "homepage_slideshow",
-                "label": "Display slideshow"
-            },
-            {
-                "type": "header",
-                "content": "Slide 1"
-            },
-            {
-                "type": "checkbox",
-                "id": "homepage_slide_show_1",
-                "label": "Display?",
-                "default": true
-            },
-            {
-                "type": "image",
-                "id": "homepage_slide_image_1.jpg",
-                "label": "Slide image",
-                "max-width": 5000
-            },
-            {
-                "type": "color",
-                "id": "homepage_slide_1_colour",
-                "label": "Text Colour",
-                "default": "#f4f4f4"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_title_1",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_text_1",
-                "label": "Call to action text"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_link_1",
-                "label": "Call to action URL"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_1_position",
-                 "options": [
-                   { "value": "top-left", "label": "Top left"},
-                   { "value": "top-center", "label": "Top center"},
-                   { "value": "top-right", "label": "Top right"},
-                   { "value": "center-left", "label": "Center left"},
-                   { "value": "center-center", "label": "Center center"},
-                   { "value": "center-right", "label": "Center right"},
-                   { "value": "bottom-left", "label": "Bottom left"},
-                   { "value": "bottom-center", "label": "Bottom center"},
-                   { "value": "bottom-right", "label": "Bottom right"}
-                 ],
-                 "label": "Text position",
-                 "default": "center-center"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_1_align",
-                 "options": [
-                   { "value": "tl", "label": "Left"},
-                   { "value": "tc", "label": "Center"},
-                   { "value": "tr", "label": "Right"}
-                 ],
-                 "label": "Text alignment",
-                 "default": "tc"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_overlay_1",
-                 "options": [
-                   { "value": "", "label": "None"},
-                   { "value": "dark-overlay", "label": "Darken image"},
-                   { "value": "light-overlay", "label": "Lighten image"}
-                 ],
-                 "label": "Tint image",
-                 "default": ""
-            },
-            {
-                "type": "header",
-                "content": "Slide 2"
-            },
-            {
-                "type": "checkbox",
-                "id": "homepage_slide_show_2",
-                "label": "Display?",
-                "default": true
-            },
-            {
-                "type": "image",
-                "id": "homepage_slide_image_2.jpg",
-                "label": "Slide image",
-                "max-width": 5000
-            },
-            {
-                "type": "color",
-                "id": "homepage_slide_2_colour",
-                "label": "Text Colour",
-                "default": "#f4f4f4"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_title_2",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_text_2",
-                "label": "Call to action text"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_link_2",
-                "label": "Call to action URL"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_2_position",
-                 "options": [
-                   { "value": "top-left", "label": "Top left"},
-                   { "value": "top-center", "label": "Top center"},
-                   { "value": "top-right", "label": "Top right"},
-                   { "value": "center-left", "label": "Center left"},
-                   { "value": "center-center", "label": "Center center"},
-                   { "value": "center-right", "label": "Center right"},
-                   { "value": "bottom-left", "label": "Bottom left"},
-                   { "value": "bottom-center", "label": "Bottom center"},
-                   { "value": "bottom-right", "label": "Bottom right"}
-                 ],
-                 "label": "Text position",
-                 "default": "center-center"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_2_align",
-                 "options": [
-                   { "value": "tl", "label": "Left"},
-                   { "value": "tc", "label": "Center"},
-                   { "value": "tr", "label": "Right"}
-                 ],
-                 "label": "Text alignment",
-                 "default": "tc"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_overlay_2",
-                 "options": [
-                   { "value": "", "label": "None"},
-                   { "value": "dark-overlay", "label": "Darken image"},
-                   { "value": "light-overlay", "label": "Lighten image"}
-                 ],
-                 "label": "Tint image",
-                 "default": ""
-            },
-            {
-                "type": "header",
-                "content": "Slide 3"
-            },
-            {
-                "type": "checkbox",
-                "id": "homepage_slide_show_3",
-                "label": "Display?",
-                "default": true
-            },
-            {
-                "type": "image",
-                "id": "homepage_slide_image_3.jpg",
-                "label": "Slide image",
-                "max-width": 5000
-            },
-            {
-                "type": "color",
-                "id": "homepage_slide_3_colour",
-                "label": "Text Colour",
-                "default": "#f4f4f4"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_title_3",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_text_3",
-                "label": "Call to action text"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_link_3",
-                "label": "Call to action URL"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_3_position",
-                 "options": [
-                   { "value": "top-left", "label": "Top left"},
-                   { "value": "top-center", "label": "Top center"},
-                   { "value": "top-right", "label": "Top right"},
-                   { "value": "center-left", "label": "Center left"},
-                   { "value": "center-center", "label": "Center center"},
-                   { "value": "center-right", "label": "Center right"},
-                   { "value": "bottom-left", "label": "Bottom left"},
-                   { "value": "bottom-center", "label": "Bottom center"},
-                   { "value": "bottom-right", "label": "Bottom right"}
-                 ],
-                 "label": "Text position",
-                 "default": "center-center"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_3_align",
-                 "options": [
-                   { "value": "tl", "label": "Left"},
-                   { "value": "tc", "label": "Center"},
-                   { "value": "tr", "label": "Right"}
-                 ],
-                 "label": "Text alignment",
-                 "default": "tc"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_overlay_3",
-                 "options": [
-                   { "value": "", "label": "None"},
-                   { "value": "dark-overlay", "label": "Darken image"},
-                   { "value": "light-overlay", "label": "Lighten image"}
-                 ],
-                 "label": "Tint image",
-                 "default": ""
-            },
-            {
-                "type": "header",
-                "content": "Slide 4"
-            },
-            {
-                "type": "checkbox",
-                "id": "homepage_slide_show_4",
-                "label": "Display?",
-                "default": true
-            },
-            {
-                "type": "image",
-                "id": "homepage_slide_image_4.jpg",
-                "label": "Slide image",
-                "max-width": 5000
-            },
-            {
-                "type": "color",
-                "id": "homepage_slide_4_colour",
-                "label": "Text Colour",
-                "default": "#f4f4f4"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_title_4",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_text_4",
-                "label": "Call to action text"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_link_4",
-                "label": "Call to action URL"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_4_position",
-                 "options": [
-                   { "value": "top-left", "label": "Top left"},
-                   { "value": "top-center", "label": "Top center"},
-                   { "value": "top-right", "label": "Top right"},
-                   { "value": "center-left", "label": "Center left"},
-                   { "value": "center-center", "label": "Center center"},
-                   { "value": "center-right", "label": "Center right"},
-                   { "value": "bottom-left", "label": "Bottom left"},
-                   { "value": "bottom-center", "label": "Bottom center"},
-                   { "value": "bottom-right", "label": "Bottom right"}
-                 ],
-                 "label": "Text position",
-                 "default": "center-center"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_4_align",
-                 "options": [
-                   { "value": "tl", "label": "Left"},
-                   { "value": "tc", "label": "Center"},
-                   { "value": "tr", "label": "Right"}
-                 ],
-                 "label": "Text alignment",
-                 "default": "tc"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_overlay_4",
-                 "options": [
-                   { "value": "", "label": "None"},
-                   { "value": "dark-overlay", "label": "Darken image"},
-                   { "value": "light-overlay", "label": "Lighten image"}
-                 ],
-                 "label": "Tint image",
-                 "default": ""
-            },
-            {
-                "type": "header",
-                "content": "Slide 5"
-            },
-            {
-                "type": "checkbox",
-                "id": "homepage_slide_show_5",
-                "label": "Display?",
-                "default": true
-            },
-            {
-                "type": "image",
-                "id": "homepage_slide_image_5.jpg",
-                "label": "Slide image",
-                "max-width": 5000
-            },
-            {
-                "type": "color",
-                "id": "homepage_slide_5_colour",
-                "label": "Text Colour",
-                "default": "#f4f4f4"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_title_5",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_text_5",
-                "label": "Call to action text"
-            },
-            {
-                "type": "text",
-                "id": "homepage_slide_link_5",
-                "label": "Call to action URL"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_5_position",
-                 "options": [
-                   { "value": "top-left", "label": "Top left"},
-                   { "value": "top-center", "label": "Top center"},
-                   { "value": "top-right", "label": "Top right"},
-                   { "value": "center-left", "label": "Center left"},
-                   { "value": "center-center", "label": "Center center"},
-                   { "value": "center-right", "label": "Center right"},
-                   { "value": "bottom-left", "label": "Bottom left"},
-                   { "value": "bottom-center", "label": "Bottom center"},
-                   { "value": "bottom-right", "label": "Bottom right"}
-                 ],
-                 "label": "Text position",
-                 "default": "center-center"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_text_5_align",
-                 "options": [
-                   { "value": "tl", "label": "Left"},
-                   { "value": "tc", "label": "Center"},
-                   { "value": "tr", "label": "Right"}
-                 ],
-                 "label": "Text alignment",
-                 "default": "tc"
-            },
-            {
-                 "type": "radio",
-                 "id": "homepage_slide_overlay_5",
-                 "options": [
-                   { "value": "", "label": "None"},
-                   { "value": "dark-overlay", "label": "Darken image"},
-                   { "value": "light-overlay", "label": "Lighten image"}
-                 ],
-                 "label": "Tint image",
-                 "default": ""
-            }
-        ]
-    },
-    {
-        "name": "Info Boxes",
-        "settings": [
-            {
-                "type": "checkbox",
-                "id": "info_boxes",
-                "label": "Display info boxes"
-            },
-            {
-                "type": "header",
-                "content": "Box 1"
-            },
-            {
-                "type": "image",
-                "id": "homepage_box_image_1.jpg",
-                "label": "Box image",
-                "max-width": 2048
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_title_1",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_subtitle_1",
-                "label": "Subtitle"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_link_1",
-                "label": "Call to action URL"
-            },
-            {
-                "type": "header",
-                "content": "Box 2"
-            },
-            {
-                "type": "image",
-                "id": "homepage_box_image_2.jpg",
-                "label": "Box image",
-                "max-width": 2048
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_title_2",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_subtitle_2",
-                "label": "Subtitle"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_link_2",
-                "label": "Call to action URL"
-            },
-            {
-                "type": "header",
-                "content": "Box 3"
-            },
-            {
-                "type": "image",
-                "id": "homepage_box_image_3.jpg",
-                "label": "Box image",
-                "max-width": 2048
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_title_3",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_subtitle_3",
-                "label": "Subtitle"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_link_3",
-                "label": "Call to action URL"
-            },
-            {
-                "type": "header",
-                "content": "Box 4"
-            },
-            {
-                "type": "image",
-                "id": "homepage_box_image_4.jpg",
-                "label": "Box image",
-                "max-width": 2048
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_title_4",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_subtitle_4",
-                "label": "Subtitle"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_link_4",
-                "label": "Call to action URL"
-            },
-            {
-                "type": "header",
-                "content": "Box 5"
-            },
-            {
-                "type": "image",
-                "id": "homepage_box_image_5.jpg",
-                "label": "Box image",
-                "max-width": 2048
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_title_5",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_subtitle_5",
-                "label": "Subtitle"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_link_5",
-                "label": "Call to action URL"
-            },
-            {
-                "type": "header",
-                "content": "Box 6"
-            },
-            {
-                "type": "image",
-                "id": "homepage_box_image_6.jpg",
-                "label": "Box image",
-                "max-width": 2048
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_title_6",
-                "label": "Title"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_subtitle_6",
-                "label": "Subtitle"
-            },
-            {
-                "type": "text",
-                "id": "homepage_box_link_6",
-                "label": "Call to action URL"
-            }
-        ]
-    },
-    {
-        "name": "Page Header images",
-        "settings": [
-            {
-                "type": "header",
-                "content": "About Page"
-            },
-            {
-                "type": "image",
-                "id": "do-book-co-about_header_image.jpg",
-                "label": "Header Image",
-                "max-width": 2048
-            },
-            {
-                "type": "header",
-                "content": "Events Page"
-            },
-            {
-                "type": "image",
-                "id": "do-book-co-events_header_image.jpg",
-                "label": "Header Image",
-                "max-width": 2048
-            },
-            {
-                "type": "header",
-                "content": "Stockists Page"
-            },
-            {
-                "type": "image",
-                "id": "do-book-co-stockists_header_image.jpg",
-                "label": "Header Image",
-                "max-width": 2048
-            }
-        ]
-    }
+  {
+    "name": "Slideshow",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "homepage_slideshow",
+        "label": "Display slideshow"
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "homepage_slide_show_1",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "homepage_slide_image_1",
+        "label": "Slide image",
+        "max-width": 5000
+      },
+      {
+        "type": "color",
+        "id": "homepage_slide_1_colour",
+        "label": "Text Colour",
+        "default": "#f4f4f4"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_title_1",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_text_1",
+        "label": "Call to action text"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_link_1",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_1_position",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "Top left"
+          },
+          {
+            "value": "top-center",
+            "label": "Top center"
+          },
+          {
+            "value": "top-right",
+            "label": "Top right"
+          },
+          {
+            "value": "center-left",
+            "label": "Center left"
+          },
+          {
+            "value": "center-center",
+            "label": "Center center"
+          },
+          {
+            "value": "center-right",
+            "label": "Center right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom left"
+          },
+          {
+            "value": "bottom-center",
+            "label": "Bottom center"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom right"
+          }
+        ],
+        "label": "Text position",
+        "default": "center-center"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_1_align",
+        "options": [
+          {
+            "value": "tl",
+            "label": "Left"
+          },
+          {
+            "value": "tc",
+            "label": "Center"
+          },
+          {
+            "value": "tr",
+            "label": "Right"
+          }
+        ],
+        "label": "Text alignment",
+        "default": "tc"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_overlay_1",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "dark-overlay",
+            "label": "Darken image"
+          },
+          {
+            "value": "light-overlay",
+            "label": "Lighten image"
+          }
+        ],
+        "label": "Tint image",
+        "default": ""
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "homepage_slide_show_2",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "homepage_slide_image_2",
+        "label": "Slide image",
+        "max-width": 5000
+      },
+      {
+        "type": "color",
+        "id": "homepage_slide_2_colour",
+        "label": "Text Colour",
+        "default": "#f4f4f4"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_title_2",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_text_2",
+        "label": "Call to action text"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_link_2",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_2_position",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "Top left"
+          },
+          {
+            "value": "top-center",
+            "label": "Top center"
+          },
+          {
+            "value": "top-right",
+            "label": "Top right"
+          },
+          {
+            "value": "center-left",
+            "label": "Center left"
+          },
+          {
+            "value": "center-center",
+            "label": "Center center"
+          },
+          {
+            "value": "center-right",
+            "label": "Center right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom left"
+          },
+          {
+            "value": "bottom-center",
+            "label": "Bottom center"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom right"
+          }
+        ],
+        "label": "Text position",
+        "default": "center-center"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_2_align",
+        "options": [
+          {
+            "value": "tl",
+            "label": "Left"
+          },
+          {
+            "value": "tc",
+            "label": "Center"
+          },
+          {
+            "value": "tr",
+            "label": "Right"
+          }
+        ],
+        "label": "Text alignment",
+        "default": "tc"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_overlay_2",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "dark-overlay",
+            "label": "Darken image"
+          },
+          {
+            "value": "light-overlay",
+            "label": "Lighten image"
+          }
+        ],
+        "label": "Tint image",
+        "default": ""
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "homepage_slide_show_3",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "homepage_slide_image_3",
+        "label": "Slide image",
+        "max-width": 5000
+      },
+      {
+        "type": "color",
+        "id": "homepage_slide_3_colour",
+        "label": "Text Colour",
+        "default": "#f4f4f4"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_title_3",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_text_3",
+        "label": "Call to action text"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_link_3",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_3_position",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "Top left"
+          },
+          {
+            "value": "top-center",
+            "label": "Top center"
+          },
+          {
+            "value": "top-right",
+            "label": "Top right"
+          },
+          {
+            "value": "center-left",
+            "label": "Center left"
+          },
+          {
+            "value": "center-center",
+            "label": "Center center"
+          },
+          {
+            "value": "center-right",
+            "label": "Center right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom left"
+          },
+          {
+            "value": "bottom-center",
+            "label": "Bottom center"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom right"
+          }
+        ],
+        "label": "Text position",
+        "default": "center-center"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_3_align",
+        "options": [
+          {
+            "value": "tl",
+            "label": "Left"
+          },
+          {
+            "value": "tc",
+            "label": "Center"
+          },
+          {
+            "value": "tr",
+            "label": "Right"
+          }
+        ],
+        "label": "Text alignment",
+        "default": "tc"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_overlay_3",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "dark-overlay",
+            "label": "Darken image"
+          },
+          {
+            "value": "light-overlay",
+            "label": "Lighten image"
+          }
+        ],
+        "label": "Tint image",
+        "default": ""
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "homepage_slide_show_4",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "homepage_slide_image_4",
+        "label": "Slide image",
+        "max-width": 5000
+      },
+      {
+        "type": "color",
+        "id": "homepage_slide_4_colour",
+        "label": "Text Colour",
+        "default": "#f4f4f4"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_title_4",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_text_4",
+        "label": "Call to action text"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_link_4",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_4_position",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "Top left"
+          },
+          {
+            "value": "top-center",
+            "label": "Top center"
+          },
+          {
+            "value": "top-right",
+            "label": "Top right"
+          },
+          {
+            "value": "center-left",
+            "label": "Center left"
+          },
+          {
+            "value": "center-center",
+            "label": "Center center"
+          },
+          {
+            "value": "center-right",
+            "label": "Center right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom left"
+          },
+          {
+            "value": "bottom-center",
+            "label": "Bottom center"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom right"
+          }
+        ],
+        "label": "Text position",
+        "default": "center-center"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_4_align",
+        "options": [
+          {
+            "value": "tl",
+            "label": "Left"
+          },
+          {
+            "value": "tc",
+            "label": "Center"
+          },
+          {
+            "value": "tr",
+            "label": "Right"
+          }
+        ],
+        "label": "Text alignment",
+        "default": "tc"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_overlay_4",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "dark-overlay",
+            "label": "Darken image"
+          },
+          {
+            "value": "light-overlay",
+            "label": "Lighten image"
+          }
+        ],
+        "label": "Tint image",
+        "default": ""
+      },
+      {
+        "type": "header",
+        "content": "Slide 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "homepage_slide_show_5",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "homepage_slide_image_5",
+        "label": "Slide image",
+        "max-width": 5000
+      },
+      {
+        "type": "color",
+        "id": "homepage_slide_5_colour",
+        "label": "Text Colour",
+        "default": "#f4f4f4"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_title_5",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_text_5",
+        "label": "Call to action text"
+      },
+      {
+        "type": "text",
+        "id": "homepage_slide_link_5",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_5_position",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "Top left"
+          },
+          {
+            "value": "top-center",
+            "label": "Top center"
+          },
+          {
+            "value": "top-right",
+            "label": "Top right"
+          },
+          {
+            "value": "center-left",
+            "label": "Center left"
+          },
+          {
+            "value": "center-center",
+            "label": "Center center"
+          },
+          {
+            "value": "center-right",
+            "label": "Center right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom left"
+          },
+          {
+            "value": "bottom-center",
+            "label": "Bottom center"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom right"
+          }
+        ],
+        "label": "Text position",
+        "default": "center-center"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_text_5_align",
+        "options": [
+          {
+            "value": "tl",
+            "label": "Left"
+          },
+          {
+            "value": "tc",
+            "label": "Center"
+          },
+          {
+            "value": "tr",
+            "label": "Right"
+          }
+        ],
+        "label": "Text alignment",
+        "default": "tc"
+      },
+      {
+        "type": "radio",
+        "id": "homepage_slide_overlay_5",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "dark-overlay",
+            "label": "Darken image"
+          },
+          {
+            "value": "light-overlay",
+            "label": "Lighten image"
+          }
+        ],
+        "label": "Tint image",
+        "default": ""
+      }
+    ]
+  },
+  {
+    "name": "Info Boxes",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "info_boxes",
+        "label": "Display info boxes"
+      },
+      {
+        "type": "header",
+        "content": "Box 1"
+      },
+      {
+        "type": "image",
+        "id": "homepage_box_image_1.jpg",
+        "label": "Box image",
+        "max-width": 2048
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_title_1",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_subtitle_1",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_link_1",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "header",
+        "content": "Box 2"
+      },
+      {
+        "type": "image",
+        "id": "homepage_box_image_2.jpg",
+        "label": "Box image",
+        "max-width": 2048
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_title_2",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_subtitle_2",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_link_2",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "header",
+        "content": "Box 3"
+      },
+      {
+        "type": "image",
+        "id": "homepage_box_image_3.jpg",
+        "label": "Box image",
+        "max-width": 2048
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_title_3",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_subtitle_3",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_link_3",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "header",
+        "content": "Box 4"
+      },
+      {
+        "type": "image",
+        "id": "homepage_box_image_4.jpg",
+        "label": "Box image",
+        "max-width": 2048
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_title_4",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_subtitle_4",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_link_4",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "header",
+        "content": "Box 5"
+      },
+      {
+        "type": "image",
+        "id": "homepage_box_image_5.jpg",
+        "label": "Box image",
+        "max-width": 2048
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_title_5",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_subtitle_5",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_link_5",
+        "label": "Call to action URL"
+      },
+      {
+        "type": "header",
+        "content": "Box 6"
+      },
+      {
+        "type": "image",
+        "id": "homepage_box_image_6.jpg",
+        "label": "Box image",
+        "max-width": 2048
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_title_6",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_subtitle_6",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "homepage_box_link_6",
+        "label": "Call to action URL"
+      }
+    ]
+  },
+  {
+    "name": "Page Header images",
+    "settings": [
+      {
+        "type": "header",
+        "content": "About Page"
+      },
+      {
+        "type": "image",
+        "id": "do-book-co-about_header_image.jpg",
+        "label": "Header Image",
+        "max-width": 2048
+      },
+      {
+        "type": "header",
+        "content": "Events Page"
+      },
+      {
+        "type": "image",
+        "id": "do-book-co-events_header_image.jpg",
+        "label": "Header Image",
+        "max-width": 2048
+      },
+      {
+        "type": "header",
+        "content": "Stockists Page"
+      },
+      {
+        "type": "image",
+        "id": "do-book-co-stockists_header_image.jpg",
+        "label": "Header Image",
+        "max-width": 2048
+      }
+    ]
+  }
 ]

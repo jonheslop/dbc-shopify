@@ -6,9 +6,9 @@
     <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
         <h1 class="f3 fw5 f2-ns ma0 lh-title">Smart Working</h1>
     </header>
-    <div class="cf grid-offset">
+    <div class="grid-offset book-grid">
       {% for product in collections.smart-working.products %}
-        <article class="fl w-50 w-third-m w-20-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+        <article class="border-box pa3 fl w-50 w-third-m w-20-l {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
             <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
                 <figure class="ma0">
                     <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
@@ -22,11 +22,11 @@
  {% if collections.home-page %}
  <section class="partition mv5">
      <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
-         <h1 class="f3 fw5 f2-ns ma0 lh-title">Slow Living</h1>
+         <h1 class="f3 fw5 f2-ns ma0 lh-title">Life Skills</h1>
      </header>
-     <div class="cf grid-offset">
+    <div class="grid-offset book-grid">
          {% for product in collections.slow-living.products %}
-         <article class="fl w-50 w-third-m w-20-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+         <article class="border-box pa3 fl w-50 w-third-m w-20-l {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
              <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
                  <figure class="ma0">
                      <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
@@ -38,36 +38,56 @@
    </section>
   {% endif %}
 
- <section class="partition mv5">
+
+ {% if collections.home-page %}
+ <section class="cf mv5">
      <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
-         <h1 class="f3 fw5 f2-ns ma0 lh-title">{{ collections.gift-bundles.title }}</h1>
+         <h1 class="f3 fw5 f2-ns ma0 lh-title">Hardbacks</h1>
      </header>
-	{% if collections.home-page %}
-	<div class="cf grid-offset">
-	  {% for product in collections.gift-bundles.products %}
-		<article class="fl w-50 w-third-m w-25-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
-			<a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="link product-thumb">
-				<figure class="ma0">
-					<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
-              <h4 class="mt2 f5">{{ product.title }}</h4>
-				</figure>
-			</a>
-		</article>
-	  {% endfor %}
-		</div>
-		{% endif %}
-	</section>
+    <div class="grid-offset book-grid">
+         {% for product in collections.hardbacks.products %}
+         <article class="border-box pa3 fl w-50 w-third-m w-20-l {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+             <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="product-thumb">
+                 <figure class="ma0">
+                     <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+                 </figure>
+             </a>
+         </article>
+       {% endfor %}
+     </div>
+   </section>
+  {% endif %}
+ 
+ <section class="partition mv5">
+   <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
+      <h1 class="f3 fw5 f2-ns ma0 lh-title">{{ collections.toolkits.title }}</h1>
+    </header>
+  {% if collections.home-page %}
+    <div class="grid-offset book-grid">
+    {% for product in collections.toolkits.products %}
+    <article class="border-box pa3 fl w-50 w-third-m w-20-l {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+      <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="link product-thumb">
+        <figure class="ma0">
+          <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
+          <h4 class="mt2 f5">{{ product.title }}</h4>
+        </figure>
+      </a>
+    </article>
+    {% endfor %}
+    </div>
+  {% endif %}
+</section>
 
 {% else %}
 
 <section class="partition mv5">
     <header class="bb bw1 b--dbc-orange mb3 mh3 mh0-ns">
-        <h1 class="f3 fw5 f2-ns ma0 lh-title">Gift Ideas</h1>
+        <h1 class="f3 fw5 f2-ns ma0 lh-title">Gift Ideas & Bundles</h1>
     </header>
    {% if collections.home-page %}
-   <div class="cf grid-offset">
+    <div class="grid-offset book-grid">
      {% for product in collections.gift-bundles.products %}
-       <article class="fl w-50 w-third-m w-25-l pa3 border-box {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
+       <article class="border-box pa3 fl w-50 w-third-m w-20-l {{ product.metafields.attribute.type | handleize }}{% unless product.available %} sold-out{% endunless %}">
            <a href="{{ product.url | within: collection }}" title="{{ product.title }}" class="link product-thumb">
                <figure class="ma0">
                    <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'grande' }}">
