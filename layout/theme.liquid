@@ -93,14 +93,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               {% include 'minicart' %}
             </div>
           {% endif %}
+          <ul class="list pa0 left-align-with-logo dn flex-ns items-center">
+            <li class="mr3"><a href="http://instagram.com/dobookco/"><img class="w1 h1" src="{{ 'instagram.svg' | asset_url }}" title="Instagram" /></a></li>
+            <li class="mr3"><a href="http://twitter.com/dobookco"><img class="w1 h1" src="{{ 'twitter.svg' | asset_url }}" title="Twitter" /></a></li>
+            <li><a href="https://thedobook.co/pages/subscribe"><img style="height: 23px; width: auto;" src="{{ 'envelope.svg' | asset_url }}" title="Subscribe to our newsletter" /></a></li>
+          </ul>
     </header>
   <section class="container cf pv4" role="main" id="content">
       {{ content_for_layout }}
   </section><!-- role="main" -->
   <footer role="content-info" class="mt5 mb4">
-    <ul class="list tc pa0">
+    <ul class="list tc pa0 dn-ns">
+      <li class="dib mr3"><a href="http://instagram.com/dobookco/"><img class="w2 h2" src="{{ 'instagram.svg' | asset_url }}" title="Instagram" /></a></li>
       <li class="dib mr3"><a href="http://twitter.com/dobookco"><img class="w2 h2" src="{{ 'twitter.svg' | asset_url }}" title="Twitter" /></a></li>
-      <li class="dib ml3"><a href="http://instagram.com/dobookco/"><img class="w2 h2" src="{{ 'instagram.svg' | asset_url }}" title="Instagram" /></a></li>
+      <li class="dib"><a href="https://thedobook.co/pages/subscribe"><img style="height: 32px; width: auto;" src="{{ 'envelope.svg' | asset_url }}" title="Subscribe to our newsletter" /></a></li>
     </ul>
     <p class="tc f6">
         {% for link in linklists.footer.links %}
