@@ -1,0 +1,21 @@
+<article class="fl w-50 w-25-l border-box pa3">
+	<header class="bb bw1 b--dbc-orange mb3 ">
+          <h4 class="f5 fw5 f4-ns ma0 lh-title">Product Details</h4>
+    </header>
+	<p class="lh-copy f6">{% if product.metafields.attribute.pubdate %}Pub date: {{ product.metafields.attribute.pubdate }}<br/>{% endif %}
+    Dimensions: {{ product.metafields.attribute.dimensions }}<br/>
+	ISBN: {{ product.metafields.attribute.isbn }}<br/>
+	eBook ISBN: {{ product.metafields.attribute.eisbn }}</p>
+</article>
+<article class="fl w-50 w-25-l border-box pa3 lh-copy">
+	<header class="bb bw1 b--dbc-orange mb3 ">
+          <h4 class="f5 fw5 f4-ns ma0 lh-title">Artwork</h4>
+    </header>
+	<p class="lh-copy f6">All editions contain illustrations by the author.</p>
+</article>
+<article class="fl w-100 w-50-l border-box pa3 lh-copy">
+	<header class="bb bw1 b--dbc-orange mb3 ">
+          <h4 class="f5 fw5 f4-ns ma0 lh-title">Paper &amp; print details</h4>
+    </header>
+	<p class="lh-copy f6">Paperback editions are printed by OZGraf Print on Munken, an FSC-certified paper</p>
+</article>

@@ -29,12 +29,12 @@
                 {% endunless %}
             {% endunless %}
             </div>
-            {% if product.title contains "Gift" %}
+            {% if product.title contains "Gift Card" %}
             <form class="addtocart cf" action="/cart/add" method="post">
               {% comment %} Return to product instead of going to cart {% endcomment %}
               <input type="hidden" name="return_to" value="back" />
                 <header>
-                    <h5 class="section_title">Choose your 3 titles:</h5>
+                    <h5 class="section_title">Choose your option:</h5>
                      <div id="price-field"></div>
                 </header>
                     <select id="product-select" name="id">
@@ -44,7 +44,7 @@
                     </select>
                     <input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
             </form>
-            {% else %}
+          {% else %}
             <form class="addtocart cf" action="/cart/add" method="post">
               {% comment %} Return to product instead of going to cart {% endcomment %}
               <input type="hidden" name="return_to" value="back" />
@@ -70,9 +70,9 @@
                           </div>
                       </div>
                       {% elsif variant.available == true %}
-                        <div class="fl w-100 {% if product.metafields.attribute.audiobook %}w-third-ns{% else %}w-50-ns{% endif %} border-box ph3">
+                        <div class="fl w-100 {% if forloop.length != 1 %}{% if product.metafields.attribute.audiobook %}w-third-ns{% else %}w-50-ns{% endif %}{% endif %} border-box ph3">
                             <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
-                            <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {% if variant.title == "Paperback" %}Paperback{% unless product.title contains "Disrupt" %} &amp; eBook{% endunless %}{% else %}{{ variant.title }}{% endif %} {{ variant.price | money | remove: '.00' }} {% if variant.compare_at_price %}{{ variant.compare_at_price  | money | remove: '.00' | prepend: '(was ' | append: ')'}}{% endif %} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages {% unless product.title contains "Disrupt" %}(includes eBook too){% endunless %}{% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
+                            <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {% if variant.title == "Paperback" %}Paperback{% unless product.title contains "Disrupt" %} &amp; eBook{% endunless %}{% else %}{{ variant.title }}{% endif %} {{ variant.price | money | remove: '.00' }} {% if variant.compare_at_price %}{{ variant.compare_at_price  | money | remove: '.00' | prepend: '(was ' | append: ')'}}{% endif %} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{% unless product.title contains "Wild Baker" %}{{ product.metafields.attribute.pagecount }} pages {% endunless %}{% unless product.title contains "Disrupt" %}(includes eBook too){% endunless %}{% elsif variant.title == "Hardback" %}{{ product.metafields.attribute.pagecount }} pages {% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
                             {% if variant.title contains "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
                         </div>
                       {% else %}
@@ -90,8 +90,14 @@
                     {% endif %}
                 </div>
                 {% if product.tags contains 'coming soon' %}
-                    <p class="coming_soon wrapper tc lh-title"><em>~ Available to pre-order now ~<br/>Shipping just ahead of publication on 14th September 2017 </em></p>
-                {% else %}
+                  <p class="coming_soon wrapper tc lh-title i b">
+                  {% if product.metafields.attribute.comingsoon %}
+                    {{ product.metafields.attribute.comingsoon }}
+                  {% else %}
+                    ~ Experiencing delays. This title is available to order and will ship as soon as more stock arrives!  ~
+                  {% endif %}
+                  </p>
+              {% else %}
                   {% unless product.available %}
                 <p class="coming_soon wrapper"><em>~ Sold out ~</em></p>
                {% endunless %}
@@ -127,10 +133,11 @@
             <div class="lh-copy">{% include bio_snippet %}</div>
     </section>
 </section>
+{% unless product.title contains "Inhabit" %}
 <section class="cf mv4 mv5-ns grid-offset">
     <figure class="embed cf">
+        {% capture lecture_snippet %}{{ product.metafields.attribute.author | handleize }}-lecture{% endcapture %}
         <div class="fl w-100 w-70-l border-box pa3">
-            {% capture lecture_snippet %}{{ product.metafields.attribute.author | handleize }}-lecture{% endcapture %}
             {% include lecture_snippet %}
         </div>
         <figcaption class="fr w-100 w-30-l border-box pa3">
@@ -139,6 +146,7 @@
         </figcaption>
     </figure>
 </section>
+{% endunless %}
 {% capture details_snippet %}{{ product.metafields.attribute.author | handleize }}-details{% endcapture %}
 {% capture details_snippet_content %}{% include details_snippet %}{% endcapture %}
 {% unless details_snippet_content contains "Liquid error" %}

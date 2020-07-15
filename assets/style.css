@@ -492,3 +492,9 @@ section[role="main"] .helperText a:visited { text-decoration: none!important;
   .popup_close-box::after {
     transform: rotate(-45deg);
   }
+
+  .book-grid {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
