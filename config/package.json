@@ -71,7 +71,7 @@
   "description": "Find and load configuration from a package.json property, rc file, or CommonJS module",
   "devDependencies": {
     "ava": "0.16.0",
-    "eslint": "3.5.0",
+    "eslint": "7.4.0",
     "eslint-config-davidtheclark-node": "^0.2.0",
     "eslint-plugin-node": "^2.0.0",
     "expect": "^1.20.2",
