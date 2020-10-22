@@ -38,8 +38,31 @@
     <div class="cart_buttons wrapper cf">
       <input type="submit" value="Checkout" name="checkout" id="pay_now" class="button" />
 
-        <input type="submit" id="update-cart" name="update" value="Update Cart" class="button" />
+        <input type="submit" id="update-cart" name="update" value="Update Cart" class="button grey" />
+    </div>
   </form>
+
+  <div class="ba br2 b--dbc-grey pa4 mt4">
+    <header>
+      <h2 class="ma0">But wait, did you see this?</h2>
+    </header>
+    {% for product in collections.promotions.products %}
+      <div class="flex">
+        <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ image.alt | escape }}" data-at2x="{{ product.featured_image | product_img_url: 'medium' }}">
+
+        <form action="/cart/add" method="post" class="mt4 mt0-ns ml4-ns cart-promo-text">
+          {{ collections.promotions.description }}
+          {% for variant in product.variants %}
+            {% if variant.title == 'paperback' %}
+              <input type="hidden" name="id[]" value="{{ variant.id }}" />
+            {% endif %}
+          {% endfor %}
+          <input type="hidden" name="quantity" value="1" />
+          <input type="submit" class="button sumbit" value="Add for {{ product.price | money }}" />
+        </form>
+    {% endfor %}
+  </div>
+</div>
 {% comment %}
 
     {% if cart.items.size <= collections.guidebooks.products.size %}
@@ -70,7 +93,6 @@
         </div>
       {% endif %}
 {% endcomment %}
-</div>
 {% comment %} {% include 'shipping-calculator' %} {% endcomment %}
 
 {% endif %}

@@ -11,15 +11,21 @@
 *
 */
 figure {
-  position: relative; }
+  position: relative;
+}
 
-figure img, figure object, figure embed, figure video {
+figure img,
+figure object,
+figure embed,
+figure video {
   max-width: 100%;
-  display: block; }
+  display: block;
+}
 
 img {
   border: 0;
-  -ms-interpolation-mode: bicubic; }
+  -ms-interpolation-mode: bicubic;
+}
 
 /*
 *
@@ -30,7 +36,8 @@ img {
 body {
   /* 16px / 24px */
   font-size: 1em;
-  line-height: 1.5em; }
+  line-height: 1.5em;
+}
 
 /*
 *
@@ -50,7 +57,8 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 /*
 *
@@ -61,40 +69,75 @@ body {
 .ie body {
   width: 40em;
   margin: 0 auto;
-  font-size: 1.0625em; }
+  font-size: 1.0625em;
+}
 
 .ie h1 {
   /* 42px / 48px */
   font-size: 2.625em;
   line-height: 1.14286em;
-  margin: 1.14286em 0 0.57143em; }
+  margin: 1.14286em 0 0.57143em;
+}
 
 .bookPreview {
   float: left;
   width: 33.333333333%;
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+}
 
 #recently article header {
-  margin: 0.75em 0; }
+  margin: 0.75em 0;
+}
 
-.coming_soon { float: left; width: 33.333333333%; }
-
-.meta { float: left; width: 100%; margin: 1.5em 0 3em; }
+.meta {
+  float: left;
+  width: 100%;
+  margin: 1.5em 0 3em;
+}
 
 /* Product Page */
-#images { float: left; width: 30.769230769%; }
-#details { float: left; width: 69.230769231%; }
-.radiobuttons .wrapper { float: left; width: 100%; }
-.addtocart header.wrapper { float: left; width: 100%; }
+.radiobuttons .wrapper {
+  float: left;
+  width: 100%;
+}
+.addtocart header.wrapper {
+  float: left;
+  width: 100%;
+}
 
-.thumb { float: left; width: 100%; margin-top: .75em; border:1px solid #D9D9D9; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; }
+.thumb {
+  float: left;
+  width: 100%;
+  margin-top: 0.75em;
+  border: 1px solid #d9d9d9;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-.readmill { float: right; text-align: center; width: 100%; margin-top: .75em; }
+.readmill {
+  float: right;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.75em;
+}
 
-.artwork_details, .paper_details { margin-top: 1.5em; }
+.artwork_details,
+.paper_details {
+  margin-top: 1.5em;
+}
 
-.selector-wrapper { float: left; width: 100%; margin-bottom: .75em; padding: 0 0.75em; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; }
-
+.selector-wrapper {
+  float: left;
+  width: 100%;
+  margin-bottom: 0.75em;
+  padding: 0 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 /*
 *
@@ -107,83 +150,160 @@ body {
 */
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
-
   .bookPreview {
-    width: 20%; }
-	.coming_soon { width: 100%; }
+    width: 20%;
+  }
+  .coming_soon {
+    width: 100%;
+  }
 
- .gift-bundles .bookPreview {
-    width: 25%; }
-
+  .gift-bundles .bookPreview {
+    width: 25%;
+  }
 
   #recently figure {
     float: right;
-    width: 46.153846154%; }
+    width: 46.153846154%;
+  }
   #recently .words {
     float: left;
-    width: 53.846153846%; }
+    width: 53.846153846%;
+  }
   #recently article header {
-    margin-top: 0; }
+    margin-top: 0;
+  }
 
   #miniAbout .words {
     float: left;
-    width: 53.846153846%; }
+    width: 53.846153846%;
+  }
   #miniAbout figure {
     float: right;
-    width: 46.153846154%; }
+    width: 46.153846154%;
+  }
 
-#reviews, #authorBio { float: left; width: 50%; }
+  #reviews,
+  #authorBio {
+    float: left;
+    width: 50%;
+  }
 
-#dolecture .embedWrapper { float: left; width: 50%; }
-#dolecture .caption { float: left; width: 50%; }
-#dolecture .caption h2 { margin-top: 0; }
+  #dolecture .embedWrapper {
+    float: left;
+    width: 50%;
+  }
+  #dolecture .caption {
+    float: left;
+    width: 50%;
+  }
+  #dolecture .caption h2 {
+    margin-top: 0;
+  }
 
-#download_sample { float:left; width: 18.75%; margin-right: 6.25%; margin-top: 3em; }
-#summary { float:left; width: 75%; }
+  #download_sample {
+    float: left;
+    width: 18.75%;
+    margin-right: 6.25%;
+    margin-top: 3em;
+  }
+  #summary {
+    float: left;
+    width: 75%;
+  }
 
-.thumb { width: 30%; }
-a:nth-of-type(3) .thumb { margin-right: 0; }
-a:first-of-type .thumb, a:nth-of-type(2) .thumb, a:nth-of-type(4) .thumb, a:nth-of-type(5) .thumb { margin-right: 5%; }
+  .thumb {
+    width: 30%;
+  }
+  a:nth-of-type(3) .thumb {
+    margin-right: 0;
+  }
+  a:first-of-type .thumb,
+  a:nth-of-type(2) .thumb,
+  a:nth-of-type(4) .thumb,
+  a:nth-of-type(5) .thumb {
+    margin-right: 5%;
+  }
 
-.radiobuttons .wrapper { width: 50%; }
+  .radiobuttons .wrapper {
+    width: 50%;
+  }
 
-.product_details, .artwork_details { float:left; width: 50%; margin-top: 0; }
-.paper_details { float: left; width: 100%; }
-.selector-wrapper { width: 33.333%; }
-
-
+  .product_details,
+  .artwork_details {
+    float: left;
+    width: 50%;
+    margin-top: 0;
+  }
+  .paper_details {
+    float: left;
+    width: 100%;
+  }
+  .selector-wrapper {
+    width: 33.333%;
+  }
 }
 /* @media screen and (min-width: 888px) */
 @media screen and (min-width: 55.5em) {
-	#dolecture .embedWrapper { width: 62.5%; }
-	#dolecture .caption { width: 37.5%; }
-
+  #dolecture .embedWrapper {
+    width: 62.5%;
+  }
+  #dolecture .caption {
+    width: 37.5%;
+  }
 }
 /* @media screen and (min-width: 984px) */
 @media screen and (min-width: 61.5em) {
   footer[role="content-info"] {
     float: left;
     width: 100%;
-    margin: 3em 0 0; }
-
+    margin: 3em 0 0;
+  }
 
   .partition header:first-child {
-    margin: 0 0 1.5em; }
-    .partition header:first-child h1 {
-      margin: 0; }
+    margin: 0 0 1.5em;
+  }
+  .partition header:first-child h1 {
+    margin: 0;
+  }
 
-	#reviews, #authorBio { width: 50%; }
+  #reviews,
+  #authorBio {
+    width: 50%;
+  }
 
-	#dolecture .embedWrapper { width: 69.230769231%; }
-	#dolecture .caption { width: 30.769230769%; }
+  #dolecture .embedWrapper {
+    width: 69.230769231%;
+  }
+  #dolecture .caption {
+    width: 30.769230769%;
+  }
 
- 	#download_sample { width: 23.076923077%; margin-right: 7.692307692%; margin-top: 3em; }
-	#summary { float:left; width: 69.230769231%; }
+  #download_sample {
+    width: 23.076923077%;
+    margin-right: 7.692307692%;
+    margin-top: 3em;
+  }
+  #summary {
+    float: left;
+    width: 69.230769231%;
+  }
 
-	#cart_section { float: left; width:69.230769231%; }
-	#sidebar { float: left; width:30.769230769%; }
+  #cart_section {
+    float: left;
+    width: 69.230769231%;
+  }
+  #sidebar {
+    float: left;
+    width: 30.769230769%;
+  }
 
-	.product_details, .artwork_details { width: 26.923076923%; margin-top: 0; }
-	.paper_details { width: 46.153846154%; margin-top: 0; }
-
+  .product_details,
+  .artwork_details {
+    width: 26.923076923%;
+    margin-top: 0;
+  }
+  .paper_details {
+    width: 46.153846154%;
+    margin-top: 0;
+  }
 }

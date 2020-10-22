@@ -37,8 +37,7 @@
 
     <link rel="stylesheet" href="//unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-    {% if template == 'index' or template == 'product' %}
-    {% else %}
+    {% unless template == 'index' %}
         <!--[if lte IE 8]>
       {{ 'GGS-ie.css' | asset_url | stylesheet_tag }}
         <![endif]-->
@@ -46,7 +45,7 @@
       {{ 'GGS.css' | asset_url | stylesheet_tag }}
         <!--<![endif]-->
       {{ 'design.css' | asset_url | stylesheet_tag }}
-    {% endif %}
+    {% endunless %}
     {{ 'style.min.css' | asset_url | stylesheet_tag }}
 
     {% if template == 'product' %}
@@ -67,7 +66,7 @@
     <!-- End Google Tag Manager -->
 </head>
 
-<body class="cf {{ template | replace: '.', ' ' | truncatewords: 1, '' }} dark-gray" id="{{ page_title | handle }}">
+<body class="cf {{ template | replace: '.', ' ' | truncatewords: 1, '' }} dark-gray relative" id="{{ page_title | handle }}">
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VVTM65"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,7 +88,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </ul>
           </nav>
           {% if template != 'cart' %}
-            <div id="minicartwrap">
+            <div id="minicartwrap" class="minicartwrap dn db-ns">
               {% include 'minicart' %}
             </div>
           {% endif %}
@@ -99,6 +98,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a href="https://thedobook.co/pages/subscribe"><img style="height: 23px; width: auto;" src="{{ 'envelope.svg' | asset_url }}" title="Subscribe to our newsletter" /></a></li>
           </ul>
     </header>
+    {% if template != 'cart' %}
+        <div id="minicartwrap" class="minicartwrap sticky top-0 dn-ns z-2 bg-white">
+      {% if cart.item_count != 0 %}
+            <section id="microcart" class="lh-copy left-align-with-logo">
+              <h4 class="f5 f4-ns fw4 ma0 tc tl-ns cf bb bb-0-ns bt-ns bw1 b--dbc-orange pt3">
+                <a class="link dbc-orange cf db" href="/cart">Basket<span class="dn-ns">:</span><br class="dn db-ns"/>
+                  <em class="f5 fl-ns mt2-ns">{{ cart.item_count }}{% if cart.item_count == 1 %} item{% else %} items{% endif %}</em>
+                  <span class="f5 fr-ns ml4 ml0-ns mt2-ns">Pay&nbsp;»</span>
+                </a>
+              </h4>
+            </section>
+      {% endif %}
+        </div>
+    {% endif %}
   <section class="container cf pv4" role="main" id="content">
       {{ content_for_layout }}
   </section><!-- role="main" -->

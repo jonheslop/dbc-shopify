@@ -10,12 +10,12 @@
         {% endif %}
       {% endfor %}
     </figure>
-    <section id="details" class="fl w-100 w-70-l ph3 border-box">
-        <article id="intro">
-            <header class="bb bw1 b--dbc-orange mb3 mh0">
+    <section id="details" class="fl w-100 w-70-l ph3 border-box mt4 mt0-ns">
+        <article id="intro" class="flex flex-column">
+            <header class="bb bw1 b--dbc-orange mb3 mh0 order-1">
                 <h2 class="f4 fw5 f3-ns ma0 lh-title"><span class="title">{{ product.title }}</span> <span class="i">{{ product.vendor | replace: ' ', '&nbsp;'}}</span></h2>
             </header>
-            <div class="lh-copy">
+            <div class="lh-copy order-2">
             {{ product.description }}
             {% unless product.handle contains "bundle" or product.handle contains "gift" or product.type == "Gift" %}
                 {% capture list_snippet %}{{ product.metafields.attribute.author | handleize }}-list{% endcapture %}
@@ -30,10 +30,10 @@
             {% endunless %}
             </div>
             {% if product.title contains "Gift Card" %}
-            <form class="addtocart cf" action="/cart/add" method="post">
+            <form class="addtocart cf order-0 order-3-ns" action="/cart/add" method="post">
               {% comment %} Return to product instead of going to cart {% endcomment %}
               <input type="hidden" name="return_to" value="back" />
-                <header>
+                <header class="bb bw1 b--dbc-orange mb3 mv3-ns">
                     <h5 class="section_title">Choose your option:</h5>
                      <div id="price-field"></div>
                 </header>
@@ -45,10 +45,10 @@
                     <input type="submit" class="submit button" value="Add to Basket" id="add" name="add" />
             </form>
           {% else %}
-            <form class="addtocart cf" action="/cart/add" method="post">
+            <form class="addtocart cf order-0 order-3-ns mb3 mb0-ns" action="/cart/add" method="post">
               {% comment %} Return to product instead of going to cart {% endcomment %}
               <input type="hidden" name="return_to" value="back" />
-              <header class="bb bw1 b--dbc-orange mv3">
+              <header class="bb bw1 b--dbc-orange mb3 mv3-ns">
                   <h5 class="f6 fw5 ma0 lh-title">Choose a format:</h5>
               </header>
                 <div class="radioButtons cf grid-offset">
@@ -71,13 +71,13 @@
                       </div>
                       {% elsif variant.available == true %}
                         <div class="fl w-100 {% if forloop.length != 1 %}{% if product.metafields.attribute.audiobook %}w-third-ns{% else %}w-50-ns{% endif %}{% endif %} border-box ph3">
-                            <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat"/>
+                            <input type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="dn bookFormat"/>
                             <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">Add {% if variant.title == "Paperback" %}Paperback{% unless product.title contains "Disrupt" %} &amp; eBook{% endunless %}{% else %}{{ variant.title }}{% endif %} {{ variant.price | money | remove: '.00' }} {% if variant.compare_at_price %}{{ variant.compare_at_price  | money | remove: '.00' | prepend: '(was ' | append: ')'}}{% endif %} <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{% unless product.title contains "Wild Baker" %}{{ product.metafields.attribute.pagecount }} pages {% endunless %}{% unless product.title contains "Disrupt" %}(includes eBook too){% endunless %}{% elsif variant.title == "Hardback" %}{{ product.metafields.attribute.pagecount }} pages {% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
                             {% if variant.title contains "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
                         </div>
                       {% else %}
                         <div class="fl w-100 {% if product.metafields.attribute.audiobook %}w-third-ns{% else %}w-50-ns{% endif %} border-box ph3">
-                            <input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="bookFormat" />
+                            <input disabled type="radio" name="id" id="format_{{variant.id}}" value="{{ variant.id }}" class="dn bookFormat" />
                             <label for="format_{{variant.id}}" class="button{% if forloop.first %} first{% endif %}">{{ variant.title }} Unavailable <span class="description">{% if variant.title == "Bundle" %}Paperback &amp;&nbsp;eBook {% elsif variant.title == "Paperback" %}{{ product.metafields.attribute.pagecount }} pages (includes eBook too){% elsif variant.title == "eBook" %}Kindle, iBooks etc.{% endif %}</span></label>
                             {% if variant.title contains "eBook" %}<h5 class="helperText"><a href="/pages/supported-ebook-formats">Supported Ebook&nbsp;formats?</a></h5>{% endif %}
                         </div>
@@ -85,30 +85,24 @@
                     {% endfor %}
                     {% if product.metafields.attribute.audiobook %}
                         <div class="fl w-100 w-third-ns border-box ph3">
-                          <a target="_blank" class="button dark-gray link" href="{{ product.metafields.attribute.audiobook }}">Buy Audiobook <span class="description">via Audible.com</span></a>
+                          <a target="_blank" class="button dark-gray link white" href="{{ product.metafields.attribute.audiobook }}">Buy Audiobook <span class="description">via Audible.com</span></a>
                         </div>
                     {% endif %}
                 </div>
-                {% if product.tags contains 'coming soon' %}
+                {% if product.metafields.attribute.comingsoon %}
                   <p class="coming_soon wrapper tc lh-title i b">
-                  {% if product.metafields.attribute.comingsoon %}
                     {{ product.metafields.attribute.comingsoon }}
-                  {% else %}
-                    ~ Experiencing delays. This title is available to order and will ship as soon as more stock arrives!  ~
-                  {% endif %}
                   </p>
-              {% else %}
+                {% else %}
                   {% unless product.available %}
-                <p class="coming_soon wrapper"><em>~ Sold out ~</em></p>
-               {% endunless %}
-
-              {% endif %}
+                    <p class="coming_soon wrapper"><em>~ Sold out ~</em></p>
+                  {% endunless %}
+                {% endif %}
                 <div>
                     <input type="submit" class="submit button dn" value="Add to Basket" id="add" name="add" />
                 </div>
             </form>
             {% endif %}
-
         </article>
     </section>
 </section>
